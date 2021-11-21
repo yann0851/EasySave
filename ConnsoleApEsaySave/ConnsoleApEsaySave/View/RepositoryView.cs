@@ -4,6 +4,7 @@ using System.Text;
 using System.IO;
 using System.Windows;
 using Microsoft.Win32;
+using Language;
 
 namespace Repository
 {
@@ -12,7 +13,7 @@ namespace Repository
         public void RepositoryV()
         {
             // Choisir le répertoire source
-            Console.WriteLine("Veuillez choisir votre répertoire source : ");
+            Console.WriteLine(LanguageModel.Traductor("source"));
             RepositoryViewModel RepositoryViewModel = new RepositoryViewModel();
 
 
@@ -30,7 +31,7 @@ namespace Repository
             // Variable qui va prendre le chemin
             RepositoryViewModel.SourceRepository = @"C:\EasySave\RepertoireSource"; // sSourceRepository
 
-            Console.WriteLine("Où voulez-vous copier ce dossier :");
+            Console.WriteLine(LanguageModel.Traductor("target"));
             // Fonction qui ouvre fichier à faire dans VieWModel.
             //string sTargetRepository = truc sélectionner;
 

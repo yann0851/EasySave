@@ -12,7 +12,9 @@ namespace Language
                 { "choice 1", new Dictionary<string, string> { { "FR", "Changer de langage." }, { "EN", "Change language." } } },
                 { "choice 2", new Dictionary<string, string> { { "FR", "Choix de la sauvegarde." }, { "EN", "Save choice." } } },
                 { "choice 3", new Dictionary<string, string> { { "FR", "Affichage des logs." }, { "EN", "Display logs." } } },
-                { "choice 4", new Dictionary<string, string> { { "FR", "Quitter." }, { "EN", "Quit." } } }
+                { "choice 4", new Dictionary<string, string> { { "FR", "Quitter." }, { "EN", "Quit." } } },
+                { "source", new Dictionary<string, string> { { "FR", "Veuillez choisir votre répertoire source :" }, { "EN", "Please choose your source directory:" } } },
+                { "target", new Dictionary<string, string> { { "FR", "Où voulez-vous copier ce dossier :" }, { "EN", "Where do you want to copy this file :" } } }
             };
         public static string sCurrentLanguage = "FR";
 
