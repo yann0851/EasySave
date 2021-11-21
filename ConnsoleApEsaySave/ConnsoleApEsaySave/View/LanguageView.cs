@@ -9,7 +9,6 @@ namespace Language
         public void LanguageV()
         {
             Console.WriteLine("EN / FR");
-            string sLanguage = Console.ReadLine();
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Language;
 
 namespace Menu
 {
@@ -26,10 +27,12 @@ namespace Menu
                 "                                                                            ▓▓▓▓▓▓,                                                                                                                     \n" +
                 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             Console.WriteLine(
-                "Faites votre choix :\n" +
-                "1. Changer de langage.\n" +
-                "2. Choix de la sauvegarde.\n" +
-                "3. Affichage des logs.");
+                LanguageModel.Traductor("choice") + "\n" +
+                "1. " + LanguageModel.Traductor("choice 1") + "\n" +
+                "2. " + LanguageModel.Traductor("choice 2") + "\n" +
+                "3. " + LanguageModel.Traductor("choice 3") + "\n" +
+                "4. " + LanguageModel.Traductor("choice 4")
+                );
             Console.WriteLine(
                 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             

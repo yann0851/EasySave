@@ -12,6 +12,9 @@ namespace Language
             languageView.LanguageV();
 
             string sLang = Console.ReadLine();
+            LanguageModel.sCurrentLanguage = sLang;
         }
+
+        
     }
 }

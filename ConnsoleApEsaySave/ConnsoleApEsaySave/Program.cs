@@ -12,8 +12,7 @@ namespace ConnsoleAppEsaySave
             MenuViewModel MenuViewModel = new MenuViewModel();
             MenuViewModel.MenuVM();
 
-           //  RepositoryView RepositoryView = new RepositoryView();
-            //RepositoryView.RepositoryV();
+          
             
         }
     }
