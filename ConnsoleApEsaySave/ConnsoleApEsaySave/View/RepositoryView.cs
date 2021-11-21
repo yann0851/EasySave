@@ -29,13 +29,15 @@ namespace Repository
             //Console.WriteLine("Le répertoire cible " + RepositoryViewModel.sTargetRepository + " a bien été créé"); // Vérification et voir où le répertoire s'est créé
 
             // Variable qui va prendre le chemin
-            RepositoryViewModel.SourceRepository = @"C:\EasySave\RepertoireSource"; // sSourceRepository
+            string sSource = Console.ReadLine();
+            RepositoryViewModel.SourceRepository = @sSource; // sSourceRepository
 
             Console.WriteLine(LanguageModel.Traductor("target"));
             // Fonction qui ouvre fichier à faire dans VieWModel.
             //string sTargetRepository = truc sélectionner;
 
-            RepositoryViewModel.TargetRepository = @"C:\EasySave\RepertoireCible"; // sTargetRepository
+            string sTarget = Console.ReadLine();
+            RepositoryViewModel.TargetRepository = @sTarget; // sTargetRepository
 
             //Copie des dossiers :
             RepositoryViewModel.CopyRepository();
