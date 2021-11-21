@@ -28,8 +28,8 @@ namespace Menu
 
                 else if (iChoice == 2)
                 {
-                    RepositoryView RepositoryView = new RepositoryView();
-                    RepositoryView.RepositoryV();
+                    RepositoryViewModel RepositoryViewModel = new RepositoryViewModel();
+                    RepositoryViewModel.RepositoryVM();
                 }
 
                 else if (iChoice == 3)

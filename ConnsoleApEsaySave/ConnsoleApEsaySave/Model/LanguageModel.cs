@@ -20,7 +20,6 @@ namespace Language
 
         public static string Traductor(string sChoice)
         {
-            //  LanguageModel languageModel = new LanguageModel();
             return dLanguage[sChoice][sCurrentLanguage];
         }
 

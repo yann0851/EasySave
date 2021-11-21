@@ -13,8 +13,8 @@ namespace Repository
 {
     class RepositoryViewModel
     {
-        public string TargetRepository { get; set; } // Objet pour le répertoire cible
-        public string SourceRepository { get; set; } // Objet pour le répertoire source
+        //public string TargetRepository { get; set; } // Objet pour le répertoire cible
+        //public string SourceRepository { get; set; } // Objet pour le répertoire source
 
         // Création du répertoire
         //public void TargetRepositoryVM()
@@ -25,22 +25,39 @@ namespace Repository
         //        Directory.CreateDirectory(TargetRepository);
         //    }
         //}
+        RepositoryModel repositoryModel = new RepositoryModel();
+
+        public void RepositoryVM()
+        {
+            RepositoryView RepositoryView = new RepositoryView();
+            RepositoryView.RepositorySourceV();
+
+            string sSource = Console.ReadLine();
+            repositoryModel.SourceRepository = @sSource;
+
+
+            RepositoryView.RepositoryTargetV();
+
+            string sTarget = Console.ReadLine();
+            repositoryModel.TargetRepository = @sTarget;
+
+            CopyRepository();
+        }
 
         // Sauvegarde Complet
         public void CopyRepository()
         {
-            RepositoryViewModel RepositoryViewModel = new RepositoryViewModel(); // Appel de la méthode
-
-            if (!Directory.Exists(SourceRepository)) // test si le répertoire existe ou pas
+           
+            if (!Directory.Exists(repositoryModel.SourceRepository)) // test si le répertoire existe ou pas
             {
-                Directory.CreateDirectory(SourceRepository);
+                Directory.CreateDirectory(repositoryModel.SourceRepository);
             }
 
-            string[] files = Directory.GetFiles(SourceRepository); // tableau ou on récupère les fichiers
+            string[] files = Directory.GetFiles(repositoryModel.SourceRepository); // tableau ou on récupère les fichiers
             foreach (string sFile in files) // Pour chaque fichier
             {
                 string sNameFiles = Path.GetFileName(sFile); // Récupère le nom du fichier dans le dossier
-                string sDestFile = Path.Combine(TargetRepository, sNameFiles); // Grâce au nom du fichier récupérer du dessus on le combine avec le chemin du dossier.
+                string sDestFile = Path.Combine(repositoryModel.TargetRepository, sNameFiles); // Grâce au nom du fichier récupérer du dessus on le combine avec le chemin du dossier.
                 try
                 {
                     File.Copy(sFile, sDestFile); // Copie le fichier dans le répertoire cible
@@ -62,29 +79,29 @@ namespace Repository
                         }
                     }
 
-                    RepositoryViewModel.DeleteFile(SourceRepository, TargetRepository);
-                    RepositoryViewModel.DeleteFolder(SourceRepository, TargetRepository);
+                    DeleteFile(repositoryModel.SourceRepository, repositoryModel.TargetRepository);
+                    DeleteFolder(repositoryModel.SourceRepository, repositoryModel.TargetRepository);
 
                 }
             }
-            string[] folders = Directory.GetDirectories(SourceRepository);
+            string[] folders = Directory.GetDirectories(repositoryModel.SourceRepository);
             foreach (string sFolder in folders) // Récupérer des dossiers dans le dossier principal
             {
                 string sNameRepository = Path.GetFileName(sFolder); // On récupère le nom du répertoire dans le Répertoire Source
-                string sDestRepository = Path.Combine(TargetRepository, sNameRepository); // On va ajouter le nom du répertoire dans le chemin d'accès au répertoire cible
+                string sDestRepository = Path.Combine(repositoryModel.TargetRepository, sNameRepository); // On va ajouter le nom du répertoire dans le chemin d'accès au répertoire cible
                 try
                 {
                     Directory.CreateDirectory(sFolder.Replace(sFolder, sDestRepository)); // copie le dossier
                 }
                 catch
                 {
-                    RepositoryViewModel.DeleteFolder(sFolder, sDestRepository);
+                    DeleteFolder(sFolder, sDestRepository);
                 }
 
                 foreach (string sFileFolder in Directory.GetFiles(sFolder)) // Récupérer le fichier des dossiers dans le dossier principal
                 {
                     string sNamePathSourceFile = Path.GetFileName(sFolder) + "\\" + Path.GetFileName(sFileFolder); // On prend le nom du dossier et le nom du fichier à l'intérieur
-                    string sDestPathTargetRepository = Path.Combine(TargetRepository, sNamePathSourceFile); // Grâce à ce qu'on a fait au-dessus on combine le nom du dossier cible avec le nom du dossier et fichier
+                    string sDestPathTargetRepository = Path.Combine(repositoryModel.TargetRepository, sNamePathSourceFile); // Grâce à ce qu'on a fait au-dessus on combine le nom du dossier cible avec le nom du dossier et fichier
                     try
                     {
                         File.Copy(sFileFolder, sFileFolder.Replace(sFileFolder, sDestPathTargetRepository)); // copie les fichiers du sous-dossier
@@ -104,7 +121,7 @@ namespace Repository
 
                             }
                         }
-                        RepositoryViewModel.DeleteFile(sFolder, sDestRepository);
+                        DeleteFile(sFolder, sDestRepository);
                     }
 
                 }

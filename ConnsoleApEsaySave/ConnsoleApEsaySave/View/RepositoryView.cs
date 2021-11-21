@@ -10,14 +10,11 @@ namespace Repository
 {
     class RepositoryView
     {
-        public void RepositoryV()
+        public void RepositorySourceV()
         {
             // Choisir le répertoire source
             Console.WriteLine(LanguageModel.Traductor("source"));
-            RepositoryViewModel RepositoryViewModel = new RepositoryViewModel();
-
-
-
+            
 
             // Fonction qui ouvre fichier à faire dans VieWModel.
             //string sSourceRepository = truc sélectionner;
@@ -29,23 +26,27 @@ namespace Repository
             //Console.WriteLine("Le répertoire cible " + RepositoryViewModel.sTargetRepository + " a bien été créé"); // Vérification et voir où le répertoire s'est créé
 
             // Variable qui va prendre le chemin
-            string sSource = Console.ReadLine();
-            RepositoryViewModel.SourceRepository = @sSource; // sSourceRepository
+            // string sSource = Console.ReadLine();
+            // RepositoryViewModel.SourceRepository = @sSource; // sSourceRepository
 
-            Console.WriteLine(LanguageModel.Traductor("target"));
+            // Console.WriteLine(LanguageModel.Traductor("target"));
             // Fonction qui ouvre fichier à faire dans VieWModel.
             //string sTargetRepository = truc sélectionner;
 
-            string sTarget = Console.ReadLine();
-            RepositoryViewModel.TargetRepository = @sTarget; // sTargetRepository
+            // string sTarget = Console.ReadLine();
+            // RepositoryViewModel.TargetRepository = @sTarget; // sTargetRepository
 
             //Copie des dossiers :
-            RepositoryViewModel.CopyRepository();
+            //RepositoryViewModel.CopyRepository();
             // Console.WriteLine("Fichiers sauvegardés !");
 
-            Console.ReadKey();
+            //Console.ReadKey();
         }
 
+        public void RepositoryTargetV()
+        {
+            Console.WriteLine(LanguageModel.Traductor("target"));
+        }
 
     }
 }
