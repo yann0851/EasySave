@@ -12,7 +12,7 @@ namespace Repository
     {
         public void RepositorySourceV()
         {
-            // Choisir le répertoire source
+            
             Console.WriteLine(LanguageModel.Traductor("source"));
             
 
