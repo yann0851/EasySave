@@ -4,6 +4,7 @@ using System.Text;
 using Language;
 using Repository;
 using Error;
+using ChoiceSave;
 
 namespace Menu
 {
@@ -30,8 +31,8 @@ namespace Menu
 
                 else if (iChoice == 2)
                 {
-                    RepositoryViewModel RepositoryViewModel = new RepositoryViewModel();
-                    RepositoryViewModel.RepositoryVM();
+                    ChoiceSaveViewModel choiceSaveViewModel = new ChoiceSaveViewModel();
+                    choiceSaveViewModel.ChoiceSaveVM();
                     Console.Clear();
                 }
 
