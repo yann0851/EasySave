@@ -1,6 +1,7 @@
 ﻿using System;
 using Repository;
 using Menu;
+using LogD;
 using System.Collections.Generic;
 
 namespace ConnsoleAppEsaySave
@@ -11,7 +12,8 @@ namespace ConnsoleAppEsaySave
         static void Main()
         { 
             MenuViewModel MenuViewModel = new MenuViewModel();
-            MenuViewModel.MenuVM(); 
+            MenuViewModel.MenuVM();
+
         }
     }
 }

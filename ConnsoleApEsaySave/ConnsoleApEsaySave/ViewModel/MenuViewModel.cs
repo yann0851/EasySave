@@ -5,6 +5,7 @@ using Language;
 using Repository;
 using Error;
 using ChoiceSave;
+using LogD;
 
 namespace Menu
 {
@@ -40,6 +41,8 @@ namespace Menu
 
                 else if (iChoiceM == 3)
                 {
+                    LogView LogView = new LogView();
+                    LogView.LogV();
                     Console.Clear();
                 }
 

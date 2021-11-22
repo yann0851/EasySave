@@ -5,4 +5,11 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="serilog" Version="2.10.0" />
+    <PackageReference Include="serilog.Sinks.console" Version="4.0.1" />
+    <PackageReference Include="serilog.Sinks.File" Version="5.0.0" />
+  </ItemGroup>
+
 </Project>
