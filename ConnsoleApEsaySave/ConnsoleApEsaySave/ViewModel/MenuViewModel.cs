@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Language;
 using Repository;
+using Error;
 
 namespace Menu
 {
@@ -23,6 +24,7 @@ namespace Menu
                 {
                     LanguageViewModel LanguageViewModel = new LanguageViewModel();
                     LanguageViewModel.LanguageVM();
+                    Console.Clear();
 
                 }
 
@@ -30,16 +32,19 @@ namespace Menu
                 {
                     RepositoryViewModel RepositoryViewModel = new RepositoryViewModel();
                     RepositoryViewModel.RepositoryVM();
+                    Console.Clear();
                 }
 
                 else if (iChoice == 3)
                 {
-
+                    Console.Clear();
                 }
 
-                else
+                else if (iChoice>4)
                 {
-
+                    ErrorViewModel errorViewModel = new ErrorViewModel();
+                    errorViewModel.ErrorVM();
+                    Console.Clear();
                 }
 
             }
