@@ -10,39 +10,13 @@ namespace Repository
 {
     class RepositoryView
     {
+        /* Affichage du message demandant le fichier source */
         public void RepositorySourceV()
         {
-            
-            Console.WriteLine(LanguageModel.Traductor("source"));
-            
-
-            // Fonction qui ouvre fichier à faire dans VieWModel.
-            //string sSourceRepository = truc sélectionner;
-
-
-            // Création du répertoire cible
-
-            //RepositoryViewModel.TargetRepositoryVM(); // Créer le répertoire
-            //Console.WriteLine("Le répertoire cible " + RepositoryViewModel.sTargetRepository + " a bien été créé"); // Vérification et voir où le répertoire s'est créé
-
-            // Variable qui va prendre le chemin
-            // string sSource = Console.ReadLine();
-            // RepositoryViewModel.SourceRepository = @sSource; // sSourceRepository
-
-            // Console.WriteLine(LanguageModel.Traductor("target"));
-            // Fonction qui ouvre fichier à faire dans VieWModel.
-            //string sTargetRepository = truc sélectionner;
-
-            // string sTarget = Console.ReadLine();
-            // RepositoryViewModel.TargetRepository = @sTarget; // sTargetRepository
-
-            
-            //RepositoryViewModel.CopyRepository();
-            // Console.WriteLine("Fichiers sauvegardés !");
-
-            
+            Console.WriteLine(LanguageModel.Traductor("source"));          
         }
 
+        /* Affichage du message demandant le fichier cible */
         public void RepositoryTargetV()
         {
             Console.WriteLine(LanguageModel.Traductor("target"));

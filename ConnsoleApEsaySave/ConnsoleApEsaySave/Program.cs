@@ -7,6 +7,7 @@ namespace ConnsoleAppEsaySave
 {
     class Program
     {
+        /* Lancement du menu */
         static void Main()
         { 
             MenuViewModel MenuViewModel = new MenuViewModel();

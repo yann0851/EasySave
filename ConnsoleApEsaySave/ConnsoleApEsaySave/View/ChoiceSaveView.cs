@@ -9,6 +9,7 @@ namespace ChoiceSave
     {
         public void SaveMenuV()
         {
+            /* Ecriture du menu du choix de sauvegarde */
             Console.WriteLine(
                    LanguageModel.Traductor("choice") + "\n" +
                     "1. " + LanguageModel.Traductor("savechoice 1") + "\n" +

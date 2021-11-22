@@ -13,20 +13,9 @@ namespace Repository
 {
     class RepositoryViewModel
     {
-        //public string TargetRepository { get; set; } // Objet pour le répertoire cible
-        //public string SourceRepository { get; set; } // Objet pour le répertoire source
-
-        // Création du répertoire
-        //public void TargetRepositoryVM()
-        //{
-        //    TargetRepository = @"C:\EasySave\RepertoireCible";
-        //    if (!Directory.Exists(TargetRepository))
-        //    {
-        //        Directory.CreateDirectory(TargetRepository);
-        //    }
-        //}
         RepositoryModel repositoryModel = new RepositoryModel();
 
+        /* Demande d'entrée du chemin source et du chemin cible du fichier à sauvegarder */
         public void RepositoryVM()
         {
             RepositoryView RepositoryView = new RepositoryView();
@@ -42,7 +31,7 @@ namespace Repository
             repositoryModel.TargetRepository = @sTarget;  
         }
 
-        // Sauvegarde Complet
+        /* Sauvegarde Complète */
         public void PartialCopyRepository()
         {
             RepositoryVM();

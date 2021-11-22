@@ -8,6 +8,7 @@ namespace Language
     {
         public void LanguageV()
         {
+            /* Proposition du choix de la langue */
             Console.WriteLine("EN / FR");
         }
     }

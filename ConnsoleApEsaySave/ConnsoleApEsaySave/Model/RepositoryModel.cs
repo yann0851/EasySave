@@ -6,7 +6,8 @@ namespace Repository
 {
     class RepositoryModel
     {
-        public string TargetRepository { get; set; } // Objet pour le répertoire cible
-        public string SourceRepository { get; set; } // Objet répertoire source
+        /* Création des objets du répertoire source et cible */
+        public string SourceRepository { get; set; }
+        public string TargetRepository { get; set; } 
     }
 }

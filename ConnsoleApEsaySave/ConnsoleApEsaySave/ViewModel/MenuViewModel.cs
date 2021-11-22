@@ -12,16 +12,17 @@ namespace Menu
     {
         public void MenuVM()
         {
-            int iChoice = 0;
+            int iChoiceM = 0;
 
-            while (iChoice != 4)
+            /* Envoie vers une fonction de l'application selon le choix de l'utilisateur */
+            while (iChoiceM != 4)
             {
                 MenuView MenuView = new MenuView();
                 MenuView.MenuV();
 
-                iChoice = int.Parse(Console.ReadLine());
+                iChoiceM = int.Parse(Console.ReadLine());
 
-                if (iChoice == 1)
+                if (iChoiceM == 1)
                 {
                     LanguageViewModel LanguageViewModel = new LanguageViewModel();
                     LanguageViewModel.LanguageVM();
@@ -29,19 +30,20 @@ namespace Menu
 
                 }
 
-                else if (iChoice == 2)
+                else if (iChoiceM == 2)
                 {
+                    Console.Clear();
                     ChoiceSaveViewModel choiceSaveViewModel = new ChoiceSaveViewModel();
                     choiceSaveViewModel.ChoiceSaveVM();
                     Console.Clear();
                 }
 
-                else if (iChoice == 3)
+                else if (iChoiceM == 3)
                 {
                     Console.Clear();
                 }
 
-                else if (iChoice>4)
+                else if (iChoiceM>4)
                 {
                     ErrorViewModel errorViewModel = new ErrorViewModel();
                     errorViewModel.ErrorVM();

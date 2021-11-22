@@ -8,6 +8,7 @@ namespace Error
     {
         public void ErrorVM()
         {
+            /* Affichage du message d'erreur et attente d'une action de l'utilisateur */
             ErrorView errorView = new ErrorView();
             errorView.ErrorV();
 

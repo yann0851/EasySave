@@ -4,6 +4,7 @@ using System.Text;
 using Language;
 using Repository;
 using Menu;
+using Error;
 
 namespace ChoiceSave
 {
@@ -11,33 +12,34 @@ namespace ChoiceSave
     {
         public void ChoiceSaveVM()
         {
-            int iChoice = 0;
+            int iChoiceS = 0;
 
-            while (iChoice != 3)
+            /* Envoie vers un style de sauvegarde selon le choix de l'utilisateur */
+            while (iChoiceS != 3)
             {
                 ChoiceSaveView choiceSaveView = new ChoiceSaveView();
                 choiceSaveView.SaveMenuV();
 
-                iChoice = int.Parse(Console.ReadLine());
+                iChoiceS = int.Parse(Console.ReadLine());
 
-                if (iChoice == 1)
+                if (iChoiceS == 1)
                 {
                     RepositoryViewModel repositoryViewModel = new RepositoryViewModel();
                     repositoryViewModel.FullCopyRepository();
                     Console.Clear();
                 }
 
-                else if (iChoice == 2)
+                else if (iChoiceS == 2)
                 {
                     RepositoryViewModel repositoryViewModel = new RepositoryViewModel();
                     repositoryViewModel.PartialCopyRepository();
                     Console.Clear();
                 }
 
-                else if (iChoice == 3)
+               else if (iChoiceS>3)
                 {
-                    MenuViewModel MenuViewModel = new MenuViewModel();
-                    MenuViewModel.MenuVM();
+                    ErrorViewModel errorViewModel = new ErrorViewModel();
+                    errorViewModel.ErrorVM();
                     Console.Clear();
                 }
             }
