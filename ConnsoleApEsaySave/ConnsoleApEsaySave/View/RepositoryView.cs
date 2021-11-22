@@ -36,7 +36,7 @@ namespace Repository
             // string sTarget = Console.ReadLine();
             // RepositoryViewModel.TargetRepository = @sTarget; // sTargetRepository
 
-            //Copie des dossiers :
+            
             //RepositoryViewModel.CopyRepository();
             // Console.WriteLine("Fichiers sauvegardés !");
 
