@@ -11,13 +11,11 @@ namespace LogD
     {
         public void LogV()
         {
-
             LogViewModel LogViewModel = new LogViewModel();
 
             //Création du log
             LogViewModel.LogAffichage();
             Console.ReadKey();
-
         }
     }
 }

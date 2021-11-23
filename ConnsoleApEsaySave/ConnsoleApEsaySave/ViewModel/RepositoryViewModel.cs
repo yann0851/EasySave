@@ -117,11 +117,6 @@ namespace Repository
         {
             RepositoryVM();
 
-            if (!Directory.Exists(repositoryModel.SourceRepository)) // test si le répertoire existe ou pas
-            {
-                Directory.CreateDirectory(repositoryModel.SourceRepository);
-            }
-
             string[] files = Directory.GetFiles(repositoryModel.SourceRepository); // tableau ou on récupère les fichiers
             foreach (string sFile in files) // Pour chaque fichier
             {
