@@ -17,28 +17,16 @@ namespace LogD
     public class LogViewModel
     {
 
-        RepositoryModel repositoryModel = new RepositoryModel();
-
-
-        public void CreateLog()
+        public void LogAffichage()
         {
-            string sContext_name = "yann";
-            string sName = "docx";
-
-
-            string str = "{\n\n\""+ sContext_name + "\":{ \n\"Name\": \"" + sName + "\",\n\"FileSource\": \""+ repositoryModel.TargetRepository + "\",\n\"FileTarget\": \""+  +"\",\n\"DestPath\": \"" + +"\",\n\"FileSize\": \"" + +"\",\n\"FileTransferTime\": \"" + +"\",}}\n";
-            JObject json = JObject.Parse(str);
-
-            //création du fichier log et où il sera créé avec des infos
-            Log.Logger = new LoggerConfiguration()
-                .WriteTo.Console()
-                .WriteTo.File(@"C:\EasySave\Log\Sample_log.txt", rollingInterval: RollingInterval.Day)
-                .CreateLogger();
-            Log.Information(str);
-
+            // Read the file as one string.
+            string text = System.IO.File.ReadAllText(@"C:\EasySave\Log\Sample_log.txt");
+            Console.WriteLine("\n" );
+            // Display the file contents to the console. Variable text is a string.
+            System.Console.WriteLine("Contents of WriteText.txt =" + "\n" + "" + "\n" + "{0}", text);
         }
 
-
+        
 
 
 

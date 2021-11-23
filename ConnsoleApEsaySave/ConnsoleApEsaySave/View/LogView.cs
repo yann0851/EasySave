@@ -15,11 +15,9 @@ namespace LogD
             LogViewModel LogViewModel = new LogViewModel();
 
             //Création du log
-            LogViewModel.CreateLog();
-            Console.WriteLine("Création du log dans le fichier C:Easy/Save/Log sous le nom de 'Sample_log.txt'");
-
-            LogViewModel.HeadShrek();
+            LogViewModel.LogAffichage();
             Console.ReadKey();
+
         }
     }
 }
