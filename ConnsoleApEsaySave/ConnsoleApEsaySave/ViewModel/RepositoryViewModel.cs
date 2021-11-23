@@ -19,27 +19,24 @@ namespace Repository
         public void RepositoryVM()
         {
             RepositoryView RepositoryView = new RepositoryView();
+
             RepositoryView.RepositorySourceV();
 
             string sSource = Console.ReadLine();
             repositoryModel.SourceRepository = @sSource;
-
+            CreateDirectory(repositoryModel.SourceRepository);
 
             RepositoryView.RepositoryTargetV();
 
             string sTarget = Console.ReadLine();
-            repositoryModel.TargetRepository = @sTarget;  
+            repositoryModel.TargetRepository = @sTarget;
+            CreateDirectory(repositoryModel.TargetRepository);
         }
 
         /* Sauvegarde Complète */
         public void PartialCopyRepository()
         {
             RepositoryVM();
-
-            if (!Directory.Exists(repositoryModel.SourceRepository)) // test si le répertoire existe ou pas
-            {
-                Directory.CreateDirectory(repositoryModel.SourceRepository);
-            }
 
             string[] files = Directory.GetFiles(repositoryModel.SourceRepository); // tableau ou on récupère les fichiers
             foreach (string sFile in files) // Pour chaque fichier
@@ -214,6 +211,14 @@ namespace Repository
                     }
                 }
 
+            }
+        }
+
+        public void CreateDirectory(string sCreateDirectory)
+        {
+            if (!Directory.Exists(sCreateDirectory)) // test si le répertoire existe ou pas
+            {
+                Directory.CreateDirectory(sCreateDirectory);
             }
         }
     }

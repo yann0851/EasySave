@@ -20,6 +20,11 @@ namespace LogD
         public void LogAffichage()
         {
             // Read the file as one string.
+
+            //if
+            //{
+
+           // }
             string text = System.IO.File.ReadAllText(@"C:\EasySave\Log\Sample_log.txt");
             Console.WriteLine("\n" );
             // Display the file contents to the console. Variable text is a string.

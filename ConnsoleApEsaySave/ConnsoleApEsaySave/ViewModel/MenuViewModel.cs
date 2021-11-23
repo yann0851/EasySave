@@ -41,6 +41,7 @@ namespace Menu
 
                 else if (iChoiceM == 3)
                 {
+                    Console.WriteLine("\n");
                     LogView LogView = new LogView();
                     LogView.LogV();
                     Console.Clear();
