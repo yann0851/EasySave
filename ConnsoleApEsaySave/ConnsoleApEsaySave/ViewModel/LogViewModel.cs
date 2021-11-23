@@ -10,6 +10,7 @@ using Microsoft.Win32;
 using Serilog;
 using Newtonsoft.Json.Linq;
 using Repository;
+using Menu;
 
 namespace LogD
 {
@@ -17,15 +18,27 @@ namespace LogD
     public class LogViewModel
     {
         RepositoryModel repositoryModel = new RepositoryModel();
+        MenuView menuView = new MenuView();        
 
 
         public void LogAffichage()
         {
-            // Read the file as one string.
-            string text = System.IO.File.ReadAllText(@"C:\EasySave\Log\Sample_log.txt");
-            Console.WriteLine("\n" );
-            // Display the file contents to the console. Variable text is a string.
-            System.Console.WriteLine("Contents of WriteText.txt =" + "\n" + "" + "\n" + "{0}", text);
+
+            string pathlog = @"C:\EasySave\Log\Sample_log.txt";
+            if (!File.Exists(pathlog))
+            {
+                Console.Clear();
+                menuView.MenuV();
+                Console.Write("Le fichier Log n'extsite pas, veuiller faire une sauvegarde");
+            }
+
+            else { 
+                // Read the file as one string.
+                string text = System.IO.File.ReadAllText(pathlog);
+                Console.WriteLine("\n");
+                // Display the file contents to the console. Variable text is a string.
+                System.Console.WriteLine("Contents of WriteText.txt =" + "\n" + "" + "\n" + "{0}", text);
+            }
         }
 
         public void CreateLog()
@@ -39,11 +52,15 @@ namespace LogD
 
 
             //création du fichier log et où il sera créé avec des infos
-            Log.Logger = new LoggerConfiguration()
+            using (var Log = new LoggerConfiguration()
                 .WriteTo.File(@"C:\EasySave\Log\Sample_log.txt")//, rollingInterval: RollingInterval.Day//) 
                                                                 //pour ajouter date dans le nom de fichier
-                .CreateLogger();
-            Log.Information(str);
+                .CreateLogger()) 
+            {
+                Log.Information(str);
+            };
+                
+
         }
 
 
