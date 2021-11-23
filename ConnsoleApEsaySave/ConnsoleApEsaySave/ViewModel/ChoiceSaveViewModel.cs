@@ -7,6 +7,7 @@ using Menu;
 using Error;
 using Serilog;
 using Newtonsoft.Json.Linq;
+using LogD;
 
 namespace ChoiceSave
 {
@@ -32,6 +33,8 @@ namespace ChoiceSave
                 {
                     RepositoryViewModel repositoryViewModel = new RepositoryViewModel();
                     repositoryViewModel.FullCopyRepository();
+                    LogViewModel logViewModel = new LogViewModel();
+                    logViewModel.CreateLog();
                     Console.Clear();
                 }
 
@@ -39,6 +42,8 @@ namespace ChoiceSave
                 {
                     RepositoryViewModel repositoryViewModel = new RepositoryViewModel();
                     repositoryViewModel.PartialCopyRepository();
+                    LogViewModel logViewModel = new LogViewModel();
+                    logViewModel.CreateLog();
                     Console.Clear();
                 }
 
@@ -49,24 +54,6 @@ namespace ChoiceSave
                     Console.Clear();
                 }
             }
-
-
-            string sContext_name = "yann";
-            string sName = "docx";
-
-
-            string str = "{\n\n\"" + sContext_name + "\":{ \n\"Name\": \"" + sName + "\",\n\"FileSource\": \"" + repositoryModel.TargetRepository + "\",\n\"FileTarget\": \"" + repositoryModel.SourceRepository + "\",\n\"DestPath\": \"mettre DestPath\",\n\"FileSize\": \"mettre taille\",\n\"FileTransferTime\": \"TIME\",}}\n";
-            JObject json = JObject.Parse(str);
-
-
-            //création du fichier log et où il sera créé avec des infos
-            Log.Logger = new LoggerConfiguration()
-                .WriteTo.File(@"C:\EasySave\Log\Sample_log.txt")//, rollingInterval: RollingInterval.Day//) 
-                                                                //pour ajouter date dans le nom de fichier
-                .CreateLogger();
-            Log.Information(str);
-
-
         }
     }
 }
