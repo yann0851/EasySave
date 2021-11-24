@@ -11,32 +11,43 @@ namespace Language
         public void LanguageVM()
         {
             /* Affichage des différentes langues et attente du choix de la part de l'utilisateur */
+            
+
             int iChoiceL = 0;
 
             /* Change de langue selon le choix de l'utilisateur */
             while (iChoiceL != 3)
             {
-                LanguageView LanguageView = new LanguageView();
-                LanguageView.LanguageV();
-
-                iChoiceL = int.Parse(Console.ReadLine());
-
-                if (iChoiceL == 1)
+                try
                 {
-                    string sLang = "FR";
-                    LanguageModel.sCurrentLanguage = sLang;
-                    Console.Clear();
+                    LanguageView LanguageView = new LanguageView();
+                    LanguageView.LanguageV();
 
+                    iChoiceL = int.Parse(Console.ReadLine());
+
+                    if (iChoiceL == 1)
+                    {
+                        string sLang = "FR";
+                        LanguageModel.sCurrentLanguage = sLang;
+                        Console.Clear();
+
+                    }
+
+                    else if (iChoiceL == 2)
+                    {
+                        string sLang = "EN";
+                        LanguageModel.sCurrentLanguage = sLang;
+                        Console.Clear();
+                    }
+
+                    else if (iChoiceL > 3)
+                    {
+                        ErrorViewModel errorViewModel = new ErrorViewModel();
+                        errorViewModel.ErrorVM();
+                        Console.Clear();
+                    }
                 }
-
-                else if (iChoiceL == 2)
-                {
-                    string sLang = "EN";
-                    LanguageModel.sCurrentLanguage = sLang;
-                    Console.Clear();
-                }
-
-                else if (iChoiceL > 3)
+                catch
                 {
                     ErrorViewModel errorViewModel = new ErrorViewModel();
                     errorViewModel.ErrorVM();
@@ -44,6 +55,7 @@ namespace Language
                 }
             }
 
+           
 
         }
     }

@@ -19,41 +19,52 @@ namespace ChoiceSave
 
         public void ChoiceSaveVM()
         {
-            int iChoiceS = 0;
 
+            int iChoiceS = 0;
             /* Envoie vers un style de sauvegarde selon le choix de l'utilisateur */
             while (iChoiceS != 3)
             {
-                ChoiceSaveView choiceSaveView = new ChoiceSaveView();
-                choiceSaveView.SaveMenuV();
-
-                iChoiceS = int.Parse(Console.ReadLine());
-
-                if (iChoiceS == 1)
+                try
                 {
-                    RepositoryViewModel repositoryViewModel = new RepositoryViewModel();
-                    repositoryViewModel.FullCopyRepository();
-                    LogViewModel logViewModel = new LogViewModel();
-                    //logViewModel.CreateLog();
-                    Console.Clear();
-                }
+                    ChoiceSaveView choiceSaveView = new ChoiceSaveView();
+                    choiceSaveView.SaveMenuV();
 
-                else if (iChoiceS == 2)
-                {
-                    RepositoryViewModel repositoryViewModel = new RepositoryViewModel();
-                    repositoryViewModel.PartialCopyRepository();
-                    LogViewModel logViewModel = new LogViewModel();
-                    //logViewModel.CreateLog();
-                    Console.Clear();
-                }
+                    iChoiceS = int.Parse(Console.ReadLine());
 
-               else if (iChoiceS>3)
+                    if (iChoiceS == 1)
+                    {
+                        RepositoryViewModel repositoryViewModel = new RepositoryViewModel();
+                        repositoryViewModel.FullCopyRepository();
+                        LogViewModel logViewModel = new LogViewModel();
+                        //logViewModel.CreateLog();
+                        Console.Clear();
+                    }
+
+                    else if (iChoiceS == 2)
+                    {
+                        RepositoryViewModel repositoryViewModel = new RepositoryViewModel();
+                        repositoryViewModel.PartialCopyRepository();
+                        LogViewModel logViewModel = new LogViewModel();
+                        //logViewModel.CreateLog();
+                        Console.Clear();
+                    }
+
+                    else if (iChoiceS > 3)
+                    {
+                        ErrorViewModel errorViewModel = new ErrorViewModel();
+                        errorViewModel.ErrorVM();
+                        Console.Clear();
+                    }
+                }
+                catch
                 {
                     ErrorViewModel errorViewModel = new ErrorViewModel();
                     errorViewModel.ErrorVM();
                     Console.Clear();
                 }
             }
+
+           
         }
     }
 }
