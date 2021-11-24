@@ -25,6 +25,7 @@ namespace Menu
 
                 if (iChoiceM == 1)
                 {
+                    Console.Clear();
                     LanguageViewModel LanguageViewModel = new LanguageViewModel();
                     LanguageViewModel.LanguageVM();
                     Console.Clear();

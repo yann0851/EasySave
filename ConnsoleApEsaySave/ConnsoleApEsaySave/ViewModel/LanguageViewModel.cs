@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Globalization;
+using Error;
 
 namespace Language
 {
@@ -10,15 +11,40 @@ namespace Language
         public void LanguageVM()
         {
             /* Affichage des différentes langues et attente du choix de la part de l'utilisateur */
-            LanguageView languageView = new LanguageView();
-            languageView.LanguageV();
+            int iChoiceL = 0;
 
-            string sLang = Console.ReadLine();
-            string sLangVerif = sLang.ToUpper();
-            LanguageModel.sCurrentLanguage = sLangVerif;
+            /* Change de langue selon le choix de l'utilisateur */
+            while (iChoiceL != 3)
+            {
+                LanguageView LanguageView = new LanguageView();
+                LanguageView.LanguageV();
+
+                iChoiceL = int.Parse(Console.ReadLine());
+
+                if (iChoiceL == 1)
+                {
+                    string sLang = "EN";
+                    LanguageModel.sCurrentLanguage = sLang;
+                    Console.Clear();
+
+                }
+
+                else if (iChoiceL == 2)
+                {
+                    string sLang = "FR";
+                    LanguageModel.sCurrentLanguage = sLang;
+                    Console.Clear();
+                }
+
+                else if (iChoiceL > 3)
+                {
+                    ErrorViewModel errorViewModel = new ErrorViewModel();
+                    errorViewModel.ErrorVM();
+                    Console.Clear();
+                }
+            }
+
 
         }
-
-        
     }
 }
