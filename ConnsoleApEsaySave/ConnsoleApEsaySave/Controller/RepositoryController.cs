@@ -16,13 +16,17 @@ namespace Repository
 {
     class RepositoryController
     {
+        
         RepositoryModel repositoryModel = new RepositoryModel();
         LogController logController = new LogController();
         JobFile jobFile = new JobFile();
 
+        System.Diagnostics.Stopwatch cWatch = new System.Diagnostics.Stopwatch();
+
         /* Demande d'entrée du chemin source et du chemin cible du fichier à sauvegarder */
         public void RepositoryC()
         {
+            cWatch.Start();
             RepositoryView RepositoryView = new RepositoryView();
             RepositoryView.RepositoryNameV();
 
@@ -134,6 +138,9 @@ namespace Repository
 
                 LengthDirectory(sFolder);
             }
+            cWatch.Stop();
+            TimeSpan Time = cWatch.Elapsed;
+            repositoryModel.FileTransfertRepository = Time.ToString(@"m\:ss\.fff");
             ObjectJson();
         }
 
@@ -191,6 +198,9 @@ namespace Repository
 
                 LengthDirectory(sFolder);
             }
+            cWatch.Stop();
+            TimeSpan Time = cWatch.Elapsed;
+            repositoryModel.FileTransfertRepository = Time.ToString(@"m\:ss\.fff");
             ObjectJson();
         }
         public void DeleteFile(string sSourceRepository, string sTargetRepository) // à OPTI
@@ -266,6 +276,7 @@ namespace Repository
             jobFile.FileTarget = repositoryModel.TargetRepository;
             jobFile.Name = repositoryModel.NameLogRepository;
             jobFile.FileSize = repositoryModel.LengthRepository;
+            jobFile.FileTransferTime = repositoryModel.FileTransfertRepository;
             //TODO les autres attributs
             //repositoryModel.SourceRepository,repositoryModel.TargetRepository, repositoryModel.NameLogRepository
             logController.CreateLog(jobFile);
@@ -282,6 +293,8 @@ namespace Repository
                 repositoryModel.LengthRepository += file.Length; // taille en octet
             }
         }
+        
+
     }
 
 }

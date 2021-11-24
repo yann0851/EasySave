@@ -11,6 +11,6 @@ namespace ConnsoleAppEsaySave.Model
         public string FileSource { get; set; }
         public string FileTarget { get; set; }
         public long FileSize { get; set; }
-        public int FileTransferTime { get; set; }
+        public string FileTransferTime { get; set; }
     }
 }
