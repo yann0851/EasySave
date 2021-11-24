@@ -8,6 +8,8 @@ using System.Windows;
 using Microsoft.Win32;
 using System.Diagnostics;
 using System.IO;
+using LogD;
+using ConnsoleAppEsaySave.Model;
 
 namespace Repository
 {
@@ -19,6 +21,11 @@ namespace Repository
         public void RepositoryVM()
         {
             RepositoryView RepositoryView = new RepositoryView();
+
+            RepositoryView.RepositoryNameV();
+
+            string sName = Console.ReadLine();
+            repositoryModel.NameLogRepository = sName;
 
             RepositoryView.RepositorySourceV();
 
@@ -37,6 +44,7 @@ namespace Repository
         public void PartialCopyRepository()
         {
             RepositoryVM();
+            //List<JobFile> files = new List<JobFile>();
 
             string[] files = Directory.GetFiles(repositoryModel.SourceRepository); // tableau ou on récupère les fichiers
             foreach (string sFile in files) // Pour chaque fichier
@@ -111,6 +119,16 @@ namespace Repository
 
                 }
             }
+            
+            LogViewModel logViewModel = new LogViewModel();
+            JobFile jobFile = new JobFile();
+            jobFile.FileSource = repositoryModel.SourceRepository;
+            jobFile.FileTarget = repositoryModel.TargetRepository;
+            jobFile.Name = repositoryModel.NameLogRepository;
+            //TODO les autres attributs
+            //repositoryModel.SourceRepository,repositoryModel.TargetRepository, repositoryModel.NameLogRepository
+            logViewModel.CreateLog(jobFile);
+
         }
 
         public void FullCopyRepository()
@@ -161,6 +179,10 @@ namespace Repository
 
                 }
             }
+
+            LogViewModel logViewModel = new LogViewModel();
+            //logViewModel.CreateLog(repositoryModel.SourceRepository, repositoryModel.TargetRepository, repositoryModel.NameLogRepository);
+
         }
 
         public void DeleteFile(string sSourceRepository, string sTargetRepository) // à OPTI

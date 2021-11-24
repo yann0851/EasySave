@@ -7,6 +7,7 @@ namespace Repository
     class RepositoryModel
     {
         /* Création des objets du répertoire source et cible */
+        public string NameLogRepository { get; set; }
         public string SourceRepository { get; set; }
         public string TargetRepository { get; set; } 
     }

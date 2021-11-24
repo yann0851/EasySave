@@ -11,6 +11,8 @@ using Serilog;
 using Newtonsoft.Json.Linq;
 using Repository;
 using Menu;
+using ConnsoleAppEsaySave.Model;
+using Newtonsoft.Json;
 
 namespace LogD
 {
@@ -41,15 +43,19 @@ namespace LogD
             }
         }
 
-        public void CreateLog()
+        public void CreateLog(JobFile j)
         {
-            string sContext_name = "yann";
-            string sName = "docx";
+            
+            string Json = JsonConvert.SerializeObject(j, Formatting.Indented);
+            /*
+            string dossier = RecupTarget;
+            DirectoryInfo fInfo = new DirectoryInfo(dossier);
+            int size = (int)fInfo.Length;//taille en octets
 
 
-            string str = "{\n\n\"" + sContext_name + "\":{ \n\"Name\": \"" + sName + "\",\n\"FileSource\": \"" + repositoryModel.TargetRepository + "\",\n\"FileTarget\": \"" + repositoryModel.SourceRepository + "\",\n\"DestPath\": \"mettre DestPath\",\n\"FileSize\": \"mettre taille\",\n\"FileTransferTime\": \"TIME\",}}\n";
-            JObject json = JObject.Parse(str);
-
+            string str = "{\n\n\"" + sContext_name + "\":{ \n\"Name\": \"" + sName + "\",\n\"FileSource\": \"" + sName + "\",\n\"FileTarget\": \"" + sName + "\",\n\"DestPath\": \"mettre DestPath\",\n\"FileSize\": \"" + sName + "\",\n\"FileTransferTime\": \"TIME\",}}\n";
+            */JObject json = JObject.Parse(Json);
+            
 
             //création du fichier log et où il sera créé avec des infos
             using (var Log = new LoggerConfiguration()
@@ -57,7 +63,7 @@ namespace LogD
                                                                 //pour ajouter date dans le nom de fichier
                 .CreateLogger()) 
             {
-                Log.Information(str);
+                Log.Information(Json);
             };
                 
 

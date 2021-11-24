@@ -34,7 +34,7 @@ namespace ChoiceSave
                     RepositoryViewModel repositoryViewModel = new RepositoryViewModel();
                     repositoryViewModel.FullCopyRepository();
                     LogViewModel logViewModel = new LogViewModel();
-                    logViewModel.CreateLog();
+                    //logViewModel.CreateLog();
                     Console.Clear();
                 }
 
@@ -43,7 +43,7 @@ namespace ChoiceSave
                     RepositoryViewModel repositoryViewModel = new RepositoryViewModel();
                     repositoryViewModel.PartialCopyRepository();
                     LogViewModel logViewModel = new LogViewModel();
-                    logViewModel.CreateLog();
+                    //logViewModel.CreateLog();
                     Console.Clear();
                 }
 

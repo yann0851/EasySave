@@ -11,6 +11,11 @@ namespace Repository
     class RepositoryView
     {
         /* Affichage du message demandant le fichier source */
+
+        public void RepositoryNameV()
+        {
+            Console.WriteLine(LanguageModel.Traductor("nom_sauvegarde"));
+        }
         public void RepositorySourceV()
         {
             Console.WriteLine(LanguageModel.Traductor("source"));          

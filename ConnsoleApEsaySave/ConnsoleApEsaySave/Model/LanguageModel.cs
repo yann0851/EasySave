@@ -15,6 +15,7 @@ namespace Language
                 { "menuchoice 2", new Dictionary<string, string> { { "FR", "Choix de la sauvegarde." }, { "EN", "Choice of backup." } } },
                 { "menuchoice 3", new Dictionary<string, string> { { "FR", "Affichage des logs." }, { "EN", "Display logs." } } },
                 { "menuchoice 4", new Dictionary<string, string> { { "FR", "Quitter." }, { "EN", "Quit." } } },
+                { "nom_sauvegarde", new Dictionary<string, string> { { "FR", "Veuillez choisir un nom pour votre sauvegarde :" }, { "EN", "Please choose a name for your backup :" } } },
                 { "source", new Dictionary<string, string> { { "FR", "Veuillez choisir votre répertoire source :" }, { "EN", "Please choose your source directory:" } } },
                 { "target", new Dictionary<string, string> { { "FR", "Où voulez-vous copier ce dossier :" }, { "EN", "Where do you want to copy this file :" } } },
                 { "error", new Dictionary<string, string> { { "FR", "Une erreur s'est produite. Veuillez entrer un choix valide." }, { "EN", "An error has occurred. Please enter a valid choice." } } },
