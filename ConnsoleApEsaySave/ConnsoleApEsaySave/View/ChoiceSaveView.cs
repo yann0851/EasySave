@@ -11,6 +11,14 @@ namespace ChoiceSave
         {
             /* Ecriture du menu du choix de sauvegarde */
             Console.ForegroundColor = ConsoleColor.DarkCyan;
+            string sSave = @"
+                                        ███████  █████  ██    ██ ███████ 
+                                        ██      ██   ██ ██    ██ ██      
+                                        ███████ ███████ ██    ██ █████   
+                                             ██ ██   ██  ██  ██  ██      
+                                        ███████ ██   ██   ████   ███████
+            ";
+            Console.WriteLine(sSave);
             Console.WriteLine("\n" + "████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████\n");
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine(

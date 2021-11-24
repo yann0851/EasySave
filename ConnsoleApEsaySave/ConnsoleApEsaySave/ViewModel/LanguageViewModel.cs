@@ -23,7 +23,7 @@ namespace Language
 
                 if (iChoiceL == 1)
                 {
-                    string sLang = "EN";
+                    string sLang = "FR";
                     LanguageModel.sCurrentLanguage = sLang;
                     Console.Clear();
 
@@ -31,7 +31,7 @@ namespace Language
 
                 else if (iChoiceL == 2)
                 {
-                    string sLang = "FR";
+                    string sLang = "EN";
                     LanguageModel.sCurrentLanguage = sLang;
                     Console.Clear();
                 }

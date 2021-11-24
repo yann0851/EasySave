@@ -10,6 +10,14 @@ namespace Language
         {
             /* Ecriture du menu du choix de sauvegarde */
             Console.ForegroundColor = ConsoleColor.DarkCyan;
+            string sLanguage = @"
+                            ██       █████  ███    ██  ██████  ██    ██  █████   ██████  ███████ 
+                            ██      ██   ██ ████   ██ ██       ██    ██ ██   ██ ██       ██      
+                            ██      ███████ ██ ██  ██ ██   ███ ██    ██ ███████ ██   ███ █████   
+                            ██      ██   ██ ██  ██ ██ ██    ██ ██    ██ ██   ██ ██    ██ ██      
+                            ███████ ██   ██ ██   ████  ██████   ██████  ██   ██  ██████  ███████ 
+            ";
+            Console.WriteLine(sLanguage);
             Console.WriteLine("\n" + "████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████\n");
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine(

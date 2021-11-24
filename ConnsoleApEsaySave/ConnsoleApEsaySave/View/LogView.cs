@@ -11,6 +11,18 @@ namespace LogD
     {
         public void LogV()
         {
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            string sLogs = @"
+                                        ██       ██████   ██████  ███████ 
+                                        ██      ██    ██ ██       ██      
+                                        ██      ██    ██ ██   ███ ███████ 
+                                        ██      ██    ██ ██    ██      ██ 
+                                        ███████  ██████   ██████  ███████
+            ";
+            Console.WriteLine(sLogs);
+            Console.WriteLine("\n" + "████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████\n");
+            Console.ForegroundColor = ConsoleColor.Gray;
+
             LogViewModel LogViewModel = new LogViewModel();
 
             //Création du log
