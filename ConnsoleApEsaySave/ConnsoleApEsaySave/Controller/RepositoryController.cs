@@ -9,13 +9,15 @@ using Microsoft.Win32;
 using System.Diagnostics;
 using System.IO;
 using LogD;
-using ConsoleAppEasySave.Model;
+using ConnsoleAppEsaySave.Model;
 
 namespace Repository
 {
     class RepositoryController
     {
         RepositoryModel repositoryModel = new RepositoryModel();
+        LogController logController = new LogController();
+        JobFile jobFile = new JobFile();
 
         /* Demande d'entrée du chemin source et du chemin cible du fichier à sauvegarder */
         public void RepositoryC()
@@ -116,14 +118,7 @@ namespace Repository
 
                 }
             }
-            LogController logController = new LogController();
-            JobFile jobFile = new JobFile();
-            jobFile.FileSource = repositoryModel.SourceRepository;
-            jobFile.FileTarget = repositoryModel.TargetRepository;
-            jobFile.Name = repositoryModel.NameLogRepository;
-            //TODO les autres attributs
-            //repositoryModel.SourceRepository,repositoryModel.TargetRepository, repositoryModel.NameLogRepository
-            logController.CreateLog(jobFile);
+            ObjectJson();
         }
 
         public void FullCopyRepository()
@@ -176,7 +171,8 @@ namespace Repository
 
                 }
             }
-            LogController logController = new LogController();
+
+            ObjectJson();
             //logController.CreateLog(repositoryModel.SourceRepository, repositoryModel.TargetRepository, repositoryModel.NameLogRepository);
         }
         public void DeleteFile(string sSourceRepository, string sTargetRepository) // à OPTI
@@ -230,6 +226,16 @@ namespace Repository
             {
                 Directory.CreateDirectory(sCreateDirectory);
             }
+        }
+
+        public void ObjectJson()
+        {
+            jobFile.FileSource = repositoryModel.SourceRepository;
+            jobFile.FileTarget = repositoryModel.TargetRepository;
+            jobFile.Name = repositoryModel.NameLogRepository;
+            //TODO les autres attributs
+            //repositoryModel.SourceRepository,repositoryModel.TargetRepository, repositoryModel.NameLogRepository
+            logController.CreateLog(jobFile);
         }
     }
 }

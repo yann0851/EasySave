@@ -23,10 +23,10 @@ namespace LogD
             Console.WriteLine("\n" + "████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████\n");
             Console.ForegroundColor = ConsoleColor.Gray;
 
-            LogViewModel LogViewModel = new LogViewModel();
+            LogController logController = new LogController();
 
             //Création du log
-            LogViewModel.LogAffichage();
+            logController.LogAffichage();
             Console.ReadKey();
         }
     }

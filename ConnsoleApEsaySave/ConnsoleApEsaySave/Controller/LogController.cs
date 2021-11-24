@@ -17,7 +17,7 @@ using Newtonsoft.Json;
 namespace LogD
 {
     
-    public class LogViewModel
+    public class LogController
     {
         RepositoryModel repositoryModel = new RepositoryModel();
         MenuView menuView = new MenuView();        
@@ -54,7 +54,8 @@ namespace LogD
 
 
             string str = "{\n\n\"" + sContext_name + "\":{ \n\"Name\": \"" + sName + "\",\n\"FileSource\": \"" + sName + "\",\n\"FileTarget\": \"" + sName + "\",\n\"DestPath\": \"mettre DestPath\",\n\"FileSize\": \"" + sName + "\",\n\"FileTransferTime\": \"TIME\",}}\n";
-            */JObject json = JObject.Parse(Json);
+            */
+            JObject json = JObject.Parse(Json);
             
 
             //création du fichier log et où il sera créé avec des infos
