@@ -10,5 +10,6 @@ namespace Repository
         public string NameLogRepository { get; set; }
         public string SourceRepository { get; set; }
         public string TargetRepository { get; set; } 
+        public long LengthRepository { get; set; }
     }
 }

@@ -10,6 +10,7 @@ using System.Diagnostics;
 using System.IO;
 using LogD;
 using ConnsoleAppEsaySave.Model;
+using System.Security.Cryptography;
 
 namespace Repository
 {
@@ -63,9 +64,15 @@ namespace Repository
                     {
                         try
                         {
-                            string sNameDestFiles = Path.GetFileName(sDestFile);
-                            string sContentFileSource = File.ReadAllText(sFile);
-                            File.WriteAllText(sDestFile, sContentFileSource);
+                            if(CalculateMD5(sFile) == CalculateMD5(sDestFile))
+                            {
+                               
+                            }
+                            else
+                            {
+                                File.Delete(sDestFile);
+                                File.Copy(sFile, sDestFile);
+                            }
                         }
                         catch
                         {
@@ -74,6 +81,7 @@ namespace Repository
                     }
                     DeleteFile(repositoryModel.SourceRepository, repositoryModel.TargetRepository);
                     DeleteFolder(repositoryModel.SourceRepository, repositoryModel.TargetRepository);
+                    LengthDirectory(repositoryModel.SourceRepository);
                 }
             }
             string[] folders = Directory.GetDirectories(repositoryModel.SourceRepository);
@@ -104,9 +112,15 @@ namespace Repository
                         {
                             try
                             {
-                                //string sNameDestFiles = Path.GetFileName(sDestPathTargetRepository); // Nom 
-                                string sContentFileSource = File.ReadAllText(sFileFolder); // Je vais chercher le contenu du fichier source
-                                File.WriteAllText(sDestPathTargetRepository, sContentFileSource); // Je remplace le contenu du fichier cible avec le contenu du fichier source
+                                if (CalculateMD5(sFileFolder) == CalculateMD5(sDestPathTargetRepository))
+                                {
+
+                                }
+                                else
+                                {
+                                    File.Delete(sDestPathTargetRepository);
+                                    File.Copy(sFileFolder, sDestPathTargetRepository);
+                                }
                             }
                             catch
                             {
@@ -117,6 +131,8 @@ namespace Repository
                     }
 
                 }
+
+                LengthDirectory(sFolder);
             }
             ObjectJson();
         }
@@ -140,6 +156,8 @@ namespace Repository
 
                 }
             }
+            LengthDirectory(repositoryModel.SourceRepository);
+
             string[] folders = Directory.GetDirectories(repositoryModel.SourceRepository);
             foreach (string sFolder in folders) // Récupérer des dossiers dans le dossier principal
             {
@@ -170,10 +188,10 @@ namespace Repository
                     }
 
                 }
-            }
 
+                LengthDirectory(sFolder);
+            }
             ObjectJson();
-            //logController.CreateLog(repositoryModel.SourceRepository, repositoryModel.TargetRepository, repositoryModel.NameLogRepository);
         }
         public void DeleteFile(string sSourceRepository, string sTargetRepository) // à OPTI
         {
@@ -228,14 +246,42 @@ namespace Repository
             }
         }
 
+        static string CalculateMD5(string sFile)
+        {
+            using (var md5 = MD5.Create()) // Créé un MD5 pour le fichier
+            {
+                using (var stream = File.OpenRead(sFile)) // On accède en lecture au fichier
+                {
+                    var checksum = md5.ComputeHash(stream); // On calcule la valeur du hachage du fichier (sous forme d'un tableau de 16 octets)
+                    return BitConverter.ToString(checksum).Replace("-", "").ToLowerInvariant(); // Convertit le tableau d'octet sous forme de chaîne (hexadécimale) 
+                                                                                                // Remplace les caractères - en rien
+                                                                                                // Convertit en minuscule pour éviter la casse.
+                }
+            }
+        }
+
         public void ObjectJson()
         {
             jobFile.FileSource = repositoryModel.SourceRepository;
             jobFile.FileTarget = repositoryModel.TargetRepository;
             jobFile.Name = repositoryModel.NameLogRepository;
+            jobFile.FileSize = repositoryModel.LengthRepository;
             //TODO les autres attributs
             //repositoryModel.SourceRepository,repositoryModel.TargetRepository, repositoryModel.NameLogRepository
             logController.CreateLog(jobFile);
         }
+
+        public void LengthDirectory(string sFolder)
+        {
+            DirectoryInfo directoryInfo = new DirectoryInfo(sFolder); // On dit dans quel répertoire on est 
+
+            FileInfo[] fileInfo = directoryInfo.GetFiles(); // on récupère tous les fichiers
+
+            foreach (FileInfo file in fileInfo) // On prend chaque fichier du répertoire
+            {
+                repositoryModel.LengthRepository += file.Length; // taille en octet
+            }
+        }
     }
+
 }
