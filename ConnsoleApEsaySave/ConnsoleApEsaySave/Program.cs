@@ -4,16 +4,15 @@ using Menu;
 using LogD;
 using System.Collections.Generic;
 
-namespace ConnsoleAppEsaySave
+namespace ConsoleAppEasySave
 {
     class Program
     {
         /* Lancement du menu */
         static void Main()
         { 
-            MenuViewModel MenuViewModel = new MenuViewModel();
-            MenuViewModel.MenuVM();
-
+            MenuController MenuController = new MenuController();
+            MenuController.MenuC();
         }
     }
 }

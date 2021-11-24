@@ -9,14 +9,13 @@ using LogD;
 
 namespace Menu
 {
-    class MenuViewModel
+    class MenuController
     {
-        public void MenuVM()
+        public void MenuC()
         {
             int iChoiceM = 0;
 
             /* Envoie vers une fonction de l'application selon le choix de l'utilisateur */
-            
             while (iChoiceM != 4)
             {
                 MenuView MenuView = new MenuView();
@@ -29,17 +28,16 @@ namespace Menu
                     if (iChoiceM == 1)
                     {
                         Console.Clear();
-                        LanguageViewModel LanguageViewModel = new LanguageViewModel();
-                        LanguageViewModel.LanguageVM();
+                        LanguageController LanguageController = new LanguageController();
+                        LanguageController.LanguageC();
                         Console.Clear();
-
                     }
 
                     else if (iChoiceM == 2)
                     {
                         Console.Clear();
-                        ChoiceSaveViewModel choiceSaveViewModel = new ChoiceSaveViewModel();
-                        choiceSaveViewModel.ChoiceSaveVM();
+                        ChoiceSaveController choiceSaveController = new ChoiceSaveController();
+                        choiceSaveController.ChoiceSaveC();
                         Console.Clear();
                     }
 
@@ -53,17 +51,16 @@ namespace Menu
 
                     else if(iChoiceM>4)
                     {
-                        ErrorViewModel errorViewModel = new ErrorViewModel();
-                        errorViewModel.ErrorVM();
+                        ErrorController errorController = new ErrorController();
+                        errorController.ErrorC();
                         Console.Clear();
                     }
-
                 }
 
                 catch
                 {
-                    ErrorViewModel errorViewModel = new ErrorViewModel();
-                    errorViewModel.ErrorVM();
+                    ErrorController errorController = new ErrorController();
+                    errorController.ErrorC();
                     Console.Clear();
                 }
             }

@@ -11,16 +11,13 @@ using LogD;
 
 namespace ChoiceSave
 {
-    class ChoiceSaveViewModel
+    class ChoiceSaveController
     {
-
         RepositoryModel repositoryModel = new RepositoryModel();
-
-
-        public void ChoiceSaveVM()
+        public void ChoiceSaveC()
         {
-
             int iChoiceS = 0;
+
             /* Envoie vers un style de sauvegarde selon le choix de l'utilisateur */
             while (iChoiceS != 3)
             {
@@ -33,38 +30,37 @@ namespace ChoiceSave
 
                     if (iChoiceS == 1)
                     {
-                        RepositoryViewModel repositoryViewModel = new RepositoryViewModel();
-                        repositoryViewModel.FullCopyRepository();
-                        LogViewModel logViewModel = new LogViewModel();
-                        //logViewModel.CreateLog();
+                        RepositoryController repositoryController = new RepositoryController();
+                        repositoryController.FullCopyRepository();
+                        LogController logController = new LogController();
+                        //logController.CreateLog();
                         Console.Clear();
                     }
 
                     else if (iChoiceS == 2)
                     {
-                        RepositoryViewModel repositoryViewModel = new RepositoryViewModel();
-                        repositoryViewModel.PartialCopyRepository();
-                        LogViewModel logViewModel = new LogViewModel();
-                        //logViewModel.CreateLog();
+                        RepositoryController repositoryController = new RepositoryController();
+                        repositoryController.PartialCopyRepository();
+                        LogController logController = new LogController();
+                        //logController.CreateLog();
                         Console.Clear();
                     }
 
                     else if (iChoiceS > 3)
                     {
-                        ErrorViewModel errorViewModel = new ErrorViewModel();
-                        errorViewModel.ErrorVM();
+                        ErrorController errorController = new ErrorController();
+                        errorController.ErrorC();
                         Console.Clear();
                     }
                 }
+
                 catch
                 {
-                    ErrorViewModel errorViewModel = new ErrorViewModel();
-                    errorViewModel.ErrorVM();
+                    ErrorController errorController = new ErrorController();
+                    errorController.ErrorC();
                     Console.Clear();
                 }
             }
-
-           
         }
     }
 }

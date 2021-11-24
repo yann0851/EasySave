@@ -9,19 +9,18 @@ using Microsoft.Win32;
 using System.Diagnostics;
 using System.IO;
 using LogD;
-using ConnsoleAppEsaySave.Model;
+using ConsoleAppEasySave.Model;
 
 namespace Repository
 {
-    class RepositoryViewModel
+    class RepositoryController
     {
         RepositoryModel repositoryModel = new RepositoryModel();
 
         /* Demande d'entrée du chemin source et du chemin cible du fichier à sauvegarder */
-        public void RepositoryVM()
+        public void RepositoryC()
         {
             RepositoryView RepositoryView = new RepositoryView();
-
             RepositoryView.RepositoryNameV();
 
             string sName = Console.ReadLine();
@@ -43,7 +42,7 @@ namespace Repository
         /* Sauvegarde Complète */
         public void PartialCopyRepository()
         {
-            RepositoryVM();
+            RepositoryC();
             //List<JobFile> files = new List<JobFile>();
 
             string[] files = Directory.GetFiles(repositoryModel.SourceRepository); // tableau ou on récupère les fichiers
@@ -71,10 +70,8 @@ namespace Repository
 
                         }
                     }
-
                     DeleteFile(repositoryModel.SourceRepository, repositoryModel.TargetRepository);
                     DeleteFolder(repositoryModel.SourceRepository, repositoryModel.TargetRepository);
-
                 }
             }
             string[] folders = Directory.GetDirectories(repositoryModel.SourceRepository);
@@ -119,21 +116,19 @@ namespace Repository
 
                 }
             }
-            
-            LogViewModel logViewModel = new LogViewModel();
+            LogController logController = new LogController();
             JobFile jobFile = new JobFile();
             jobFile.FileSource = repositoryModel.SourceRepository;
             jobFile.FileTarget = repositoryModel.TargetRepository;
             jobFile.Name = repositoryModel.NameLogRepository;
             //TODO les autres attributs
             //repositoryModel.SourceRepository,repositoryModel.TargetRepository, repositoryModel.NameLogRepository
-            logViewModel.CreateLog(jobFile);
-
+            logController.CreateLog(jobFile);
         }
 
         public void FullCopyRepository()
         {
-            RepositoryVM();
+            RepositoryC();
 
             string[] files = Directory.GetFiles(repositoryModel.SourceRepository); // tableau ou on récupère les fichiers
             foreach (string sFile in files) // Pour chaque fichier
@@ -143,8 +138,8 @@ namespace Repository
                 try
                 {
                     File.Copy(sFile, sDestFile); // Copie le fichier dans le répertoire cible
-
                 }
+
                 catch
                 {
 
@@ -159,6 +154,7 @@ namespace Repository
                 {
                     Directory.CreateDirectory(sFolder.Replace(sFolder, sDestRepository)); // copie le dossier
                 }
+
                 catch
                 {
                     
@@ -172,6 +168,7 @@ namespace Repository
                     {
                         File.Copy(sFileFolder, sFileFolder.Replace(sFileFolder, sDestPathTargetRepository)); // copie les fichiers du sous-dossier
                     }
+
                     catch
                     {
                        
@@ -179,12 +176,9 @@ namespace Repository
 
                 }
             }
-
-            LogViewModel logViewModel = new LogViewModel();
-            //logViewModel.CreateLog(repositoryModel.SourceRepository, repositoryModel.TargetRepository, repositoryModel.NameLogRepository);
-
+            LogController logController = new LogController();
+            //logController.CreateLog(repositoryModel.SourceRepository, repositoryModel.TargetRepository, repositoryModel.NameLogRepository);
         }
-
         public void DeleteFile(string sSourceRepository, string sTargetRepository) // à OPTI
         {
             string[] files = Directory.GetFiles(sTargetRepository); // tableau ou on récupère les fichiers
@@ -230,7 +224,6 @@ namespace Repository
 
             }
         }
-
         public void CreateDirectory(string sCreateDirectory)
         {
             if (!Directory.Exists(sCreateDirectory)) // test si le répertoire existe ou pas

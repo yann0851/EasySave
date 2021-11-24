@@ -6,13 +6,11 @@ using Error;
 
 namespace Language
 {
-    class LanguageViewModel
+    class LanguageController
     {
-        public void LanguageVM()
+        public void LanguageC()
         {
             /* Affichage des différentes langues et attente du choix de la part de l'utilisateur */
-            
-
             int iChoiceL = 0;
 
             /* Change de langue selon le choix de l'utilisateur */
@@ -42,21 +40,19 @@ namespace Language
 
                     else if (iChoiceL > 3)
                     {
-                        ErrorViewModel errorViewModel = new ErrorViewModel();
-                        errorViewModel.ErrorVM();
+                        ErrorController errorController = new ErrorController();
+                        errorController.ErrorC();
                         Console.Clear();
                     }
                 }
+
                 catch
                 {
-                    ErrorViewModel errorViewModel = new ErrorViewModel();
-                    errorViewModel.ErrorVM();
+                    ErrorController errorController = new ErrorController();
+                    errorController.ErrorC();
                     Console.Clear();
                 }
             }
-
-           
-
         }
     }
 }
