@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Globalization;
 
 namespace Language
 {
@@ -13,7 +14,9 @@ namespace Language
             languageView.LanguageV();
 
             string sLang = Console.ReadLine();
-            LanguageModel.sCurrentLanguage = sLang;
+            string sLangVerif = sLang.ToUpper();
+            LanguageModel.sCurrentLanguage = sLangVerif;
+
         }
 
         
