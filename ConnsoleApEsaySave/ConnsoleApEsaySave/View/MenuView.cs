@@ -28,9 +28,10 @@ namespace Menu
                 LanguageModel.Traductor("choice") + "\n" + "\n" +
                 "1. " + LanguageModel.Traductor("menuchoice 1") + "\n" +
                 "2. " + LanguageModel.Traductor("menuchoice 2") + "\n" +
-                "3. " + LanguageModel.Traductor("menuchoice 3") + "\n");
+                "3. " + LanguageModel.Traductor("menuchoice 3") + "\n" +
+                "4. " + LanguageModel.Traductor("menuchoice 4") + "\n");
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("4. " + LanguageModel.Traductor("menuchoice 4") + "\n"
+            Console.WriteLine("5. " + LanguageModel.Traductor("menuchoice 5") + "\n"
                 );
             Console.ForegroundColor = ConsoleColor.DarkCyan;
             Console.WriteLine("\n" + "████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████\n");

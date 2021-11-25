@@ -8,6 +8,7 @@ using Error;
 using Serilog;
 using Newtonsoft.Json.Linq;
 using LogD;
+using StateD;
 
 namespace ChoiceSave
 {
@@ -33,6 +34,7 @@ namespace ChoiceSave
                         RepositoryController repositoryController = new RepositoryController();
                         repositoryController.FullCopyRepository();
                         LogController logController = new LogController();
+                        StateController stateController = new StateController();
                         //logController.CreateLog();
                         Console.Clear();
                     }
@@ -42,6 +44,7 @@ namespace ChoiceSave
                         RepositoryController repositoryController = new RepositoryController();
                         repositoryController.PartialCopyRepository();
                         LogController logController = new LogController();
+                        StateController stateController = new StateController();
                         //logController.CreateLog();
                         Console.Clear();
                     }
