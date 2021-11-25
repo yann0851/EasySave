@@ -83,6 +83,8 @@ namespace SlotsSave
 
         public void Save2V()
         {
+            SlotsSaveModel.Slots(1) = new SaveModel();
+
             Console.WriteLine(LanguageModel.Traductor("slotName") + "\n");
             SlotsSaveModel.Slots(1).Name = Console.ReadLine();
 
@@ -95,6 +97,8 @@ namespace SlotsSave
 
         public void Save3V()
         {
+            SlotsSaveModel.Slots(2) = new SaveModel();
+
             Console.WriteLine(LanguageModel.Traductor("slotName") + "\n");
             SlotsSaveModel.Slots(2).Name = Console.ReadLine();
 
@@ -107,6 +111,8 @@ namespace SlotsSave
 
         public void Save4V()
         {
+            SlotsSaveModel.Slots(3) = new SaveModel();
+
             Console.WriteLine(LanguageModel.Traductor("slotName") + "\n");
             SlotsSaveModel.Slots(3).Name = Console.ReadLine();
 
@@ -119,6 +125,8 @@ namespace SlotsSave
 
         public void Save5V()
         {
+            SlotsSaveModel.Slots(4) = new SaveModel();
+
             Console.WriteLine(LanguageModel.Traductor("slotName") + "\n");
             SlotsSaveModel.Slots(4).Name = Console.ReadLine();
 

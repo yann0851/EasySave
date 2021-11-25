@@ -15,6 +15,8 @@ namespace SlotsSave
     {
         public static SaveModel[] slotsSave = new SaveModel[5];
 
+        public static int iCurrentSlot;
+
         public static ref SaveModel Slots(int iSlots)
         {
             return ref slotsSave[iSlots];

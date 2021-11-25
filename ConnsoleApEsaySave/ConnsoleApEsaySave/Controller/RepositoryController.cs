@@ -12,6 +12,7 @@ using LogD;
 using StateD;
 using ConsoleAppEasySave.Model;
 using System.Security.Cryptography;
+using SlotsSave;
 
 namespace Repository
 {
@@ -33,18 +34,17 @@ namespace Repository
 
             RepositoryView.RepositoryNameV();
 
-            string sName = Console.ReadLine();
-            repositoryModel.NameLogRepository = sName;
-
             RepositoryView.RepositorySourceV();
 
-            string sSource = Console.ReadLine();
+            SaveModel smTemp = SlotsSaveModel.Slots(SlotsSaveModel.iCurrentSlot);
+
+            string sSource = smTemp.FolderSource;
             repositoryModel.SourceRepository = @sSource;
             CreateDirectory(repositoryModel.SourceRepository);
 
             RepositoryView.RepositoryTargetV();
 
-            string sTarget = Console.ReadLine();
+            string sTarget = smTemp.FolderTarget;
             repositoryModel.TargetRepository = @sTarget;
             CreateDirectory(repositoryModel.TargetRepository);
         }

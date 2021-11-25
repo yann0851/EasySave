@@ -36,6 +36,7 @@ namespace SlotsSave
                         {
                             if (SlotsSaveModel.Slots(0) != null)
                             {
+                                SlotsSaveModel.iCurrentSlot = 0;
                                 ChoiceSaveController choiceSaveController = new ChoiceSaveController();
                                 choiceSaveController.ChoiceSaveC();
                                 Console.Clear();
@@ -63,6 +64,7 @@ namespace SlotsSave
                         {
                             if (SlotsSaveModel.Slots(1) != null)
                             {
+                                SlotsSaveModel.iCurrentSlot = 1;
                                 ChoiceSaveController choiceSaveController = new ChoiceSaveController();
                                 choiceSaveController.ChoiceSaveC();
                                 Console.Clear();
@@ -89,6 +91,7 @@ namespace SlotsSave
                         {
                             if (SlotsSaveModel.Slots(2) != null)
                             {
+                                SlotsSaveModel.iCurrentSlot = 2;
                                 ChoiceSaveController choiceSaveController = new ChoiceSaveController();
                                 choiceSaveController.ChoiceSaveC();
                                 Console.Clear();
@@ -115,6 +118,7 @@ namespace SlotsSave
                         {
                             if (SlotsSaveModel.Slots(3) != null)
                             {
+                                SlotsSaveModel.iCurrentSlot = 3;
                                 ChoiceSaveController choiceSaveController = new ChoiceSaveController();
                                 choiceSaveController.ChoiceSaveC();
                                 Console.Clear();
@@ -141,6 +145,7 @@ namespace SlotsSave
                         {
                             if (SlotsSaveModel.Slots(4) != null)
                             {
+                                SlotsSaveModel.iCurrentSlot = 4;
                                 ChoiceSaveController choiceSaveController = new ChoiceSaveController();
                                 choiceSaveController.ChoiceSaveC();
                                 Console.Clear();
@@ -174,6 +179,11 @@ namespace SlotsSave
                     Console.Clear();
                 }
             }
+        }
+
+        internal string SlotsNameC(object sName1)
+        {
+            throw new NotImplementedException();
         }
     }
 
