@@ -44,6 +44,7 @@ namespace SlotsSave
                             else
                             {
                                 slotsSaveView.Save1V();
+                                Console.Clear();
                             }
                             
                         }
@@ -72,6 +73,7 @@ namespace SlotsSave
                             else
                             {
                                 slotsSaveView.Save2V();
+                                Console.Clear();
                             }
 
                         }
@@ -99,6 +101,7 @@ namespace SlotsSave
                             else
                             {
                                 slotsSaveView.Save3V();
+                                Console.Clear();
                             }
 
                         }
@@ -126,6 +129,7 @@ namespace SlotsSave
                             else
                             {
                                 slotsSaveView.Save4V();
+                                Console.Clear();
                             }
 
                         }
@@ -153,6 +157,7 @@ namespace SlotsSave
                             else
                             {
                                 slotsSaveView.Save5V();
+                                Console.Clear();
                             }
 
                         }
