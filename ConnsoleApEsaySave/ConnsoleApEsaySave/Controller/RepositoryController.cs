@@ -26,7 +26,6 @@ namespace Repository
         /* Demande d'entrée du chemin source et du chemin cible du fichier à sauvegarder */
         public void RepositoryC()
         {
-            cWatch.Start();
             RepositoryView RepositoryView = new RepositoryView();
             RepositoryView.RepositoryNameV();
 
@@ -50,6 +49,8 @@ namespace Repository
         public void PartialCopyRepository()
         {
             RepositoryC();
+
+            cWatch.Start();
             //List<JobFile> files = new List<JobFile>();
 
             string[] files = Directory.GetFiles(repositoryModel.SourceRepository); // tableau ou on récupère les fichiers
@@ -148,6 +149,7 @@ namespace Repository
         {
             RepositoryC();
 
+            cWatch.Start();
             string[] files = Directory.GetFiles(repositoryModel.SourceRepository); // tableau ou on récupère les fichiers
             foreach (string sFile in files) // Pour chaque fichier
             {
