@@ -23,39 +23,39 @@ namespace SlotsSave
             Console.ForegroundColor = ConsoleColor.Gray;
 
 
-            string name1 = "-----";
+            string sName1 = "-----";
             if (SlotsSaveModel.Slots(0) != null)
             {
-                name1 = SlotsSaveModel.Slots(0).Name;
+                sName1 = SlotsSaveModel.Slots(0).Name;
             }
-            string name2 = "-----";
+            string sName2 = "-----";
             if (SlotsSaveModel.Slots(1) != null)
             {
-                name2 = SlotsSaveModel.Slots(1).Name;
+                sName2 = SlotsSaveModel.Slots(1).Name;
             }
-            string name3 = "-----";
+            string sName3 = "-----";
             if (SlotsSaveModel.Slots(2) != null)
             {
-                name3 = SlotsSaveModel.Slots(2).Name;
+                sName3 = SlotsSaveModel.Slots(2).Name;
             }
-            string name4 = "-----";
+            string sName4 = "-----";
             if (SlotsSaveModel.Slots(3) != null)
             {
-                name4 = SlotsSaveModel.Slots(3).Name;
+                sName4 = SlotsSaveModel.Slots(3).Name;
             }
-            string name5 = "-----";
+            string sName5 = "-----";
             if (SlotsSaveModel.Slots(4) != null)
             {
-                name5 = SlotsSaveModel.Slots(4).Name;
+                sName5 = SlotsSaveModel.Slots(4).Name;
             }
 
             Console.WriteLine(
                    LanguageModel.Traductor("choice") + "\n" + "\n" +
-                    "1. " + name1 + "\n" +
-                    "2. " + name2 + "\n" +
-                    "3. " + name3 + "\n" +
-                    "4. " + name4 + "\n" +
-                    "5. " + name5 + "\n"
+                    "1. " + sName1 + "\n" +
+                    "2. " + sName2 + "\n" +
+                    "3. " + sName3 + "\n" +
+                    "4. " + sName4 + "\n" +
+                    "5. " + sName5 + "\n"
                     );
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine(
@@ -66,16 +66,19 @@ namespace SlotsSave
             Console.ForegroundColor = ConsoleColor.Gray;
         }
 
+
         public void Save1V()
         {
+            SlotsSaveModel.Slots(0) = new SaveModel();
+
             Console.WriteLine(LanguageModel.Traductor("slotName") + "\n");
-            SlotsSaveModel.Slots(1).Name = Console.ReadLine();
+            SlotsSaveModel.Slots(0).Name = Console.ReadLine();
 
             Console.WriteLine(LanguageModel.Traductor("slotSource") + "\n");
-            SlotsSaveModel.Slots(1).FolderSource = Console.ReadLine();
+            SlotsSaveModel.Slots(0).FolderSource = Console.ReadLine();
 
             Console.WriteLine(LanguageModel.Traductor("slotTarget") + "\n");
-            SlotsSaveModel.Slots(1).FolderTarget = Console.ReadLine();
+            SlotsSaveModel.Slots(0).FolderTarget = Console.ReadLine();
         }
 
         public void Save2V()
@@ -93,37 +96,37 @@ namespace SlotsSave
         public void Save3V()
         {
             Console.WriteLine(LanguageModel.Traductor("slotName") + "\n");
-            SlotsSaveModel.Slots(1).Name = Console.ReadLine();
+            SlotsSaveModel.Slots(2).Name = Console.ReadLine();
 
             Console.WriteLine(LanguageModel.Traductor("slotSource") + "\n");
-            SlotsSaveModel.Slots(1).FolderSource = Console.ReadLine();
+            SlotsSaveModel.Slots(2).FolderSource = Console.ReadLine();
 
             Console.WriteLine(LanguageModel.Traductor("slotTarget") + "\n");
-            SlotsSaveModel.Slots(1).FolderTarget = Console.ReadLine();
+            SlotsSaveModel.Slots(2).FolderTarget = Console.ReadLine();
         }
 
         public void Save4V()
         {
             Console.WriteLine(LanguageModel.Traductor("slotName") + "\n");
-            SlotsSaveModel.Slots(1).Name = Console.ReadLine();
+            SlotsSaveModel.Slots(3).Name = Console.ReadLine();
 
             Console.WriteLine(LanguageModel.Traductor("slotSource") + "\n");
-            SlotsSaveModel.Slots(1).FolderSource = Console.ReadLine();
+            SlotsSaveModel.Slots(3).FolderSource = Console.ReadLine();
 
             Console.WriteLine(LanguageModel.Traductor("slotTarget") + "\n");
-            SlotsSaveModel.Slots(1).FolderTarget = Console.ReadLine();
+            SlotsSaveModel.Slots(3).FolderTarget = Console.ReadLine();
         }
 
         public void Save5V()
         {
             Console.WriteLine(LanguageModel.Traductor("slotName") + "\n");
-            SlotsSaveModel.Slots(1).Name = Console.ReadLine();
+            SlotsSaveModel.Slots(4).Name = Console.ReadLine();
 
             Console.WriteLine(LanguageModel.Traductor("slotSource") + "\n");
-            SlotsSaveModel.Slots(1).FolderSource = Console.ReadLine();
+            SlotsSaveModel.Slots(4).FolderSource = Console.ReadLine();
 
             Console.WriteLine(LanguageModel.Traductor("slotTarget") + "\n");
-            SlotsSaveModel.Slots(1).FolderTarget = Console.ReadLine();
+            SlotsSaveModel.Slots(4).FolderTarget = Console.ReadLine();
         }
     }
 }

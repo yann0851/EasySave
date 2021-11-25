@@ -21,19 +21,29 @@ namespace SlotsSave
             /* Envoie vers un style de sauvegarde selon le choix de l'utilisateur */
             while (iChoiceSS != 6)
             {
-               try
+                try
                 {
                     SlotsSaveView slotsSaveView = new SlotsSaveView();
                     slotsSaveView.SlotsSaveV();
 
                     iChoiceSS = int.Parse(Console.ReadLine());
 
-                   if (iChoiceSS == 1)
+                    if (iChoiceSS == 1)
                     {
                         //sauvegarde 1
                         Console.Clear();
                         try
                         {
+                            if (SlotsSaveModel.Slots(0) != null)
+                            {
+                                ChoiceSaveController choiceSaveController = new ChoiceSaveController();
+                                choiceSaveController.ChoiceSaveC();
+                                Console.Clear();
+                            }
+                            else
+                            {
+                                slotsSaveView.Save1V();
+                            }
                             
                         }
                         catch
@@ -42,45 +52,111 @@ namespace SlotsSave
                             errorController.ErrorC();
                             Console.Clear();
                         }
-                        ChoiceSaveController choiceSaveController = new ChoiceSaveController();
-                        choiceSaveController.ChoiceSaveC();
-                        Console.Clear();
+
                     }
 
                     else if (iChoiceSS == 2)
                     {
                         //sauvegarde 2
                         Console.Clear();
-                        ChoiceSaveController choiceSaveController = new ChoiceSaveController();
-                        choiceSaveController.ChoiceSaveC();
-                        Console.Clear();
+                        try
+                        {
+                            if (SlotsSaveModel.Slots(1) != null)
+                            {
+                                ChoiceSaveController choiceSaveController = new ChoiceSaveController();
+                                choiceSaveController.ChoiceSaveC();
+                                Console.Clear();
+                            }
+                            else
+                            {
+                                slotsSaveView.Save2V();
+                            }
+
+                        }
+                        catch
+                        {
+                            ErrorController errorController = new ErrorController();
+                            errorController.ErrorC();
+                            Console.Clear();
+                        }
                     }
 
                     else if (iChoiceSS == 3)
                     {
                         //sauvegarde 3
                         Console.Clear();
-                        ChoiceSaveController choiceSaveController = new ChoiceSaveController();
-                        choiceSaveController.ChoiceSaveC();
-                        Console.Clear();
+                        try
+                        {
+                            if (SlotsSaveModel.Slots(2) != null)
+                            {
+                                ChoiceSaveController choiceSaveController = new ChoiceSaveController();
+                                choiceSaveController.ChoiceSaveC();
+                                Console.Clear();
+                            }
+                            else
+                            {
+                                slotsSaveView.Save3V();
+                            }
+
+                        }
+                        catch
+                        {
+                            ErrorController errorController = new ErrorController();
+                            errorController.ErrorC();
+                            Console.Clear();
+                        }
                     }
 
                     else if (iChoiceSS == 4)
                     {
                         //sauvegarde 4
                         Console.Clear();
-                        ChoiceSaveController choiceSaveController = new ChoiceSaveController();
-                        choiceSaveController.ChoiceSaveC();
-                        Console.Clear();
+                        try
+                        {
+                            if (SlotsSaveModel.Slots(3) != null)
+                            {
+                                ChoiceSaveController choiceSaveController = new ChoiceSaveController();
+                                choiceSaveController.ChoiceSaveC();
+                                Console.Clear();
+                            }
+                            else
+                            {
+                                slotsSaveView.Save4V();
+                            }
+
+                        }
+                        catch
+                        {
+                            ErrorController errorController = new ErrorController();
+                            errorController.ErrorC();
+                            Console.Clear();
+                        }
                     }
 
                     else if (iChoiceSS == 5)
                     {
                         //sauvegarde 5
                         Console.Clear();
-                        ChoiceSaveController choiceSaveController = new ChoiceSaveController();
-                        choiceSaveController.ChoiceSaveC();
-                        Console.Clear();
+                        try
+                        {
+                            if (SlotsSaveModel.Slots(4) != null)
+                            {
+                                ChoiceSaveController choiceSaveController = new ChoiceSaveController();
+                                choiceSaveController.ChoiceSaveC();
+                                Console.Clear();
+                            }
+                            else
+                            {
+                                slotsSaveView.Save5V();
+                            }
+
+                        }
+                        catch
+                        {
+                            ErrorController errorController = new ErrorController();
+                            errorController.ErrorC();
+                            Console.Clear();
+                        }
                     }
 
                     else if (iChoiceSS > 6)
