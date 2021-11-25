@@ -6,6 +6,7 @@ using Repository;
 using Error;
 using ChoiceSave;
 using LogD;
+using StateD;
 
 namespace Menu
 {
@@ -16,7 +17,7 @@ namespace Menu
             int iChoiceM = 0;
 
             /* Envoie vers une fonction de l'application selon le choix de l'utilisateur */
-            while (iChoiceM != 4)
+            while (iChoiceM != 5)
             {
                 MenuView MenuView = new MenuView();
                 MenuView.MenuV();
@@ -49,7 +50,15 @@ namespace Menu
                         Console.Clear();
                     }
 
-                    else if(iChoiceM>4)
+                    else if (iChoiceM == 4)
+                    {
+                        Console.Clear();
+                        StateView stateView = new StateView();
+                        stateView.StateV();
+                        Console.Clear();
+                    }
+
+                    else if(iChoiceM>5)
                     {
                         ErrorController errorController = new ErrorController();
                         errorController.ErrorC();

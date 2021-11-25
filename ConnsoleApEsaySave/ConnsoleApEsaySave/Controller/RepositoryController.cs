@@ -9,6 +9,7 @@ using Microsoft.Win32;
 using System.Diagnostics;
 using System.IO;
 using LogD;
+using StateD;
 using ConsoleAppEasySave.Model;
 using System.Security.Cryptography;
 
@@ -19,15 +20,17 @@ namespace Repository
         
         RepositoryModel repositoryModel = new RepositoryModel();
         LogController logController = new LogController();
+        StateController stateController = new StateController();
         JobFile jobFile = new JobFile();
+        JobState jobState = new JobState();
 
         System.Diagnostics.Stopwatch cWatch = new System.Diagnostics.Stopwatch();
 
         /* Demande d'entrée du chemin source et du chemin cible du fichier à sauvegarder */
         public void RepositoryC()
         {
-            cWatch.Start();
             RepositoryView RepositoryView = new RepositoryView();
+
             RepositoryView.RepositoryNameV();
 
             string sName = Console.ReadLine();
@@ -46,10 +49,13 @@ namespace Repository
             CreateDirectory(repositoryModel.TargetRepository);
         }
 
+
         /* Sauvegarde Complète */
         public void PartialCopyRepository()
         {
             RepositoryC();
+
+            cWatch.Start();
             //List<JobFile> files = new List<JobFile>();
 
             string[] files = Directory.GetFiles(repositoryModel.SourceRepository); // tableau ou on récupère les fichiers
@@ -143,13 +149,16 @@ namespace Repository
             TimeSpan Time = cWatch.Elapsed;
             repositoryModel.FileTransfertRepository = Time.ToString(@"m\:ss\.fff");
 
-            ObjectJson();
+            ObjectJsonLog();
+            ObjectJsonState();
+
         }
 
         public void FullCopyRepository()
         {
             RepositoryC();
 
+            cWatch.Start();
             string[] files = Directory.GetFiles(repositoryModel.SourceRepository); // tableau ou on récupère les fichiers
             foreach (string sFile in files) // Pour chaque fichier
             {
@@ -204,7 +213,9 @@ namespace Repository
             cWatch.Stop();
             TimeSpan Time = cWatch.Elapsed;
             repositoryModel.FileTransfertRepository = Time.ToString(@"m\:ss\.fff");
-            ObjectJson();
+
+            ObjectJsonLog();
+            ObjectJsonState();
 
         }
         public void DeleteFile(string sSourceRepository, string sTargetRepository) // à OPTI
@@ -274,7 +285,7 @@ namespace Repository
             }
         }
 
-        public void ObjectJson()
+        public void ObjectJsonLog()
         {
             jobFile.FileSource = repositoryModel.SourceRepository;
             jobFile.FileTarget = repositoryModel.TargetRepository;
@@ -286,6 +297,20 @@ namespace Repository
             //TODO les autres attributs
             //repositoryModel.SourceRepository,repositoryModel.TargetRepository, repositoryModel.NameLogRepository
             logController.CreateLog(jobFile);
+        }
+
+        public void ObjectJsonState()
+        {
+            jobState.Name = repositoryModel.NameLogRepository;
+            jobState.SourceFilePath = repositoryModel.SourceRepository;
+            jobState.TargetFilePath = repositoryModel.TargetRepository;
+            jobState.State = repositoryModel.SourceRepository;
+            jobState.TotalFilesToCopy = repositoryModel.SourceRepository;
+            jobState.TotalFilesSize = repositoryModel.SourceRepository;
+            jobState.NbFilesLeftToDo = repositoryModel.TargetRepository;
+            jobState.Progression = repositoryModel.TargetRepository;
+            stateController.CreateState(jobState);
+
         }
 
         public void LengthDirectory(string sFolder)
