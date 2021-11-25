@@ -21,17 +21,27 @@ namespace SlotsSave
             /* Envoie vers un style de sauvegarde selon le choix de l'utilisateur */
             while (iChoiceSS != 6)
             {
-                try
+               try
                 {
                     SlotsSaveView slotsSaveView = new SlotsSaveView();
                     slotsSaveView.SlotsSaveV();
 
                     iChoiceSS = int.Parse(Console.ReadLine());
 
-                    if (iChoiceSS == 1)
+                   if (iChoiceSS == 1)
                     {
                         //sauvegarde 1
                         Console.Clear();
+                        try
+                        {
+                            
+                        }
+                        catch
+                        {
+                            ErrorController errorController = new ErrorController();
+                            errorController.ErrorC();
+                            Console.Clear();
+                        }
                         ChoiceSaveController choiceSaveController = new ChoiceSaveController();
                         choiceSaveController.ChoiceSaveC();
                         Console.Clear();
@@ -79,9 +89,9 @@ namespace SlotsSave
                         errorController.ErrorC();
                         Console.Clear();
                     }
-                }
+                 }
 
-                catch
+               catch
                 {
                     ErrorController errorController = new ErrorController();
                     errorController.ErrorC();

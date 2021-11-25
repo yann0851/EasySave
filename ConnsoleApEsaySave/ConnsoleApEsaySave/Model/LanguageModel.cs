@@ -26,7 +26,10 @@ namespace Language
                 { "langchoice 2", new Dictionary<string, string> { { "FR", "Anglais" }, { "EN", "English" } } },
                 { "langchoice 3", new Dictionary<string, string> { { "FR", "Retour au menu." }, { "EN", "Back to menu." } } },
                 { "back", new Dictionary<string, string> { { "FR", "Retour." }, { "EN", "Back." } } },
-                { "delete", new Dictionary<string, string> { { "FR", "Supprimer la sauvegarde." }, { "EN", "Delete the save." } } }
+                { "delete", new Dictionary<string, string> { { "FR", "Supprimer la sauvegarde." }, { "EN", "Delete the save." } } },
+                { "slotName", new Dictionary<string, string> { { "FR", "Entrer un nom de sauvegarde :" }, { "EN", "Enter a save name:" } } },
+                { "slotSource", new Dictionary<string, string> { { "FR", "Entrer un dossier source :" }, { "EN", "Enter a source folder:" } } },
+                { "slotTarget", new Dictionary<string, string> { { "FR", "Entrer un dossier cible :" }, { "EN", "Enter a target folder:" } } }
             };
         
         /* Initialisation du langage par défaut en français */
