@@ -11,21 +11,18 @@ using Serilog;
 using Newtonsoft.Json.Linq;
 using Repository;
 using Menu;
-using ConnsoleAppEsaySave.Model;
+using ConsoleAppEasySave.Model;
 using Newtonsoft.Json;
 
 namespace LogD
 {
-    
     public class LogController
     {
         RepositoryModel repositoryModel = new RepositoryModel();
         MenuView menuView = new MenuView();        
 
-
         public void LogAffichage()
         {
-
             string pathlog = @"C:\EasySave\Log\Sample_log.txt";
             if (!File.Exists(pathlog))
             {
@@ -45,19 +42,16 @@ namespace LogD
 
         public void CreateLog(JobFile j)
         {
-            
             string Json = JsonConvert.SerializeObject(j, Formatting.Indented);
             /*
             string dossier = RecupTarget;
             DirectoryInfo fInfo = new DirectoryInfo(dossier);
             int size = (int)fInfo.Length;//taille en octets
 
-
             string str = "{\n\n\"" + sContext_name + "\":{ \n\"Name\": \"" + sName + "\",\n\"FileSource\": \"" + sName + "\",\n\"FileTarget\": \"" + sName + "\",\n\"DestPath\": \"mettre DestPath\",\n\"FileSize\": \"" + sName + "\",\n\"FileTransferTime\": \"TIME\",}}\n";
             */
             JObject json = JObject.Parse(Json);
             
-
             //création du fichier log et où il sera créé avec des infos
             using (var Log = new LoggerConfiguration()
                 .WriteTo.File(@"C:\EasySave\Log\Sample_log.txt")//, rollingInterval: RollingInterval.Day//) 
@@ -66,59 +60,6 @@ namespace LogD
             {
                 Log.Information(Json);
             };
-                
-
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        public void HeadShrek()
-        {
-            Console.WriteLine(@"
-⡴⠑⡄⠀⠀⠀⠀⠀⠀⠀ ⣀⣀⣤⣤⣤⣀⡀
-⠸⡇⠀⠿⡀⠀⠀⠀⣀⡴⢿⣿⣿⣿⣿⣿⣿⣿⣷⣦⡀
-⠀⠀⠀⠀⠑⢄⣠⠾⠁⣀⣄⡈⠙⣿⣿⣿⣿⣿⣿⣿⣿⣆
-⠀⠀⠀⠀⢀⡀⠁⠀⠀⠈⠙⠛⠂⠈⣿⣿⣿⣿⣿⠿⡿⢿⣆
-⠀⠀⠀⢀⡾⣁⣀⠀⠴⠂⠙⣗⡀⠀⢻⣿⣿⠭⢤⣴⣦⣤⣹⠀⠀⠀⢀⢴⣶⣆
-⠀⠀⢀⣾⣿⣿⣿⣷⣮⣽⣾⣿⣥⣴⣿⣿⡿⢂⠔⢚⡿⢿⣿⣦⣴⣾⠸⣼⡿
-⠀⢀⡞⠁⠙⠻⠿⠟⠉⠀⠛⢹⣿⣿⣿⣿⣿⣌⢤⣼⣿⣾⣿⡟⠉
-⠀⣾⣷⣶⠇⠀⠀⣤⣄⣀⡀⠈⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇
-⠀⠉⠈⠉⠀⠀⢦⡈⢻⣿⣿⣿⣶⣶⣶⣶⣤⣽⡹⣿⣿⣿⣿⡇
-⠀⠀⠀⠀⠀⠀⠀⠉⠲⣽⡻⢿⣿⣿⣿⣿⣿⣿⣷⣜⣿⣿⣿⡇
-⠀⠀ ⠀⠀⠀⠀⠀⢸⣿⣿⣷⣶⣮⣭⣽⣿⣿⣿⣿⣿⣿⣿⠇
-⠀⠀⠀⠀⠀⠀⣀⣀⣈⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇
-⠀⠀⠀⠀⠀⠀⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠃");
-
-        }
-
-
-
-
-
-
     }
 }

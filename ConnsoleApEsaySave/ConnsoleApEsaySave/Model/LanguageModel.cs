@@ -7,7 +7,6 @@ namespace Language
     class LanguageModel
     {
         /* Création du dictionnaire permettant de traduire l'application */
-
         static Dictionary<string, Dictionary<string, string>> dLanguage = new Dictionary<string, Dictionary<string, string>>
             {
                 { "choice", new Dictionary<string, string> { { "FR", "Faites votre choix :" },{ "EN", "Make your choice:" } } },
@@ -34,6 +33,5 @@ namespace Language
         {
             return dLanguage[sChoice][sCurrentLanguage];
         }
-
     }
 }

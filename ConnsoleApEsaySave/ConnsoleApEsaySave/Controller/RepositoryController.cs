@@ -9,7 +9,7 @@ using Microsoft.Win32;
 using System.Diagnostics;
 using System.IO;
 using LogD;
-using ConnsoleAppEsaySave.Model;
+using ConsoleAppEasySave.Model;
 using System.Security.Cryptography;
 
 namespace Repository

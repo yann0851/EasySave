@@ -22,7 +22,6 @@ namespace LogD
             Console.WriteLine(sLogs);
             Console.WriteLine("\n" + "████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████\n");
             Console.ForegroundColor = ConsoleColor.Gray;
-
             LogController logController = new LogController();
 
             //Création du log
