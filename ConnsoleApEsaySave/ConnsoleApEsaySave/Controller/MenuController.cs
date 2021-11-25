@@ -7,6 +7,8 @@ using Error;
 using ChoiceSave;
 using LogD;
 using StateD;
+using SlotsSave;
+
 
 namespace Menu
 {
@@ -37,8 +39,8 @@ namespace Menu
                     else if (iChoiceM == 2)
                     {
                         Console.Clear();
-                        ChoiceSaveController choiceSaveController = new ChoiceSaveController();
-                        choiceSaveController.ChoiceSaveC();
+                        SlotsSaveController slotsSaveController = new SlotsSaveController();
+                        slotsSaveController.SlotsSaveC();
                         Console.Clear();
                     }
 

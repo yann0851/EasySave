@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Text;
 using Language;
 
-namespace ChoiceSave
+namespace SlotsSave
 {
-    class ChoiceSaveView
+    class SlotsSaveView
     {
-        public void SaveMenuV()
+        public void SlotsSaveV()
         {
             /* Ecriture du menu du choix de sauvegarde */
             Console.ForegroundColor = ConsoleColor.DarkCyan;
@@ -23,13 +23,15 @@ namespace ChoiceSave
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine(
                    LanguageModel.Traductor("choice") + "\n" + "\n" +
-                    "1. " + LanguageModel.Traductor("savechoice 1") + "\n" +
-                    "2. " + LanguageModel.Traductor("savechoice 2") + "\n"
+                    "1. " + "" + "\n" +
+                    "2. " + "" + "\n" +
+                    "3. " + "" + "\n" +
+                    "4. " + "" + "\n" +
+                    "5. " + "" + "\n"
                     );
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine(
-                    "3. " + LanguageModel.Traductor("delete") + "\n" + "\n" +
-                    "4. " + LanguageModel.Traductor("back") + "\n"
+                    "6. " + LanguageModel.Traductor("menuback") + "\n"
                     );
             Console.ForegroundColor = ConsoleColor.DarkCyan;
             Console.WriteLine("\n" + "████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████\n");

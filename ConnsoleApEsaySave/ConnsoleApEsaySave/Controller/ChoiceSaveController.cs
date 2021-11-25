@@ -20,7 +20,7 @@ namespace ChoiceSave
             int iChoiceS = 0;
 
             /* Envoie vers un style de sauvegarde selon le choix de l'utilisateur */
-            while (iChoiceS != 3)
+            while (iChoiceS != 4)
             {
                 try
                 {
@@ -49,7 +49,13 @@ namespace ChoiceSave
                         Console.Clear();
                     }
 
-                    else if (iChoiceS > 3)
+                    else if (iChoiceS == 3)
+                    {
+                        //supprimer sauvegarde
+                        Console.Clear();
+                    }
+
+                    else if (iChoiceS > 4)
                     {
                         ErrorController errorController = new ErrorController();
                         errorController.ErrorC();

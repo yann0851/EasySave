@@ -21,10 +21,12 @@ namespace Language
                 { "error", new Dictionary<string, string> { { "FR", "Une erreur s'est produite. Veuillez entrer un choix valide." }, { "EN", "An error has occurred. Please enter a valid choice." } } },
                 { "savechoice 1", new Dictionary<string, string> { { "FR", "Copie complète." }, { "EN", "Full Copy." } } },
                 { "savechoice 2", new Dictionary<string, string> { { "FR", "Copie partielle." }, { "EN", "Partial copy." } } },
-                { "savechoice 3", new Dictionary<string, string> { { "FR", "Retour au menu." }, { "EN", "Back to menu." } } },
+                { "menuback", new Dictionary<string, string> { { "FR", "Retour au menu." }, { "EN", "Back to menu." } } },
                 { "langchoice 1", new Dictionary<string, string> { { "FR", "Français" }, { "EN", "French" } } },
                 { "langchoice 2", new Dictionary<string, string> { { "FR", "Anglais" }, { "EN", "English" } } },
-                { "langchoice 3", new Dictionary<string, string> { { "FR", "Retour au menu." }, { "EN", "Back to menu." } } }
+                { "langchoice 3", new Dictionary<string, string> { { "FR", "Retour au menu." }, { "EN", "Back to menu." } } },
+                { "back", new Dictionary<string, string> { { "FR", "Retour." }, { "EN", "Back." } } },
+                { "delete", new Dictionary<string, string> { { "FR", "Supprimer la sauvegarde." }, { "EN", "Delete the save." } } }
             };
         
         /* Initialisation du langage par défaut en français */
