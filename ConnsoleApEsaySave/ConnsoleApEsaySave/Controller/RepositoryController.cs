@@ -32,17 +32,13 @@ namespace Repository
         {
             RepositoryView RepositoryView = new RepositoryView();
 
-            RepositoryView.RepositoryNameV();
-
-            RepositoryView.RepositorySourceV();
+            RepositoryView.RepositoryStateV();
 
             SaveModel smTemp = SlotsSaveModel.Slots(SlotsSaveModel.iCurrentSlot);
 
             string sSource = smTemp.FolderSource;
             repositoryModel.SourceRepository = @sSource;
             CreateDirectory(repositoryModel.SourceRepository);
-
-            RepositoryView.RepositoryTargetV();
 
             string sTarget = smTemp.FolderTarget;
             repositoryModel.TargetRepository = @sTarget;

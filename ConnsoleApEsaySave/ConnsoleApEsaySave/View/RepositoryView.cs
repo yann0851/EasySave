@@ -10,21 +10,12 @@ namespace Repository
 {
     class RepositoryView
     {
-        /* Affichage du message demandant le fichier source */
-        public void RepositoryNameV()
-        {
-            Console.WriteLine(LanguageModel.Traductor("nom_sauvegarde"));
-        }
-        public void RepositorySourceV()
-        {
-            Console.WriteLine(LanguageModel.Traductor("source"));          
-        }
-
-        /* Affichage du message demandant le fichier cible */
-        public void RepositoryTargetV()
-        {
-            Console.WriteLine(LanguageModel.Traductor("target"));
-        }
+        /* Affichage d'un message durant la sauvegarde */
+        public void RepositoryStateV()
+         {
+             Console.WriteLine(LanguageModel.Traductor("progress"));
+         }
+         
 
     }
 }
