@@ -21,7 +21,7 @@ namespace SlotsSave
 
         public static int iCurrentSlot;
 
-        static string sPathSlots = @"C:\EasySave\Slots\Slots.txt";
+        public static string sPathSlots = @"C:\EasySave\Slots\Slots.txt";
 
         public static ref SaveModel Slots(int iSlots)
         {
@@ -29,13 +29,13 @@ namespace SlotsSave
         }
 
 
+
         public static void SaveSlots()
         {
-            RepositoryController.CreateDirectory(@"C:\EasySave\Slots");
 
-            string Json = JsonConvert.SerializeObject(slotsSave, Formatting.Indented);
-          
-            File.WriteAllText(sPathSlots, Json); 
+                RepositoryController.CreateDirectory(@"C:\EasySave\Slots");
+                string Json = JsonConvert.SerializeObject(slotsSave, Formatting.Indented);
+                File.WriteAllText(sPathSlots, Json);
         }
 
         public static void LoadSlots()

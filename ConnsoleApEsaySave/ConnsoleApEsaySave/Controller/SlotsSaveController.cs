@@ -9,6 +9,7 @@ using Serilog;
 using Newtonsoft.Json.Linq;
 using LogD;
 using ChoiceSave;
+using System.IO;
 
 namespace SlotsSave
 {
@@ -17,7 +18,15 @@ namespace SlotsSave
         public void SlotsSaveC()
         {
             int iChoiceSS = 0;
+
+            if(!File.Exists(SlotsSaveModel.sPathSlots))
+            {
+                SlotsSaveModel.SaveSlots();
+            }
+            
             SlotsSaveModel.LoadSlots();
+            
+
 
             /* Envoie vers un style de sauvegarde selon le choix de l'utilisateur */
             while (iChoiceSS != 6)
