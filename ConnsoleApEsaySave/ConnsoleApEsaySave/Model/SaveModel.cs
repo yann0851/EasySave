@@ -28,10 +28,6 @@ namespace SlotsSave
             return ref slotsSave[iSlots];
         }
 
-        public static void LoadSlots()
-        {
-
-        }
 
         public static void SaveSlots()
         {
@@ -39,10 +35,14 @@ namespace SlotsSave
 
             string Json = JsonConvert.SerializeObject(slotsSave, Formatting.Indented);
           
+            File.WriteAllText(sPathSlots, Json); 
+        }
 
-            File.WriteAllText(sPathSlots, Json);
+        public static void LoadSlots()
+        {
+            string sReadSlots = File.ReadAllText(sPathSlots);
 
-            
+            slotsSave = JsonConvert.DeserializeObject<SaveModel[]>(sReadSlots);
         }
     }
 
