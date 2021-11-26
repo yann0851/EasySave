@@ -263,7 +263,7 @@ namespace Repository
 
             }
         }
-        public void CreateDirectory(string sCreateDirectory)
+        public static void CreateDirectory(string sCreateDirectory)
         {
             if (!Directory.Exists(sCreateDirectory)) // test si le répertoire existe ou pas
             {

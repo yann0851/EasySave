@@ -44,6 +44,7 @@ namespace SlotsSave
                             else
                             {
                                 slotsSaveView.Save1V();
+                                SlotsSaveModel.SaveSlots();
                                 Console.Clear();
                             }
                             
@@ -186,10 +187,6 @@ namespace SlotsSave
             }
         }
 
-        internal string SlotsNameC(object sName1)
-        {
-            throw new NotImplementedException();
-        }
     }
 
 }
