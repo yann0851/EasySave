@@ -27,7 +27,6 @@ namespace SlotsSave
             SlotsSaveModel.LoadSlots();
             
 
-
             /* Envoie vers un style de sauvegarde selon le choix de l'utilisateur */
             while (iChoiceSS != 6)
             {

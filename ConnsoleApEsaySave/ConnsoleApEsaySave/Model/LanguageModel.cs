@@ -30,7 +30,7 @@ namespace Language
                 { "slotName", new Dictionary<string, string> { { "FR", "Entrer un nom de sauvegarde :" }, { "EN", "Enter a save name:" } } },
                 { "slotSource", new Dictionary<string, string> { { "FR", "Entrer un dossier source :" }, { "EN", "Enter a source folder:" } } },
                 { "slotTarget", new Dictionary<string, string> { { "FR", "Entrer un dossier cible :" }, { "EN", "Enter a target folder:" } } },
-                { "logs", new Dictionary<string, string> { { "FR", "Le fichier log n'existe pas, veuillez faire une sauvegarde." }, { "EN", "The log file does not exist, please make a backup." } } },
+                { "logs", new Dictionary<string, string> { { "FR", "Le fichier n'existe pas, veuillez faire une sauvegarde." }, { "EN", "The file does not exist, please make a backup." } } },
                 { "progress", new Dictionary<string, string> { { "FR", "Ne pas quitter l'application. Sauvegarde en cours." }, { "EN", "Do not quit the application. Backup in progress." } } }
 
             };
