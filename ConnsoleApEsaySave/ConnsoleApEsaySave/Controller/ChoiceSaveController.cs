@@ -9,6 +9,7 @@ using Serilog;
 using Newtonsoft.Json.Linq;
 using LogD;
 using StateD;
+using SlotsSave;
 
 namespace ChoiceSave
 {
@@ -20,7 +21,7 @@ namespace ChoiceSave
             int iChoiceS = 0;
 
             /* Envoie vers un style de sauvegarde selon le choix de l'utilisateur */
-            while (iChoiceS != 4)
+            while (iChoiceS != 4 && iChoiceS != 3)
             {
                 try
                 {
@@ -52,6 +53,8 @@ namespace ChoiceSave
                     else if (iChoiceS == 3)
                     {
                         //supprimer sauvegarde
+                        Console.Clear();
+                        SlotsSaveModel.Slots(SlotsSaveModel.iCurrentSlot) = null;
                         Console.Clear();
                     }
 
