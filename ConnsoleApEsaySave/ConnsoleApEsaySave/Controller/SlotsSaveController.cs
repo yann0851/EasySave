@@ -17,7 +17,9 @@ namespace SlotsSave
         public void SlotsSaveC()
         {
             int iChoiceSS = 0;
+            SlotsSaveModel.SaveSlots();
             SlotsSaveModel.LoadSlots();
+            
 
             /* Envoie vers un style de sauvegarde selon le choix de l'utilisateur */
             while (iChoiceSS != 6)
