@@ -14,11 +14,11 @@ namespace Menu
 {
     class MenuController
     {
+        /* Envoie vers une fonction de l'application selon le choix de l'utilisateur */
         public void MenuC()
         {
             int iChoiceM = 0;
 
-            /* Envoie vers une fonction de l'application selon le choix de l'utilisateur */
             while (iChoiceM != 5)
             {
                 MenuView MenuView = new MenuView();
@@ -27,7 +27,8 @@ namespace Menu
                 try
                 {
                     iChoiceM = int.Parse(Console.ReadLine());
-                
+
+                    /* Lance le choix de la langue */
                     if (iChoiceM == 1)
                     {
                         Console.Clear();
@@ -36,6 +37,7 @@ namespace Menu
                         Console.Clear();
                     }
 
+                    /* Lance le choix de la sauvegarde */
                     else if (iChoiceM == 2)
                     {
                         Console.Clear();
@@ -44,6 +46,7 @@ namespace Menu
                         Console.Clear();
                     }
 
+                    /* Lance l'affichage des logs */
                     else if (iChoiceM == 3)
                     {
                         Console.Clear();
@@ -52,6 +55,7 @@ namespace Menu
                         Console.Clear();
                     }
 
+                    /* Lance l'affichage de l'état des sauvegardes */
                     else if (iChoiceM == 4)
                     {
                         Console.Clear();
@@ -60,7 +64,8 @@ namespace Menu
                         Console.Clear();
                     }
 
-                    else if(iChoiceM>5)
+                    /* Affichage d'une erreur en cas de saisie invalide de l'utilisateur */
+                    else if (iChoiceM>5)
                     {
                         ErrorController errorController = new ErrorController();
                         errorController.ErrorC();
@@ -68,6 +73,7 @@ namespace Menu
                     }
                 }
 
+                /* Affichage d'une erreur en cas de disfonctionnement */
                 catch
                 {
                     ErrorController errorController = new ErrorController();

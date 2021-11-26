@@ -10,6 +10,7 @@ namespace StateD
 {
     class StateView
     {
+        /* Affichage de l'interface concernant les logs */
         public void StateV()
         {
             Console.ForegroundColor = ConsoleColor.DarkCyan;

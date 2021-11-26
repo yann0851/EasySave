@@ -29,7 +29,9 @@ namespace Language
                 { "delete", new Dictionary<string, string> { { "FR", "Supprimer la sauvegarde." }, { "EN", "Delete the save." } } },
                 { "slotName", new Dictionary<string, string> { { "FR", "Entrer un nom de sauvegarde :" }, { "EN", "Enter a save name:" } } },
                 { "slotSource", new Dictionary<string, string> { { "FR", "Entrer un dossier source :" }, { "EN", "Enter a source folder:" } } },
-                { "slotTarget", new Dictionary<string, string> { { "FR", "Entrer un dossier cible :" }, { "EN", "Enter a target folder:" } } }
+                { "slotTarget", new Dictionary<string, string> { { "FR", "Entrer un dossier cible :" }, { "EN", "Enter a target folder:" } } },
+                { "logs", new Dictionary<string, string> { { "FR", "Le fichier log n'existe pas, veuillez faire une sauvegarde." }, { "EN", "The log file does not exist, please make a backup." } } }
+
             };
         
         /* Initialisation du langage par défaut en français */

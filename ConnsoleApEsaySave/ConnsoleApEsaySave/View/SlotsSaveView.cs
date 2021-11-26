@@ -71,6 +71,18 @@ namespace SlotsSave
         {
             SlotsSaveModel.Slots(0) = new SaveModel();
 
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            string sSlot1 = @"
+                                                            ██ 
+                                                           ███ 
+                                                            ██ 
+                                                            ██ 
+                                                            ██
+            ";
+            Console.WriteLine(sSlot1);
+            Console.WriteLine("\n" + "████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████\n");
+            Console.ForegroundColor = ConsoleColor.Gray;
+
             Console.WriteLine(LanguageModel.Traductor("slotName") + "\n");
             SlotsSaveModel.Slots(0).Name = Console.ReadLine();
 
@@ -84,6 +96,19 @@ namespace SlotsSave
         public void Save2V()
         {
             SlotsSaveModel.Slots(1) = new SaveModel();
+
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            string sSlot2 = @"
+                                                            ██████  
+                                                                 ██ 
+                                                             █████  
+                                                            ██      
+                                                            ███████ 
+        
+            ";
+            Console.WriteLine(sSlot2);
+            Console.WriteLine("\n" + "████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████\n");
+            Console.ForegroundColor = ConsoleColor.Gray;
 
             Console.WriteLine(LanguageModel.Traductor("slotName") + "\n");
             SlotsSaveModel.Slots(1).Name = Console.ReadLine();
@@ -99,6 +124,18 @@ namespace SlotsSave
         {
             SlotsSaveModel.Slots(2) = new SaveModel();
 
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            string sSlot3 = @"
+                                                            ██████  
+                                                                 ██ 
+                                                             █████  
+                                                                 ██ 
+                                                            ██████ 
+            ";
+            Console.WriteLine(sSlot3);
+            Console.WriteLine("\n" + "████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████\n");
+            Console.ForegroundColor = ConsoleColor.Gray;
+
             Console.WriteLine(LanguageModel.Traductor("slotName") + "\n");
             SlotsSaveModel.Slots(2).Name = Console.ReadLine();
 
@@ -113,6 +150,18 @@ namespace SlotsSave
         {
             SlotsSaveModel.Slots(3) = new SaveModel();
 
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            string sSlot4 = @"
+                                                            ██   ██ 
+                                                            ██   ██ 
+                                                            ███████ 
+                                                                 ██ 
+                                                                 ██
+            ";
+            Console.WriteLine(sSlot4);
+            Console.WriteLine("\n" + "████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████\n");
+            Console.ForegroundColor = ConsoleColor.Gray;
+
             Console.WriteLine(LanguageModel.Traductor("slotName") + "\n");
             SlotsSaveModel.Slots(3).Name = Console.ReadLine();
 
@@ -126,6 +175,18 @@ namespace SlotsSave
         public void Save5V()
         {
             SlotsSaveModel.Slots(4) = new SaveModel();
+
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            string sSlot5 = @"
+                                                            ███████ 
+                                                            ██      
+                                                            ███████ 
+                                                                 ██ 
+                                                            ███████ 
+            ";
+            Console.WriteLine(sSlot5);
+            Console.WriteLine("\n" + "████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████\n");
+            Console.ForegroundColor = ConsoleColor.Gray;
 
             Console.WriteLine(LanguageModel.Traductor("slotName") + "\n");
             SlotsSaveModel.Slots(4).Name = Console.ReadLine();

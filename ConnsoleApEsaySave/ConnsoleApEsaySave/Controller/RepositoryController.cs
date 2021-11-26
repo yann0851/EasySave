@@ -27,7 +27,7 @@ namespace Repository
 
         System.Diagnostics.Stopwatch cWatch = new System.Diagnostics.Stopwatch();
 
-        /* Demande d'entrée du chemin source et du chemin cible du fichier à sauvegarder */
+        
         public void RepositoryC()
         {
             RepositoryView RepositoryView = new RepositoryView();

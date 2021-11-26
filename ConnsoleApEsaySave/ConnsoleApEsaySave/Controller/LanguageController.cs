@@ -13,7 +13,6 @@ namespace Language
             /* Affichage des différentes langues et attente du choix de la part de l'utilisateur */
             int iChoiceL = 0;
 
-            /* Change de langue selon le choix de l'utilisateur */
             while (iChoiceL != 3)
             {
                 try
@@ -23,6 +22,7 @@ namespace Language
 
                     iChoiceL = int.Parse(Console.ReadLine());
 
+                    /* Change la langue en français */
                     if (iChoiceL == 1)
                     {
                         string sLang = "FR";
@@ -31,6 +31,7 @@ namespace Language
 
                     }
 
+                    /* Change la langue en anglais */
                     else if (iChoiceL == 2)
                     {
                         string sLang = "EN";
@@ -38,6 +39,7 @@ namespace Language
                         Console.Clear();
                     }
 
+                    /* Affichage d'une erreur en cas de saisie invalide de l'utilisateur */
                     else if (iChoiceL > 3)
                     {
                         ErrorController errorController = new ErrorController();
@@ -46,6 +48,7 @@ namespace Language
                     }
                 }
 
+                /* Affichage d'une erreur en cas de disfonctionnement */
                 catch
                 {
                     ErrorController errorController = new ErrorController();

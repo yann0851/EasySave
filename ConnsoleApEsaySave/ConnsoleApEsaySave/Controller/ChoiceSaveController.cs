@@ -16,11 +16,11 @@ namespace ChoiceSave
     class ChoiceSaveController
     {
         RepositoryModel repositoryModel = new RepositoryModel();
+        /* Choix du style de sauvegarde selon le choix de l'utilisateur */
         public void ChoiceSaveC()
         {
             int iChoiceS = 0;
 
-            /* Envoie vers un style de sauvegarde selon le choix de l'utilisateur */
             while (iChoiceS != 4 && iChoiceS != 3)
             {
                 try
@@ -30,34 +30,36 @@ namespace ChoiceSave
 
                     iChoiceS = int.Parse(Console.ReadLine());
 
+                    /* Sauvegarde Complète */
                     if (iChoiceS == 1)
                     {
                         RepositoryController repositoryController = new RepositoryController();
                         repositoryController.FullCopyRepository();
                         LogController logController = new LogController();
                         StateController stateController = new StateController();
-                        //logController.CreateLog();
                         Console.Clear();
                     }
 
+                    /* Sauvegarde Partielle */
                     else if (iChoiceS == 2)
                     {
                         RepositoryController repositoryController = new RepositoryController();
                         repositoryController.PartialCopyRepository();
                         LogController logController = new LogController();
                         StateController stateController = new StateController();
-                        //logController.CreateLog();
                         Console.Clear();
                     }
 
+                    /* Suppresion de la sauvegarde */
                     else if (iChoiceS == 3)
                     {
-                        //supprimer sauvegarde
                         Console.Clear();
                         SlotsSaveModel.Slots(SlotsSaveModel.iCurrentSlot) = null;
+                        SlotsSaveModel.SaveSlots();
                         Console.Clear();
                     }
 
+                    /* Affichage d'une erreur en cas de saisie invalide de l'utilisateur */
                     else if (iChoiceS > 4)
                     {
                         ErrorController errorController = new ErrorController();
@@ -66,6 +68,7 @@ namespace ChoiceSave
                     }
                 }
 
+                /* Affichage d'une erreur en cas de disfonctionnement */
                 catch
                 {
                     ErrorController errorController = new ErrorController();

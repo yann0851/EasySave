@@ -35,6 +35,7 @@ namespace SlotsSave
                         Console.Clear();
                         try
                         {
+                            /* Si la sauvegarde existe déjà envoie vers le choix du type de sauvegarde voulu */
                             if (SlotsSaveModel.Slots(0) != null)
                             {
                                 SlotsSaveModel.iCurrentSlot = 0;
@@ -42,6 +43,7 @@ namespace SlotsSave
                                 choiceSaveController.ChoiceSaveC();
                                 Console.Clear();
                             }
+                            /* Si la sauvegarde n'existe pas, création de la sauvegarde */
                             else
                             {
                                 slotsSaveView.Save1V();
@@ -75,6 +77,7 @@ namespace SlotsSave
                             else
                             {
                                 slotsSaveView.Save2V();
+                                SlotsSaveModel.SaveSlots();
                                 Console.Clear();
                             }
 
@@ -103,6 +106,7 @@ namespace SlotsSave
                             else
                             {
                                 slotsSaveView.Save3V();
+                                SlotsSaveModel.SaveSlots();
                                 Console.Clear();
                             }
 
@@ -131,6 +135,7 @@ namespace SlotsSave
                             else
                             {
                                 slotsSaveView.Save4V();
+                                SlotsSaveModel.SaveSlots();
                                 Console.Clear();
                             }
 
@@ -159,6 +164,7 @@ namespace SlotsSave
                             else
                             {
                                 slotsSaveView.Save5V();
+                                SlotsSaveModel.SaveSlots();
                                 Console.Clear();
                             }
 
