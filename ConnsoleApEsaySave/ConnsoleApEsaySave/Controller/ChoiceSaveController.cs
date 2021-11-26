@@ -37,6 +37,8 @@ namespace ChoiceSave
                         repositoryController.FullCopyRepository();
                         LogController logController = new LogController();
                         StateController stateController = new StateController();
+                        logController.CreateLog();
+                        stateController.CreateState();
                         Console.Clear();
                     }
 
@@ -47,6 +49,8 @@ namespace ChoiceSave
                         repositoryController.PartialCopyRepository();
                         LogController logController = new LogController();
                         StateController stateController = new StateController();
+                        logController.CreateLog();
+                        stateController.CreateState();
                         Console.Clear();
                     }
 

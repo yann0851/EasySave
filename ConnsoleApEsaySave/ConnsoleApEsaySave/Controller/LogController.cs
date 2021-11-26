@@ -43,6 +43,11 @@ namespace LogD
             }
         }
 
+        internal void CreateLog()
+        {
+            throw new NotImplementedException();
+        }
+
         public void CreateLog(JobFile j)
         {
             string Json = JsonConvert.SerializeObject(j, Formatting.Indented);

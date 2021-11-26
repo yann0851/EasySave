@@ -11,6 +11,7 @@ namespace Repository
         public string SourceRepository { get; set; }
         public string TargetRepository { get; set; } 
         public long LengthRepository { get; set; }
+        public long TotalRepository { get; set; }
         public string FileTransfertRepository { get; set; }
     }
 }

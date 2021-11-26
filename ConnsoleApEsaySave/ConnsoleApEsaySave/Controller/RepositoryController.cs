@@ -43,6 +43,10 @@ namespace Repository
             string sTarget = smTemp.FolderTarget;
             repositoryModel.TargetRepository = @sTarget;
             CreateDirectory(repositoryModel.TargetRepository);
+
+            string sName = smTemp.FolderSource;
+            repositoryModel.SourceRepository = @sName;
+            CreateDirectory(repositoryModel.SourceRepository);
         }
 
 
@@ -87,7 +91,8 @@ namespace Repository
                     }
                     DeleteFile(repositoryModel.SourceRepository, repositoryModel.TargetRepository);
                     DeleteFolder(repositoryModel.SourceRepository, repositoryModel.TargetRepository);
-                    LengthDirectory(repositoryModel.SourceRepository);
+                    LengthRepository(repositoryModel.SourceRepository);
+                    TotalRepository(repositoryModel.SourceRepository);
                 }
             }
             string[] folders = Directory.GetDirectories(repositoryModel.SourceRepository);
@@ -138,7 +143,7 @@ namespace Repository
 
                 }
 
-                LengthDirectory(sFolder);
+                LengthRepository(sFolder);
             }
 
             cWatch.Stop();
@@ -170,7 +175,8 @@ namespace Repository
 
                 }
             }
-            LengthDirectory(repositoryModel.SourceRepository);
+            LengthRepository(repositoryModel.SourceRepository);
+            TotalRepository(repositoryModel.SourceRepository);
 
             string[] folders = Directory.GetDirectories(repositoryModel.SourceRepository);
             foreach (string sFolder in folders) // Récupérer des dossiers dans le dossier principal
@@ -203,7 +209,7 @@ namespace Repository
 
                 }
 
-                LengthDirectory(sFolder);
+                LengthRepository(sFolder);
             }
 
             cWatch.Stop();
@@ -286,7 +292,6 @@ namespace Repository
             jobFile.FileSource = repositoryModel.SourceRepository;
             jobFile.FileTarget = repositoryModel.TargetRepository;
             jobFile.Name = repositoryModel.NameLogRepository;
-
             jobFile.FileSize = repositoryModel.LengthRepository;
             jobFile.FileTransferTime = repositoryModel.FileTransfertRepository;
 
@@ -301,15 +306,15 @@ namespace Repository
             jobState.SourceFilePath = repositoryModel.SourceRepository;
             jobState.TargetFilePath = repositoryModel.TargetRepository;
             jobState.State = repositoryModel.SourceRepository;
-            jobState.TotalFilesToCopy = repositoryModel.SourceRepository;
-            jobState.TotalFilesSize = repositoryModel.SourceRepository;
+            jobState.TotalFilesToCopy = repositoryModel.TotalRepository;
+            jobState.TotalFilesSize = repositoryModel.LengthRepository;
             jobState.NbFilesLeftToDo = repositoryModel.TargetRepository;
             jobState.Progression = repositoryModel.TargetRepository;
             stateController.CreateState(jobState);
 
         }
 
-        public void LengthDirectory(string sFolder)
+        public void LengthRepository(string sFolder)
         {
             DirectoryInfo directoryInfo = new DirectoryInfo(sFolder); // On dit dans quel répertoire on est 
 
@@ -320,6 +325,21 @@ namespace Repository
                 repositoryModel.LengthRepository += file.Length; // taille en octet
             }
         }
+
+        public void TotalRepository(string sTotal)
+        {
+            DirectoryInfo directoryInfo = new DirectoryInfo(sTotal); // On dit dans quel répertoire on est 
+
+            FileInfo[] fileInfo = directoryInfo.GetFiles(); // on récupère tous les fichiers
+
+            foreach (FileInfo file in fileInfo) // On prend chaque fichier du répertoire
+            {
+                string path = @"C:\EasySave\RepertoireSource";
+                long count = Directory.GetFiles(path, "*", SearchOption.AllDirectories).Length - 1;
+                repositoryModel.TotalRepository = count; // taille en octet
+            }
+        }
+
     }
 
 }

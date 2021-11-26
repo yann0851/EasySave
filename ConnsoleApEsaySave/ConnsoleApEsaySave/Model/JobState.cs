@@ -10,8 +10,8 @@ namespace ConsoleAppEasySave.Model
         public string SourceFilePath { get; set; }
         public string TargetFilePath { get; set; }
         public string State { get; set; }
-        public string TotalFilesToCopy { get; set; }
-        public string TotalFilesSize { get; set; }
+        public long TotalFilesToCopy { get; set; }
+        public long TotalFilesSize { get; set; }
         public string NbFilesLeftToDo { get; set; }
         public string Progression { get; set; }
     }

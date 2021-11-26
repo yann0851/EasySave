@@ -59,5 +59,10 @@ namespace StateD
                     Log.Information(Json1);
                 };
             }
+
+        internal void CreateState()
+        {
+            throw new NotImplementedException();
+        }
     }
 } 
