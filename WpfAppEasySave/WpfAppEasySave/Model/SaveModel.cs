@@ -33,7 +33,7 @@ namespace SlotsSave
         public static void SaveSlots()
         {
 
-                RepositoryController.CreateDirectory(@"C:\EasySave\Slots");
+                RepositoryViewModel.CreateDirectory(@"C:\EasySave\Slots");
                 string Json = JsonConvert.SerializeObject(slotsSave, Formatting.Indented);
                 File.WriteAllText(sPathSlots, Json);
         }

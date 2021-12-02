@@ -13,7 +13,7 @@ using System.IO;
 
 namespace SlotsSave
 {
-    class SlotsSaveController
+    class SlotsSaveViewModel
     {
         public void SlotsSaveC()
         {
@@ -47,7 +47,7 @@ namespace SlotsSave
                             if (SlotsSaveModel.Slots(0) != null)
                             {
                                 SlotsSaveModel.iCurrentSlot = 0;
-                                ChoiceSaveController choiceSaveController = new ChoiceSaveController();
+                                ChoiceSaveViewModel choiceSaveController = new ChoiceSaveViewModel();
                                 choiceSaveController.ChoiceSaveC();
                                 Console.Clear();
                             }
@@ -62,7 +62,7 @@ namespace SlotsSave
                         }
                         catch
                         {
-                            ErrorController errorController = new ErrorController();
+                            ErrorViewModel errorController = new ErrorViewModel();
                             errorController.ErrorC();
                             Console.Clear();
                         }
@@ -78,7 +78,7 @@ namespace SlotsSave
                             if (SlotsSaveModel.Slots(1) != null)
                             {
                                 SlotsSaveModel.iCurrentSlot = 1;
-                                ChoiceSaveController choiceSaveController = new ChoiceSaveController();
+                                ChoiceSaveViewModel choiceSaveController = new ChoiceSaveViewModel();
                                 choiceSaveController.ChoiceSaveC();
                                 Console.Clear();
                             }
@@ -92,7 +92,7 @@ namespace SlotsSave
                         }
                         catch
                         {
-                            ErrorController errorController = new ErrorController();
+                            ErrorViewModel errorController = new ErrorViewModel();
                             errorController.ErrorC();
                             Console.Clear();
                         }
@@ -107,7 +107,7 @@ namespace SlotsSave
                             if (SlotsSaveModel.Slots(2) != null)
                             {
                                 SlotsSaveModel.iCurrentSlot = 2;
-                                ChoiceSaveController choiceSaveController = new ChoiceSaveController();
+                                ChoiceSaveViewModel choiceSaveController = new ChoiceSaveViewModel();
                                 choiceSaveController.ChoiceSaveC();
                                 Console.Clear();
                             }
@@ -121,7 +121,7 @@ namespace SlotsSave
                         }
                         catch
                         {
-                            ErrorController errorController = new ErrorController();
+                            ErrorViewModel errorController = new ErrorViewModel();
                             errorController.ErrorC();
                             Console.Clear();
                         }
@@ -136,7 +136,7 @@ namespace SlotsSave
                             if (SlotsSaveModel.Slots(3) != null)
                             {
                                 SlotsSaveModel.iCurrentSlot = 3;
-                                ChoiceSaveController choiceSaveController = new ChoiceSaveController();
+                                ChoiceSaveViewModel choiceSaveController = new ChoiceSaveViewModel();
                                 choiceSaveController.ChoiceSaveC();
                                 Console.Clear();
                             }
@@ -150,7 +150,7 @@ namespace SlotsSave
                         }
                         catch
                         {
-                            ErrorController errorController = new ErrorController();
+                            ErrorViewModel errorController = new ErrorViewModel();
                             errorController.ErrorC();
                             Console.Clear();
                         }
@@ -165,7 +165,7 @@ namespace SlotsSave
                             if (SlotsSaveModel.Slots(4) != null)
                             {
                                 SlotsSaveModel.iCurrentSlot = 4;
-                                ChoiceSaveController choiceSaveController = new ChoiceSaveController();
+                                ChoiceSaveViewModel choiceSaveController = new ChoiceSaveViewModel();
                                 choiceSaveController.ChoiceSaveC();
                                 Console.Clear();
                             }
@@ -179,7 +179,7 @@ namespace SlotsSave
                         }
                         catch
                         {
-                            ErrorController errorController = new ErrorController();
+                            ErrorViewModel errorController = new ErrorViewModel();
                             errorController.ErrorC();
                             Console.Clear();
                         }
@@ -187,7 +187,7 @@ namespace SlotsSave
 
                     else if (iChoiceSS > 6)
                     {
-                        ErrorController errorController = new ErrorController();
+                        ErrorViewModel errorController = new ErrorViewModel();
                         errorController.ErrorC();
                         Console.Clear();
                     }
@@ -195,7 +195,7 @@ namespace SlotsSave
 
                catch
                 {
-                    ErrorController errorController = new ErrorController();
+                    ErrorViewModel errorController = new ErrorViewModel();
                     errorController.ErrorC();
                     Console.Clear();
                 }

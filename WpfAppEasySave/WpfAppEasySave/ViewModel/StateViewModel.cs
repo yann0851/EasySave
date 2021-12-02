@@ -18,7 +18,7 @@ using Language;
 namespace StateD
 {
 
-    public class StateController
+    public class StateViewModel
     {
         RepositoryModel repositoryModel = new RepositoryModel();
         MenuView menuView = new MenuView();

@@ -6,7 +6,7 @@ using Error;
 
 namespace Language
 {
-    class LanguageController
+    class LanguageViewModel
     {
         public void LanguageC()
         {
@@ -17,7 +17,7 @@ namespace Language
             {
                 try
                 {
-                    LanguageView LanguageView = new LanguageView();
+                    LangView LanguageView = new LangView();
                     LanguageView.LanguageV();
 
                     iChoiceL = int.Parse(Console.ReadLine());
@@ -42,7 +42,7 @@ namespace Language
                     /* Affichage d'une erreur en cas de saisie invalide de l'utilisateur */
                     else if (iChoiceL > 3)
                     {
-                        ErrorController errorController = new ErrorController();
+                        ErrorViewModel errorController = new ErrorViewModel();
                         errorController.ErrorC();
                         Console.Clear();
                     }
@@ -51,7 +51,7 @@ namespace Language
                 /* Affichage d'une erreur en cas de disfonctionnement */
                 catch
                 {
-                    ErrorController errorController = new ErrorController();
+                    ErrorViewModel errorController = new ErrorViewModel();
                     errorController.ErrorC();
                     Console.Clear();
                 }

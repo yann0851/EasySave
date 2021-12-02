@@ -13,7 +13,7 @@ using SlotsSave;
 
 namespace ChoiceSave
 {
-    class ChoiceSaveController
+    class ChoiceSaveViewModel
     {
         RepositoryModel repositoryModel = new RepositoryModel();
         /* Choix du style de sauvegarde selon le choix de l'utilisateur */
@@ -33,10 +33,10 @@ namespace ChoiceSave
                     /* Sauvegarde Complète */
                     if (iChoiceS == 1)
                     {
-                        RepositoryController repositoryController = new RepositoryController();
+                        RepositoryViewModel repositoryController = new RepositoryViewModel();
                         repositoryController.FullCopyRepository();
-                        LogController logController = new LogController();
-                        StateController stateController = new StateController();
+                        LogViewModel logController = new LogViewModel();
+                        StateViewModel stateController = new StateViewModel();
                         logController.CreateLog();
                         stateController.CreateState();
                         Console.Clear();
@@ -45,10 +45,10 @@ namespace ChoiceSave
                     /* Sauvegarde Partielle */
                     else if (iChoiceS == 2)
                     {
-                        RepositoryController repositoryController = new RepositoryController();
+                        RepositoryViewModel repositoryController = new RepositoryViewModel();
                         repositoryController.PartialCopyRepository();
-                        LogController logController = new LogController();
-                        StateController stateController = new StateController();
+                        LogViewModel logController = new LogViewModel();
+                        StateViewModel stateController = new StateViewModel();
                         logController.CreateLog();
                         stateController.CreateState();
                         Console.Clear();
@@ -66,7 +66,7 @@ namespace ChoiceSave
                     /* Affichage d'une erreur en cas de saisie invalide de l'utilisateur */
                     else if (iChoiceS > 4)
                     {
-                        ErrorController errorController = new ErrorController();
+                        ErrorViewModel errorController = new ErrorViewModel();
                         errorController.ErrorC();
                         Console.Clear();
                     }
@@ -75,7 +75,7 @@ namespace ChoiceSave
                 /* Affichage d'une erreur en cas de disfonctionnement */
                 catch
                 {
-                    ErrorController errorController = new ErrorController();
+                    ErrorViewModel errorController = new ErrorViewModel();
                     errorController.ErrorC();
                     Console.Clear();
                 }

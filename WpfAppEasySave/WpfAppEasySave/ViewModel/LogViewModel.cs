@@ -17,7 +17,7 @@ using Language;
 
 namespace LogD
 {
-    public class LogController
+    public class LogViewModel
     {
         RepositoryModel repositoryModel = new RepositoryModel();
         MenuView menuView = new MenuView();        

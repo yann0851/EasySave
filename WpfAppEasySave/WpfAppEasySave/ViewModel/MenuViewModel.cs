@@ -12,7 +12,7 @@ using SlotsSave;
 
 namespace Menu
 {
-    class MenuController
+    class MenuViewModel
     {
         /* Envoie vers une fonction de l'application selon le choix de l'utilisateur */
         public void MenuC()
@@ -32,7 +32,7 @@ namespace Menu
                     if (iChoiceM == 1)
                     {
                         Console.Clear();
-                        LanguageController LanguageController = new LanguageController();
+                        LanguageViewModel LanguageController = new LanguageViewModel();
                         LanguageController.LanguageC();
                         Console.Clear();
                     }
@@ -41,7 +41,7 @@ namespace Menu
                     else if (iChoiceM == 2)
                     {
                         Console.Clear();
-                        SlotsSaveController slotsSaveController = new SlotsSaveController();
+                        SlotsSaveViewModel slotsSaveController = new SlotsSaveViewModel();
                         slotsSaveController.SlotsSaveC();
                         Console.Clear();
                     }
@@ -67,7 +67,7 @@ namespace Menu
                     /* Affichage d'une erreur en cas de saisie invalide de l'utilisateur */
                     else if (iChoiceM>5)
                     {
-                        ErrorController errorController = new ErrorController();
+                        ErrorViewModel errorController = new ErrorViewModel();
                         errorController.ErrorC();
                         Console.Clear();
                     }
@@ -76,7 +76,7 @@ namespace Menu
                 /* Affichage d'une erreur en cas de disfonctionnement */
                 catch
                 {
-                    ErrorController errorController = new ErrorController();
+                    ErrorViewModel errorController = new ErrorViewModel();
                     errorController.ErrorC();
                     Console.Clear();
                 }

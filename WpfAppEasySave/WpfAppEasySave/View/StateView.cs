@@ -25,7 +25,7 @@ namespace StateD
             Console.WriteLine("\n" + "████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████\n");
             Console.ForegroundColor = ConsoleColor.Gray;
 
-            StateController stateController = new StateController();
+            StateViewModel stateController = new StateViewModel();
 
             //Création du log
             stateController.StateAffichage();

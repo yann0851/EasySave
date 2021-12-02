@@ -16,12 +16,12 @@ using SlotsSave;
 
 namespace Repository
 {
-    class RepositoryController
+    class RepositoryViewModel
     {
         
         RepositoryModel repositoryModel = new RepositoryModel();
-        LogController logController = new LogController();
-        StateController stateController = new StateController();
+        LogViewModel logController = new LogViewModel();
+        StateViewModel stateController = new StateViewModel();
         JobFile jobFile = new JobFile();
         JobState jobState = new JobState();
 
