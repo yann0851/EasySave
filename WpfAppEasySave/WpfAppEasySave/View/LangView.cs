@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Language
 {
-    class LanguageView
+    class LangView
     {
         public void LanguageV()
         {
