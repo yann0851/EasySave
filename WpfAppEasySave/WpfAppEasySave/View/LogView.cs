@@ -1,0 +1,32 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using System.IO;
+using System.Windows;
+using Microsoft.Win32;
+
+namespace LogD
+{
+    class LogView
+    {
+        public void LogV()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            string sLogs = @"
+                                        ██       ██████   ██████  ███████ 
+                                        ██      ██    ██ ██       ██      
+                                        ██      ██    ██ ██   ███ ███████ 
+                                        ██      ██    ██ ██    ██      ██ 
+                                        ███████  ██████   ██████  ███████
+            ";
+            Console.WriteLine(sLogs);
+            Console.WriteLine("\n" + "████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████\n");
+            Console.ForegroundColor = ConsoleColor.Gray;
+            LogController logController = new LogController();
+
+            //Création du log
+            logController.LogAffichage();
+            Console.ReadKey();
+        }
+    }
+}
