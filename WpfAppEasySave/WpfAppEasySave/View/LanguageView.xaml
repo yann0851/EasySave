@@ -21,7 +21,6 @@
             TextWrapping="Wrap" Margin="0,116,0,0"
             />
 
-
         <Button
             Name="Fr"
             Width="59"
@@ -57,6 +56,5 @@
             Content="{DynamicResource Back}"
             FontSize="18"
             />
-
     </Grid>
 </Page>
