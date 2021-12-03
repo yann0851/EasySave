@@ -5,15 +5,50 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfAppEasySave"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <StackPanel>
-            <Button x:Name="Changement_de_langue" Content="Changement de langue" HorizontalAlignment="Left" Margin="61,102,0,0" VerticalAlignment="Top" Click="Ouvrir_Langue"/>
-            <Button x:Name="Sauvegarde" Content="Sauvegarde" HorizontalAlignment="Left" Margin="61,10,0,0" VerticalAlignment="Top" Click="Ouvrir_Sauvegarde"/>
-            <Button x:Name="Etat" Content="Etat" HorizontalAlignment="Left" Margin="61,11,0,0" VerticalAlignment="Top" Click="Ouvrir_Etat"/>
-            <Button x:Name="Log" Content="Log" HorizontalAlignment="Left" Margin="61,12,0,0" VerticalAlignment="Top" Click="Ouvrir_Log"/>
-            <Label Content="EasySave" HorizontalAlignment="Left" Margin="290,-210,0,0" VerticalAlignment="Top" FontSize="50"/>
-        </StackPanel>
-        <Frame x:Name="Main"/>
+        Title="MainWindow" Height="450" Width="800" xmlns:ui="http://schemas.modernwpf.com/2019"  xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    ui:WindowHelper.UseModernWindowStyle="True">
+    <Window.Resources>
+        <Image x:Key="MyImage" Source=""/>
+    </Window.Resources>
+
+
+    <Grid Grid.ColumnSpan="4" Background="Purple">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>    
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="1"  Grid.ColumnSpan="2" Background="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Image Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,40,0,0" Source="C:\Users\Raelle Yann\OneDrive - Association Cesi Viacesi mail\Bureau\Documents\Cesi\ProjProg\EasySave\WpfAppEasySave\WpfAppEasySave\Image\unknown.png"/>
+
+            <ui:SimpleStackPanel Margin="0,40,0,0" Orientation="Horizontal" HorizontalAlignment="Center" Grid.ColumnSpan="4" Grid.Column="0" Grid.Row="2">
+                <Button Margin="10,10,10,10" Width="180" x:Name="Sauvegarde" Content="Choix de la Sauvegarde" Click="Ouvrir_Sauvegarde"/>
+                <Button Margin="10,10,10,10" Width="180" x:Name="Etat" Content="Affichage des Etats" Click="Ouvrir_Etat"/>
+                <Button Margin="10,10,10,10" Width="180" x:Name="Log" Content="Affichage des Logs" Click="Ouvrir_Log"/>
+                <Button Margin="10,10,10,10" Width="180" x:Name="Parametre" Content="Choix Langue"  Click="Ouvrir_Langue">
+                    
+                </Button>
+            </ui:SimpleStackPanel>
+            <Frame x:Name="Main" Grid.ColumnSpan="4" Grid.RowSpan="4" NavigationUIVisibility="Automatic"/>
+        </Grid>
     </Grid>
 </Window>

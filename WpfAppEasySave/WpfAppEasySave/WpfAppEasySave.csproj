@@ -7,6 +7,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Image\parametres-des-engrenages.png" />
+    <None Remove="Image\reglage.png" />
+    <None Remove="Image\unknown.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Image\reglage.png" />
+    <Content Include="Image\unknown.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Image\parametres-des-engrenages.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignThemes" Version="4.3.0" />
+    <PackageReference Include="ModernWpfUI" Version="0.9.4" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="serilog" Version="2.10.0" />
     <PackageReference Include="serilog.Sinks.console" Version="4.0.1" />
