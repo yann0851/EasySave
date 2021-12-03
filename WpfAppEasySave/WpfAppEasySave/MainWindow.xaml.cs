@@ -24,25 +24,13 @@ namespace WpfAppEasySave
         public MainWindow()
         {
             InitializeComponent();
+            Ouverture_menu();
         }
-        private void Ouvrir_Langue(object sender, RoutedEventArgs e)
+        
+        public void Ouverture_menu()
         {
-            Main.Content = new PageLangue(this);
-        }
-
-        private void Ouvrir_Sauvegarde(object sender, RoutedEventArgs e)
-        {
-            Main.Content = new PageSauvegarde(this);
-        }
-
-        private void Ouvrir_Log(object sender, RoutedEventArgs e)
-        {
-            Main.Content = new PageLog(this);
-        }
-
-        private void Ouvrir_Etat(object sender, RoutedEventArgs e)
-        {
-            Main.Content = new PageEtat(this);
+            PageAccueil pageAccueil = new PageAccueil(this);
+            Content = pageAccueil;
         }
     }
 }

@@ -23,8 +23,8 @@ namespace WpfAppEasySave.View
     /// </summary>
     public partial class PageSauvegarde : Page
     {
-        private Window window;
         private RepositoryViewModel repositoryViewModel;
+        private Window window;
 
         public PageSauvegarde(Window newWindow)
         {
@@ -32,11 +32,6 @@ namespace WpfAppEasySave.View
             window = newWindow;
             Display();
             repositoryViewModel = new RepositoryViewModel();
-        }
-
-        private void Btn_Back(object sender, RoutedEventArgs e) // Bouton retour mais erreur car il faudrait créer autre page mais nous on garde menu sur la gauche
-        {
-            window.Content = new MainWindow();
         }
 
         public void Display() // Montrer toutes les sauvegardes et les boutons

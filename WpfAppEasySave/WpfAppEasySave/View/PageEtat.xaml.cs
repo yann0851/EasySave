@@ -19,6 +19,7 @@ namespace WpfAppEasySave.View
     public partial class PageEtat : Page
     {
         private Window window;
+
         public PageEtat(Window newWindow)
         {
             InitializeComponent();
