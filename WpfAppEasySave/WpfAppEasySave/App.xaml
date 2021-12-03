@@ -13,7 +13,7 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Indigo.xaml"/>
                 <ui:ThemeResources/>
                 <ui:XamlControlsResources/>
-                    <ResourceDictionary Source="Resources\fr-FR.xaml" />
+                <ResourceDictionary Source="Resources\fr-FR.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
