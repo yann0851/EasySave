@@ -24,17 +24,19 @@ namespace WpfAppEasySave.View
     public partial class PageSauvegarde : Page
     {
         private Window window;
+        private RepositoryViewModel repositoryViewModel;
 
         public PageSauvegarde(Window newWindow)
         {
             InitializeComponent();
             window = newWindow;
             Display();
+            repositoryViewModel = new RepositoryViewModel();
         }
 
         private void Btn_Back(object sender, RoutedEventArgs e)
         {
-            Content = null;
+            window.Content = new MainWindow();
         }
 
         private void Btn_save(object sender, RoutedEventArgs e)
@@ -100,7 +102,7 @@ namespace WpfAppEasySave.View
 
                 Button ButtonFull = new Button();
                 ButtonFull.Content = "Sauvegarde complète";
-                ButtonFull.Click += Btn_Start;
+                ButtonFull.Click += Btn_Full;
                 ButtonFull.Name = "BtnFull_" + i.ToString();
                 ButtonFull.Background = (Brush)bc.ConvertFrom("#82c91e");
                 Grid.SetRow(ButtonFull, i + 1);
@@ -108,7 +110,7 @@ namespace WpfAppEasySave.View
 
                 Button ButtonPartial = new Button();
                 ButtonPartial.Content = "Sauvegarde partielle";
-                ButtonPartial.Click += Btn_Start;
+                ButtonPartial.Click += Btn_Partial;
                 ButtonPartial.Name = "BtnPartial_" + i.ToString();
                 ButtonPartial.Background = (Brush)bc.ConvertFrom("#82c91e");
                 Grid.SetRow(ButtonPartial, i + 1);
@@ -145,9 +147,17 @@ namespace WpfAppEasySave.View
             window.Content = pageEdit;
         }
 
-        private void Btn_Start(object sender, RoutedEventArgs e)
+        private void Btn_Full(object sender, RoutedEventArgs e)
         {
-            
+            int iIndex = int.Parse((sender as Button).Name.Split("_")[1]);
+            SaveModel save = Context.GetInstance().GetListSaves().GetListSaves().ElementAt(iIndex);
+            repositoryViewModel.FullCopyRepository(save.FolderSource, save.FolderTarget, save.Name);
+        }
+        private void Btn_Partial(object sender, RoutedEventArgs e)
+        {
+            int iIndex = int.Parse((sender as Button).Name.Split("_")[1]);
+            SaveModel save = Context.GetInstance().GetListSaves().GetListSaves().ElementAt(iIndex);
+            repositoryViewModel.PartialCopyRepository(save.FolderSource, save.FolderTarget, save.Name);
         }
 
         private void Btn_Remove(object sender, RoutedEventArgs e)
