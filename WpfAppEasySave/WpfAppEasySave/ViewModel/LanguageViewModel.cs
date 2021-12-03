@@ -17,7 +17,7 @@ namespace Language
             {
                 try
                 {
-                    LangView LanguageView = new LangView();
+                    LanguageView LanguageView = new LanguageView();
                     LanguageView.LanguageV();
 
                     iChoiceL = int.Parse(Console.ReadLine());
