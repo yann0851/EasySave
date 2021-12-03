@@ -19,6 +19,7 @@ namespace WpfAppEasySave.View
     public partial class PageLog : Page
     {
         private Window window;
+
         public PageLog(Window newWindow)
         {
             InitializeComponent();

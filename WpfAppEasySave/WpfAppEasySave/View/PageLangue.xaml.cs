@@ -19,6 +19,7 @@ namespace WpfAppEasySave.View
     public partial class PageLangue : Page
     {
         private Window window;
+
         public PageLangue(Window newWindow)
         {
             InitializeComponent();

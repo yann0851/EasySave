@@ -25,6 +25,7 @@ namespace WpfAppEasySave
         public MainWindow()
         {
             InitializeComponent();
+            //Ouverture_menu();
         }
 
         private void Click_Close(object sender, RoutedEventArgs e)
@@ -56,5 +57,11 @@ namespace WpfAppEasySave
         {
             Main.Content = new PageEtat();
         }*/
+        
+        //public void Ouverture_menu()
+        //{
+        //    PageAccueil pageAccueil = new PageAccueil(this);
+        //    Content = pageAccueil;
+        //}
     }
 }

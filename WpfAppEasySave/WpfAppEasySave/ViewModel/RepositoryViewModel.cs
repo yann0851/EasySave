@@ -341,6 +341,11 @@ namespace Repository
             }
         }
 
+        public void Encrypt(string sSourceFolder, string sTargetFolder)
+        {
+
+        }
+
     }
 
 }

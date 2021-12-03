@@ -9,7 +9,6 @@
       Title="PageSauvegarde">
 
     <Grid Background="White">
-        <Button Content="Retour" HorizontalAlignment="Left" Margin="735,386,0,0" VerticalAlignment="Top" Click="Btn_Back" RenderTransformOrigin="0.94,0"/>
         <StackPanel Margin="0,0,179,0">
             <Grid Margin="10">
                 <ScrollViewer HorizontalScrollBarVisibility="Visible" Height="350" Margin="0,0,-165,0">
@@ -60,6 +59,6 @@
                 </ScrollViewer>
             </Grid>
         </StackPanel>
-        <Button Content="Créer" HorizontalAlignment="Left" Margin="681,386,0,0" VerticalAlignment="Top" Click="Btn_Create"/>
+        <Button Content="Créer" HorizontalAlignment="Left" Margin="681,367,0,0" VerticalAlignment="Top" Click="Btn_Create"/>
     </Grid>
 </Page>
