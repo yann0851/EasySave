@@ -9,10 +9,10 @@ using Microsoft.Win32;
 using System.Diagnostics;
 using System.IO;
 using LogD;
-using StateD;
 using ConsoleAppEasySave.Model;
 using System.Security.Cryptography;
 using SlotsSave;
+using WpfAppEasySave.View;
 
 namespace Repository
 {
@@ -21,7 +21,6 @@ namespace Repository
         
         RepositoryModel repositoryModel = new RepositoryModel();
         LogViewModel logController = new LogViewModel();
-        StateViewModel stateController = new StateViewModel();
         JobFile jobFile = new JobFile();
         JobState jobState = new JobState();
 
@@ -35,6 +34,8 @@ namespace Repository
             RepositoryView.RepositoryStateV();
 
             SaveModel smTemp = SlotsSaveModel.Slots(SlotsSaveModel.iCurrentSlot);
+            
+            //PageSauvegarde pageSauvegarde = new PageSauvegarde(window);
 
             string sSource = smTemp.FolderSource;
             repositoryModel.SourceRepository = @sSource;
@@ -310,7 +311,7 @@ namespace Repository
             jobState.TotalFilesSize = repositoryModel.LengthRepository;
             jobState.NbFilesLeftToDo = repositoryModel.TargetRepository;
             jobState.Progression = repositoryModel.TargetRepository;
-            stateController.CreateState(jobState);
+           // stateController.CreateState(jobState);
 
         }
 

@@ -9,8 +9,57 @@
       Title="PageSauvegarde">
 
     <Grid Background="White">
-        <Label Content="Sauvegarde" HorizontalAlignment="Left" Margin="294,33,0,0" VerticalAlignment="Top" Width="327"/>
-        <Button Content="Retour" HorizontalAlignment="Center" Margin="0,140,0,0" VerticalAlignment="Top" Click="Btn_Retour"/>
+        <Button Content="Retour" HorizontalAlignment="Left" Margin="735,386,0,0" VerticalAlignment="Top" Click="Btn_Back" RenderTransformOrigin="0.94,0"/>
+        <StackPanel Margin="0,0,179,0">
+            <Grid Margin="10">
+                <ScrollViewer HorizontalScrollBarVisibility="Visible" Height="350" Margin="0,0,-165,0">
+                    <Grid x:Name="TheGrid" ScrollViewer.CanContentScroll="True">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="3*" />
+                            <ColumnDefinition Width="10*" />
+                            <ColumnDefinition Width="10*" />
+                            <ColumnDefinition Width="4*" />
+                            <ColumnDefinition Width="4*" />
+                            <ColumnDefinition Width="4*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="0" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
 
+                        <Border Grid.Column="0" Grid.Row="0" Background="LightGray" BorderBrush="Gray" BorderThickness="1">
+                            <TextBlock>Numéro</TextBlock>
+                        </Border>
+                        <Border Grid.Column="1" Grid.Row="0" Background="LightGray" BorderBrush="Gray" BorderThickness="1">
+                            <TextBlock>Nom</TextBlock>
+                        </Border>
+                        <Border Grid.Column="2" Grid.Row="0" Background="LightGray" BorderBrush="Gray" BorderThickness="1">
+                            <TextBlock>Répertoire Source</TextBlock>
+                        </Border>
+                        <Border Grid.Column="3" Grid.Row="0" Background="LightGray" BorderBrush="Gray" BorderThickness="1">
+                            <TextBlock>Répertoire Cible</TextBlock>
+                        </Border>
+                        <Border Grid.Column="4" Grid.Row="0" Background="LightGray" BorderBrush="Gray" BorderThickness="1">
+                            <TextBlock>Supprimer</TextBlock>
+                        </Border>
+                        <Border Grid.Column="5" Grid.Row="0" Background="LightGray" BorderBrush="Gray" BorderThickness="1">
+                            <TextBlock>Editer</TextBlock>
+                        </Border>
+                        <Border Grid.Column="6" Grid.Row="0" Background="LightGray" BorderBrush="Gray" BorderThickness="1">
+                            <TextBlock Margin="0,0,-1,0">Sauvegarde complète</TextBlock>
+                        </Border>
+                        <Border Grid.Column="7" Grid.Row="0" Background="LightGray" BorderBrush="Gray" BorderThickness="1">
+                            <TextBlock Margin="0,0,-1,0">Sauvegarde partielle</TextBlock>
+                        </Border>
+                        <!--<Border Grid.Column="8" Grid.Row="0" Background="LightGray" BorderBrush="Gray" BorderThickness="1">
+                            <TextBlock>Progress</TextBlock>
+                        </Border>-->
+                    </Grid>
+                </ScrollViewer>
+            </Grid>
+        </StackPanel>
+        <Button Content="Créer" HorizontalAlignment="Left" Margin="681,386,0,0" VerticalAlignment="Top" Click="Btn_Create"/>
     </Grid>
 </Page>

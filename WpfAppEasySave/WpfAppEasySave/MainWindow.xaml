@@ -14,6 +14,6 @@
             <Button x:Name="Log" Content="Log" HorizontalAlignment="Left" Margin="61,12,0,0" VerticalAlignment="Top" Click="Ouvrir_Log"/>
             <Label Content="EasySave" HorizontalAlignment="Left" Margin="290,-210,0,0" VerticalAlignment="Top" FontSize="50"/>
         </StackPanel>
-        <Frame x:Name="Main"/>
+        <Frame x:Name="Main" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

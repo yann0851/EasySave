@@ -18,9 +18,11 @@ namespace WpfAppEasySave.View
     /// </summary>
     public partial class PageEtat : Page
     {
-        public PageEtat()
+        private Window window;
+        public PageEtat(Window newWindow)
         {
             InitializeComponent();
+            window = newWindow;
         }
 
         private void Btn_Retour(object sender, RoutedEventArgs e)
