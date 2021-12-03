@@ -12,8 +12,8 @@ namespace Language
         {
             try
             {
-                string sLang = "FR";
-                LanguageModel.sCurrentLanguage = sLang;
+                //string sLang = "FR";
+                //LanguageModel.sCurrentLanguage = sLang;
             }
             catch
             {
@@ -24,8 +24,8 @@ namespace Language
         {
             try
             {
-                string sLang = "EN";
-                LanguageModel.sCurrentLanguage = sLang;
+                //string sLang = "EN";
+                //LanguageModel.sCurrentLanguage = sLang;
             }
             catch
             {

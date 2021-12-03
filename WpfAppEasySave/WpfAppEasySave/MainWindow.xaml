@@ -41,10 +41,10 @@
             <Image Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,40,0,0" Source="Image\unknown.png"/>
 
             <ui:SimpleStackPanel Margin="0,40,0,0" Orientation="Horizontal" HorizontalAlignment="Center" Grid.ColumnSpan="4" Grid.Column="0" Grid.Row="2">
-                <Button Margin="10,10,10,10" Width="180" x:Name="Sauvegarde" Content="Choix de la Sauvegarde" Click="Ouvrir_Sauvegarde"/>
-                <Button Margin="10,10,10,10" Width="180" x:Name="Etat" Content="Affichage des Etats" Click="Ouvrir_Etat"/>
-                <Button Margin="10,10,10,10" Width="180" x:Name="Log" Content="Affichage des Logs" Click="Ouvrir_Log"/>
-                <Button Margin="10,10,10,10" Width="180" x:Name="Parametre" Content="Choix Langue"  Click="Ouvrir_Langue">
+                <Button Margin="10,10,10,10" Width="180" x:Name="Sauvegarde" Content="{DynamicResource ChoiceS}" Click="Ouvrir_Sauvegarde"/>
+                <Button Margin="10,10,10,10" Width="180" x:Name="Etat" Content="{DynamicResource States}" Click="Ouvrir_Etat"/>
+                <Button Margin="10,10,10,10" Width="180" x:Name="Log" Content="{DynamicResource Logs}" Click="Ouvrir_Log"/>
+                <Button Margin="10,10,10,10" Width="180" x:Name="Parametre" Content="{DynamicResource ChangeL}"  Click="Ouvrir_Langue">
                     
                 </Button>
             </ui:SimpleStackPanel>

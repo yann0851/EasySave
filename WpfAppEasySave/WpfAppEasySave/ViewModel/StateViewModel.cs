@@ -31,7 +31,7 @@ namespace StateD
             {
                 Console.Clear();
                 menuView.MenuV();
-                Console.WriteLine(LanguageModel.Traductor("logs"));
+                //Console.WriteLine(LanguageModel.Traductor("logs"));
             }
 
             /* Affichage du contenu du fichier d'état */

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfAppEasySave.View;
+using Language;
 
 namespace WpfAppEasySave
 {
@@ -27,7 +28,7 @@ namespace WpfAppEasySave
         }
         private void Ouvrir_Langue(object sender, RoutedEventArgs e)
         {
-            Main.Content = new PageLangue();
+            Main.Content = new LanguageView();
         }
 
         private void Ouvrir_Sauvegarde(object sender, RoutedEventArgs e)

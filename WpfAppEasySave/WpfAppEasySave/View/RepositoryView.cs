@@ -13,7 +13,7 @@ namespace Repository
         /* Affichage d'un message durant la sauvegarde */
         public void RepositoryStateV()
          {
-             Console.WriteLine(LanguageModel.Traductor("progress"));
+             //Console.WriteLine(LanguageModel.Traductor("progress"));
          }
          
 

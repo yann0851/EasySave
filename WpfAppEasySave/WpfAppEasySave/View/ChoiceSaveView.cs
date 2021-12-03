@@ -21,19 +21,19 @@ namespace ChoiceSave
             Console.WriteLine(sSave);
             Console.WriteLine("\n" + "████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████\n");
             Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine(
-                   LanguageModel.Traductor("choice") + "\n" + "\n" +
-                    "1. " + LanguageModel.Traductor("savechoice 1") + "\n" +
-                    "2. " + LanguageModel.Traductor("savechoice 2") + "\n"
-                    );
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(
-                    "3. " + LanguageModel.Traductor("delete") + "\n" + "\n" +
-                    "4. " + LanguageModel.Traductor("back") + "\n"
-                    );
-            Console.ForegroundColor = ConsoleColor.DarkCyan;
-            Console.WriteLine("\n" + "████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████\n");
-            Console.ForegroundColor = ConsoleColor.Gray;
+            //Console.WriteLine(
+            //       LanguageModel.Traductor("choice") + "\n" + "\n" +
+            //        "1. " + LanguageModel.Traductor("savechoice 1") + "\n" +
+            //        "2. " + LanguageModel.Traductor("savechoice 2") + "\n"
+            //        );
+            //Console.ForegroundColor = ConsoleColor.Red;
+            //Console.WriteLine(
+            //        "3. " + LanguageModel.Traductor("delete") + "\n" + "\n" +
+            //        "4. " + LanguageModel.Traductor("back") + "\n"
+            //        );
+            //Console.ForegroundColor = ConsoleColor.DarkCyan;
+            //Console.WriteLine("\n" + "████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████\n");
+            //Console.ForegroundColor = ConsoleColor.Gray;
         }
     }
 }
