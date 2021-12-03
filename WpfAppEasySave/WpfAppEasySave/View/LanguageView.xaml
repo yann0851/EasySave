@@ -11,13 +11,14 @@
     <Grid>
         <TextBlock
             Name="LanguageTitle"
-            Width="396"
-            Height="61"
+            Width="640"
+            Height="76"
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
             FontSize="36"
-            Text="Changement de langage"
-            TextWrapping="Wrap" Margin="0,91,0,0"
+            Text="{DynamicResource Language}"
+            TextAlignment="Center"
+            TextWrapping="Wrap" Margin="0,116,0,0"
             />
 
 
