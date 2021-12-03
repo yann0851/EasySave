@@ -10,7 +10,7 @@ namespace Error
         public void ErrorV()
         {
             /* Ecriture d'un message d'erreur en cas de saisie invalide */
-            Console.WriteLine(LanguageModel.Traductor("error"));
+            //Console.WriteLine(LanguageModel.Traductor("error"));
         }
     }
 }

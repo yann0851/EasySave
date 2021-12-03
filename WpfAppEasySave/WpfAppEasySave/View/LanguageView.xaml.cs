@@ -11,6 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace Language
 {
     /// <summary>
@@ -32,6 +33,10 @@ namespace Language
         private void Button_EN(object sender, RoutedEventArgs e)
         {
             SelectCulture("en-EN");
+        }
+        private void Button_Back(object sender, RoutedEventArgs e)
+        {
+            Content = null;
         }
         public static void SelectCulture(string culture = null)
         {

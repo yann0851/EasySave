@@ -1,9 +1,11 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
-    <system:String x:Key="Language">Veuillez choisir la langue :</system:String>
+    <system:String x:Key="ChangeL">Changer la langue</system:String>
+    <system:String x:Key="ChoiceS">Choix de la sauvegarde</system:String>
     <system:String x:Key="Logs">Affichage des logs</system:String>
     <system:String x:Key="States">Affichage des status</system:String>
+    <system:String x:Key="Language">Veuillez choisir la langue :</system:String>
     <system:String x:Key="Name">Veuillez choisir un nom pour votre sauvegarde :</system:String>
     <system:String x:Key="Source">Veuillez choisir votre répertoire source :</system:String>
     <system:String x:Key="Target">Veuillez choisir votre répertoire cible :</system:String>
