@@ -10,7 +10,7 @@
 
     <Grid Background="White">
         <Label Content="Etat&#xD;&#xA;" HorizontalAlignment="Left" Margin="294,33,0,0" VerticalAlignment="Top" Width="327"/>
-        <Button Content="Retour" HorizontalAlignment="Left" Margin="418,135,0,0" VerticalAlignment="Top" Click="Btn_Retour"/>
+        <Button Content="Retour" HorizontalAlignment="Left" Margin="418,135,0,0" VerticalAlignment="Top" Click="Btn_Back"/>
 
     </Grid>
 </Page>

@@ -162,5 +162,11 @@ namespace WpfAppEasySave.View
             PageAdd pageAdd = new PageAdd(window);
             window.Content = pageAdd; // Aller à la page
         }
+
+        private void Btn_Back(object sender, RoutedEventArgs e)
+        {
+            PageAccueil pageAccueil = new PageAccueil(window);
+            window.Content = pageAccueil;
+        }
     }
 }
