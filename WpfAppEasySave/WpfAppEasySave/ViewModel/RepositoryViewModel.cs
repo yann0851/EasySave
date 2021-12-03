@@ -13,6 +13,7 @@ using ConsoleAppEasySave.Model;
 using System.Security.Cryptography;
 using SlotsSave;
 using WpfAppEasySave.View;
+using StateD;
 
 namespace Repository
 {
@@ -23,38 +24,37 @@ namespace Repository
         LogViewModel logController = new LogViewModel();
         JobFile jobFile = new JobFile();
         JobState jobState = new JobState();
+        StateViewModel stateViewModel = new StateViewModel();
 
         System.Diagnostics.Stopwatch cWatch = new System.Diagnostics.Stopwatch();
 
         
-        public void RepositoryC()
+        public void RepositoryC(string sSource, string sTarget, string sNameSave)
         {
-            RepositoryView RepositoryView = new RepositoryView();
+            //RepositoryView RepositoryView = new RepositoryView();
 
-            RepositoryView.RepositoryStateV();
+            //RepositoryView.RepositoryStateV();
 
-            SaveModel smTemp = SlotsSaveModel.Slots(SlotsSaveModel.iCurrentSlot);
+            //SaveModel smTemp = SlotsSaveModel.Slots(SlotsSaveModel.iCurrentSlot);
             
             //PageSauvegarde pageSauvegarde = new PageSauvegarde(window);
 
-            string sSource = smTemp.FolderSource;
+            //string sSource = smTemp.FolderSource;
             repositoryModel.SourceRepository = @sSource;
             CreateDirectory(repositoryModel.SourceRepository);
 
-            string sTarget = smTemp.FolderTarget;
+            //string sTarget = smTemp.FolderTarget;
             repositoryModel.TargetRepository = @sTarget;
             CreateDirectory(repositoryModel.TargetRepository);
 
-            string sName = smTemp.FolderSource;
-            repositoryModel.SourceRepository = @sName;
-            CreateDirectory(repositoryModel.SourceRepository);
+            repositoryModel.NameLogRepository = @sNameSave;
         }
 
 
         /* Sauvegarde Complète */
-        public void PartialCopyRepository()
+        public void PartialCopyRepository(string sSource, string sTarget, string sNameSave)
         {
-            RepositoryC();
+            RepositoryC(sSource, sTarget, sNameSave);
 
             cWatch.Start();
             //List<JobFile> files = new List<JobFile>();
@@ -156,9 +156,9 @@ namespace Repository
 
         }
 
-        public void FullCopyRepository()
+        public void FullCopyRepository(string sSource, string sTarget, string sNameSave)
         {
-            RepositoryC();
+            RepositoryC(sSource, sTarget, sNameSave);
 
             cWatch.Start();
             string[] files = Directory.GetFiles(repositoryModel.SourceRepository); // tableau ou on récupère les fichiers
@@ -311,7 +311,7 @@ namespace Repository
             jobState.TotalFilesSize = repositoryModel.LengthRepository;
             jobState.NbFilesLeftToDo = repositoryModel.TargetRepository;
             jobState.Progression = repositoryModel.TargetRepository;
-           // stateController.CreateState(jobState);
+            stateViewModel.CreateState(jobState);
 
         }
 
@@ -335,7 +335,7 @@ namespace Repository
 
             foreach (FileInfo file in fileInfo) // On prend chaque fichier du répertoire
             {
-                string path = @"C:\EasySave\RepertoireSource";
+                string path = @sTotal;
                 long count = Directory.GetFiles(path, "*", SearchOption.AllDirectories).Length - 1;
                 repositoryModel.TotalRepository = count; // taille en octet
             }
