@@ -4,7 +4,7 @@ using System.Text;
 
 namespace WpfAppEasySave.ViewModel
 {
-    internal sealed class Context
+    internal sealed class Context // Singleton créer un seul objet
     {
         private static Context _instance;
 
