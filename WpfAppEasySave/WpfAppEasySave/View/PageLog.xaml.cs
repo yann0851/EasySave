@@ -18,9 +18,11 @@ namespace WpfAppEasySave.View
     /// </summary>
     public partial class PageLog : Page
     {
-        public PageLog()
+        private Window window;
+        public PageLog(Window newWindow)
         {
             InitializeComponent();
+            window = newWindow;
         }
 
         private void Btn_Retour(object sender, RoutedEventArgs e)

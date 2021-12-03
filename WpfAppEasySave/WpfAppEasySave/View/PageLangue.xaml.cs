@@ -18,9 +18,11 @@ namespace WpfAppEasySave.View
     /// </summary>
     public partial class PageLangue : Page
     {
-        public PageLangue()
+        private Window window;
+        public PageLangue(Window newWindow)
         {
             InitializeComponent();
+            window = newWindow;
         }
 
         private void Btn_Retour(object sender, RoutedEventArgs e)

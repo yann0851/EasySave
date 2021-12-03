@@ -10,7 +10,6 @@ using Microsoft.Win32;
 using Serilog;
 using Newtonsoft.Json.Linq;
 using Repository;
-using Menu;
 using ConsoleAppEasySave.Model;
 using Newtonsoft.Json;
 using Language;
@@ -19,8 +18,7 @@ namespace LogD
 {
     public class LogViewModel
     {
-        RepositoryModel repositoryModel = new RepositoryModel();
-        MenuView menuView = new MenuView();        
+        RepositoryModel repositoryModel = new RepositoryModel();   
 
         /* Affichage des logs journaliers */
         public void LogAffichage()
@@ -31,7 +29,7 @@ namespace LogD
             if (!File.Exists(pathlog))
             {
                 Console.Clear();
-                menuView.MenuV();
+                //menuView.MenuV();
                 //Console.WriteLine(LanguageModel.Traductor("logs"));
             }
 
