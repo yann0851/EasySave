@@ -4,51 +4,76 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfAppEasySave"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" xmlns:ui="http://schemas.modernwpf.com/2019"  xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-    ui:WindowHelper.UseModernWindowStyle="True">
+        mc:Ignorable="d" Height="600" Width="1024" xmlns:ui="http://schemas.modernwpf.com/2019"  xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    ui:WindowHelper.UseModernWindowStyle="True" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" Visibility="Visible">
     <Window.Resources>
         <Image x:Key="MyImage" Source=""/>
     </Window.Resources>
 
 
-    <Grid Grid.ColumnSpan="4" Background="Purple">
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="20"/>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="10"/>    
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="1"  Grid.ColumnSpan="2" Background="White">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1" Grid.Row="1" Background="#FFCBCBCB">
 
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White" Offset="0.152"/>
+                    <GradientStop Color="#FFB4B4B4" Offset="1"/>
+                    <GradientStop Color="#FFA4A3A3" Offset="0.992"/>
+                </LinearGradientBrush>
+            </Grid.Background>
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-
-            <Image Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,40,0,0" Source="C:\Users\Raelle Yann\OneDrive - Association Cesi Viacesi mail\Bureau\Documents\Cesi\ProjProg\EasySave\WpfAppEasySave\WpfAppEasySave\Image\unknown.png"/>
-
-            <ui:SimpleStackPanel Margin="0,40,0,0" Orientation="Horizontal" HorizontalAlignment="Center" Grid.ColumnSpan="4" Grid.Column="0" Grid.Row="2">
-                <Button Margin="10,10,10,10" Width="180" x:Name="Sauvegarde" Content="Choix de la Sauvegarde" Click="Ouvrir_Sauvegarde"/>
-                <Button Margin="10,10,10,10" Width="180" x:Name="Etat" Content="Affichage des Etats" Click="Ouvrir_Etat"/>
-                <Button Margin="10,10,10,10" Width="180" x:Name="Log" Content="Affichage des Logs" Click="Ouvrir_Log"/>
-                <Button Margin="10,10,10,10" Width="180" x:Name="Parametre" Content="Choix Langue"  Click="Ouvrir_Langue">
-                    
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"/>
+            </Grid.Effect>
+            <Grid Background="#FF7FCBFF">
+                <TextBlock Text="EasySave" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40" FontFamily="Arial Narrow" Background="{x:Null}" Foreground="White"/>
+            </Grid>
+            <StackPanel Grid.Row="1">
+                <Button HorizontalAlignment="Center" Margin="10" Background="#FF1391F3">
+                    <Grid Width="150">
+                        <materialDesign:PackIcon Kind="ContentSave" Foreground="White"/>
+                        <TextBlock Text="Sauvegarde" HorizontalAlignment="Right"  Foreground="White" Margin="0,0,39,0"/>
+                    </Grid>
                 </Button>
-            </ui:SimpleStackPanel>
-            <Frame x:Name="Main" Grid.ColumnSpan="4" Grid.RowSpan="4" NavigationUIVisibility="Automatic"/>
+                <Button HorizontalAlignment="Center" Margin="10" Background="#FF1391F3">
+                    <Grid Width="150">
+                        <materialDesign:PackIcon Kind="FileAlert" Foreground="White"/>
+                        <TextBlock Text="Fichier Logs" HorizontalAlignment="Center"  Foreground="White"/>
+                    </Grid>
+                </Button>
+                <Button HorizontalAlignment="Center" Margin="10" Background="#FF1391F3">
+                    <Grid Width="150">
+                        <materialDesign:PackIcon Kind="FileAlertOutline" Foreground="White"/>
+                        <TextBlock Text="Fichier Etat" HorizontalAlignment="Center"  Foreground="White"/>
+                    </Grid>
+                </Button>
+            </StackPanel>
+        </Grid>
+
+        <Grid x:Name="GridMoove" Grid.ColumnSpan="2" Background="#FF3254C6" MouseDown="GridMoove_Moove" >
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
+                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Margin="0,-5,0,0" Foreground="White" >
+                    <materialDesign:PackIcon Kind="Gear"/>
+                </Button>
+                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Margin="0,-5,5,0" Foreground="White" Click="Click_Close">
+                    <materialDesign:PackIcon Kind="Power"/>
+                </Button>
+            </StackPanel>
         </Grid>
     </Grid>
 </Window>
