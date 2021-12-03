@@ -26,7 +26,7 @@ namespace WpfAppEasySave.View
             window = newWindow;
         }
 
-        private void Btn_Modify(object sender, RoutedEventArgs e)
+        private void Btn_Modify(object sender, RoutedEventArgs e) // Bouton modifier pour modifier le contenu du formulaire
         {
             int iIndex = int.Parse(Id.Text); 
             string sName = Repository_name.Text;
@@ -35,13 +35,13 @@ namespace WpfAppEasySave.View
             Context.GetInstance().GetListSaves().EditSave(iIndex, sName, sRepositorySource, sRepositoryCible);
         }
 
-        private void Btn_Back(object sender, RoutedEventArgs e)
+        private void Btn_Back(object sender, RoutedEventArgs e) // bouton retour
         {
             PageSauvegarde pageSauvegarde = new PageSauvegarde(window);
             window.Content = pageSauvegarde;
         }
 
-        public void FillForm(int iIndex, string sName, string sFolderSource, string sFolderTarget)
+        public void FillForm(int iIndex, string sName, string sFolderSource, string sFolderTarget) // Bouton qui va remplir le contenu du formulaire
         {
             Repository_name.Text = sName;
             Repository_source.Text = sFolderSource;

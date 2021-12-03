@@ -34,66 +34,57 @@ namespace WpfAppEasySave.View
             repositoryViewModel = new RepositoryViewModel();
         }
 
-        private void Btn_Back(object sender, RoutedEventArgs e)
+        private void Btn_Back(object sender, RoutedEventArgs e) // Bouton retour mais erreur car il faudrait créer autre page mais nous on garde menu sur la gauche
         {
             window.Content = new MainWindow();
         }
 
-        private void Btn_save(object sender, RoutedEventArgs e)
+        public void Display() // Montrer toutes les sauvegardes et les boutons
         {
-            RepositoryViewModel repositoryViewModel = new RepositoryViewModel();
-            //SlotsSaveView slotSaveView = new SlotsSaveView();
-            //slotSaveView.SlotsSaveV();
-            //repositoryViewModel.PartialCopyRepository();
-        }
-
-        public void Display()
-        {
-
-            var bc = new BrushConverter();
-            List<SaveModel> maListeDeSauvegarde = Context.GetInstance().GetListSaves().GetListSaves();
-            Trace.WriteLine(maListeDeSauvegarde.Count);
-            for (int i = 0; i < maListeDeSauvegarde.Count; i++)
+            var bc = new BrushConverter(); // Pour changer la couleur (création de la variable)
+            List<SaveModel> maListeDeSauvegarde = Context.GetInstance().GetListSaves().GetListSaves(); // On va chercher le contenu de notre liste
+            //Trace.WriteLine(maListeDeSauvegarde.Count); // vérification du contenu de la liste sous forme de int 
+            for (int i = 0; i < maListeDeSauvegarde.Count; i++) // Pour chaque élément de la liste on va ajouter plusieurs données
             {
                 RowDefinition gridRow1 = new RowDefinition();
                 gridRow1.Height = new GridLength(45);
-                TheGrid.RowDefinitions.Add(gridRow1);
+                TheGrid.RowDefinitions.Add(gridRow1); // Ajout de la première ligne c'est l'entête
 
-                TextBlock Numero = new TextBlock();
-                Numero.Text = i.ToString();
-                Numero.FontSize = 12;
-                Numero.FontWeight = FontWeights.Bold;
-                Grid.SetRow(Numero, i + 1);
-                Grid.SetColumn(Numero, 0);
+                TextBlock Numero = new TextBlock(); // Affiche le numéro de la sauvegarde
+                Numero.Text = i.ToString(); // On met le numéro dans le tableau
+                Numero.FontSize = 12; // Taille de la police
+                Numero.FontWeight = FontWeights.Bold; // Epaisseur de la police
+                Grid.SetRow(Numero, i + 1); // On fait le numéro + 1 car on a une première ligne qui est l'entête et aussi pour afficher les autres numéros par la suite
+                Grid.SetColumn(Numero, 0); // La place dans le tableau 0 car première case
 
-                TextBlock NameSave = new TextBlock();
-                NameSave.Text = maListeDeSauvegarde[i].Name;
+                TextBlock NameSave = new TextBlock(); // Le nom de la sauvegarde
+                NameSave.Text = maListeDeSauvegarde[i].Name; // Récupère le numéro de l'élément (par exemple 0 si premier élément) dans la liste pour mettre le bon nom de sauvegarde
                 NameSave.FontSize = 12;
                 NameSave.FontWeight = FontWeights.Bold;
                 Grid.SetRow(NameSave, i + 1);
                 Grid.SetColumn(NameSave, 1);
 
-                TextBlock RepositorySource = new TextBlock();
+                TextBlock RepositorySource = new TextBlock(); // Chemin du répertoire source de la sauvegarde
                 RepositorySource.Text = maListeDeSauvegarde[i].FolderSource;
                 RepositorySource.FontSize = 12;
                 Grid.SetRow(RepositorySource, i + 1);
                 Grid.SetColumn(RepositorySource, 2);
 
-                TextBlock RepositoryTarget = new TextBlock();
+                TextBlock RepositoryTarget = new TextBlock(); // Chemin du répertoire cible de la sauvegarde
                 RepositoryTarget.Text = maListeDeSauvegarde[i].FolderTarget;
                 RepositoryTarget.FontSize = 12;
                 Grid.SetRow(RepositoryTarget, i + 1);
                 Grid.SetColumn(RepositoryTarget, 3);
 
-                Button ButtonRemove = new Button();
-                ButtonRemove.Content = "Supprimer";
-                ButtonRemove.Click += Btn_Remove;
-                ButtonRemove.Name = "BtnRemove_" + i.ToString();
-                ButtonRemove.Background = (Brush)bc.ConvertFrom("#fa5252");
+                Button ButtonRemove = new Button(); // Bouton supprimer
+                ButtonRemove.Content = "Supprimer"; // Nom du bouton
+                ButtonRemove.Click += Btn_Remove; // Méthode appeler lors du clique sur le bouton
+                ButtonRemove.Name = "BtnRemove_" + i.ToString(); // Nom du bouton + numéro de ligne
+                ButtonRemove.Background = (Brush)bc.ConvertFrom("#fa5252"); // couleur
                 Grid.SetRow(ButtonRemove, i + 1);
                 Grid.SetColumn(ButtonRemove, 4);
 
-                Button ButtonEdit = new Button();
+                Button ButtonEdit = new Button(); // Bouton édit
                 ButtonEdit.Content = "Edition";
                 ButtonEdit.Click += Btn_Edit;
                 ButtonEdit.Name = "BtnEdit_" + i.ToString();
@@ -101,7 +92,7 @@ namespace WpfAppEasySave.View
                 Grid.SetRow(ButtonEdit, i + 1);
                 Grid.SetColumn(ButtonEdit, 5);
 
-                Button ButtonFull = new Button();
+                Button ButtonFull = new Button(); // Bouton pour sauvegarde complète
                 ButtonFull.Content = "Sauvegarde complète";
                 ButtonFull.Click += Btn_Full;
                 ButtonFull.Name = "BtnFull_" + i.ToString();
@@ -109,7 +100,7 @@ namespace WpfAppEasySave.View
                 Grid.SetRow(ButtonFull, i + 1);
                 Grid.SetColumn(ButtonFull, 6);
 
-                Button ButtonPartial = new Button();
+                Button ButtonPartial = new Button(); // Bouton pour sauvegarde partielle
                 ButtonPartial.Content = "Sauvegarde partielle";
                 ButtonPartial.Click += Btn_Partial;
                 ButtonPartial.Name = "BtnPartial_" + i.ToString();
@@ -117,13 +108,13 @@ namespace WpfAppEasySave.View
                 Grid.SetRow(ButtonPartial, i + 1);
                 Grid.SetColumn(ButtonPartial, 7);
 
-                /*ProgressBar Progress = new ProgressBar();
-                Progress.Name = "progress_" + i.ToString();
-                Progress.Value = 0;
-                Grid.SetRow(Progress, i + 1);
-                Grid.SetColumn(Progress, 8);*/
+                //ProgressBar Progress = new ProgressBar(); //Barre de progression
+                //Progress.Name = "progress_" + i.ToString();
+                //Progress.Value = 0;
+                //Grid.SetRow(Progress, i + 1);
+                //Grid.SetColumn(Progress, 8);
 
-                // Add first row to Grid
+                // Ajoute les éléments dans le tableau
                 TheGrid.Children.Add(Numero);
                 TheGrid.Children.Add(NameSave);
                 TheGrid.Children.Add(RepositorySource);
@@ -136,44 +127,45 @@ namespace WpfAppEasySave.View
             }
         }
 
-        public void Update()
+        public void Update() // Mise à jour de la page
         {
             PageSauvegarde pageSauvegarde = new PageSauvegarde(window);
             window.Content = pageSauvegarde;
         }
 
-        private void Btn_Edit(object sender, RoutedEventArgs e)
+        private void Btn_Edit(object sender, RoutedEventArgs e) // Méthode pour le bouton édition
         {
             PageEdit pageEdit = new PageEdit(window);
-            int iIndex = int.Parse((sender as Button).Name.Split("_")[1]);
-            SaveModel save = Context.GetInstance().GetListSaves().GetListSaves().ElementAt(iIndex);
-            pageEdit.FillForm(iIndex, save.Name, save.FolderSource, save.FolderTarget);
+            int iIndex = int.Parse((sender as Button).Name.Split("_")[1]); // On récupère le numéro de la sauvegarde grâce au numéro du bouton en séparant à partir de _ pour prendre le numéro
+            SaveModel save = Context.GetInstance().GetListSaves().GetListSaves().ElementAt(iIndex); // Récupère les données qu'on a besoin
+            pageEdit.FillForm(iIndex, save.Name, save.FolderSource, save.FolderTarget); // appel de la méthode pour remplir les textbox avec les données
             window.Content = pageEdit;
         }
 
-        private void Btn_Full(object sender, RoutedEventArgs e)
+        private void Btn_Full(object sender, RoutedEventArgs e) // Méthode pour le bouton sauvegarde complète
         {
             int iIndex = int.Parse((sender as Button).Name.Split("_")[1]);
             SaveModel save = Context.GetInstance().GetListSaves().GetListSaves().ElementAt(iIndex);
-            repositoryViewModel.FullCopyRepository(save.FolderSource, save.FolderTarget, save.Name);
+            repositoryViewModel.FullCopyRepository(save.FolderSource, save.FolderTarget, save.Name); // Méthode pour la sauvegarde complète
         }
-        private void Btn_Partial(object sender, RoutedEventArgs e)
+        private void Btn_Partial(object sender, RoutedEventArgs e) // Méthode pour le bouton sauvegarde partielle
         {
             int iIndex = int.Parse((sender as Button).Name.Split("_")[1]);
             SaveModel save = Context.GetInstance().GetListSaves().GetListSaves().ElementAt(iIndex);
-            repositoryViewModel.PartialCopyRepository(save.FolderSource, save.FolderTarget, save.Name);
+            repositoryViewModel.PartialCopyRepository(save.FolderSource, save.FolderTarget, save.Name); // Méthode pour la sauvegarde partielle
         }
 
         private void Btn_Remove(object sender, RoutedEventArgs e)
         {
-            Context.GetInstance().GetListSaves().RemoveSave(int.Parse((sender as Button).Name.Split("_")[1]));
-            Update();
+            Context.GetInstance().GetListSaves().RemoveSave(int.Parse((sender as Button).Name.Split("_")[1])); // On récupère le numéro pour supprimer la sauvegarde
+            Update(); // Appel de la mise à jour
+            // Si sauvegardes qui se gardent il faudra pt rajouter un truc pour le supprimer dans fichier Json ou autre
         }
 
-        private void Btn_Create(object sender, RoutedEventArgs e)
+        private void Btn_Create(object sender, RoutedEventArgs e) // Méthode pour le bouton créer
         {
             PageAdd pageAdd = new PageAdd(window);
-            window.Content = pageAdd;
+            window.Content = pageAdd; // Aller à la page
         }
     }
 }

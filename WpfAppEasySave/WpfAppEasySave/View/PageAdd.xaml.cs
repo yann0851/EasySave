@@ -26,18 +26,10 @@ namespace WpfAppEasySave.View
             window = newWindow;
         }
 
-        private void Btn_Edit(object sender, RoutedEventArgs e)
-        {
-            string Name = Repository_name.Text;
-            string RepositorySource = Repository_source.Text;
-            string RepositoryCible = Repository_target.Text;
-            Context.GetInstance().GetListSaves().AddSave(Name, RepositorySource, RepositoryCible);
-        }
-
-        private void Btn_Back(object sender, RoutedEventArgs e)
+        private void Btn_Back(object sender, RoutedEventArgs e) // Bouton retour en arrière
         {
             PageSauvegarde pageSauvegarde = new PageSauvegarde(window);
-            window.Content = pageSauvegarde;
+            window.Content = pageSauvegarde; // Retour sur la page sauvegarde
         }
         public void Btn_FolderBrowserSource(object sender, RoutedEventArgs e) // Ouvrir un sélecteur de fichier
         {
@@ -56,8 +48,16 @@ namespace WpfAppEasySave.View
             if (result.ToString() != string.Empty)
             {
                 string sSelectedRepository = openFileDlg.SelectedPath; // Répertoire sélectionné
-                Repository_source.Text = sSelectedRepository;
+                Repository_target.Text = sSelectedRepository;
             }
+        }
+
+        private void Btn_CreateSave(object sender, RoutedEventArgs e) // Créer une sauvegarde
+        {
+            string Name = Repository_name.Text;
+            string RepositorySource = Repository_source.Text;
+            string RepositoryCible = Repository_target.Text;
+            Context.GetInstance().GetListSaves().AddSave(Name, RepositorySource, RepositoryCible); // On reprend toutes les variables et on appelle la fonction
         }
     }
 }
