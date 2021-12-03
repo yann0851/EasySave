@@ -39,5 +39,25 @@ namespace WpfAppEasySave.View
             PageSauvegarde pageSauvegarde = new PageSauvegarde(window);
             window.Content = pageSauvegarde;
         }
+        public void Btn_FolderBrowserSource(object sender, RoutedEventArgs e) // Ouvrir un sélecteur de fichier
+        {
+            System.Windows.Forms.FolderBrowserDialog openFileDlg = new System.Windows.Forms.FolderBrowserDialog();
+            var result = openFileDlg.ShowDialog();
+            if (result.ToString() != string.Empty)
+            {
+                string sSelectedRepository = openFileDlg.SelectedPath; // Répertoire sélectionné
+                Repository_source.Text = sSelectedRepository;
+            }
+        }
+        public void Btn_FolderBrowserTarget(object sender, RoutedEventArgs e) // Ouvrir un sélecteur de fichier
+        {
+            System.Windows.Forms.FolderBrowserDialog openFileDlg = new System.Windows.Forms.FolderBrowserDialog();
+            var result = openFileDlg.ShowDialog();
+            if (result.ToString() != string.Empty)
+            {
+                string sSelectedRepository = openFileDlg.SelectedPath; // Répertoire sélectionné
+                Repository_source.Text = sSelectedRepository;
+            }
+        }
     }
 }
