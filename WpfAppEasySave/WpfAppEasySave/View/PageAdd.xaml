@@ -14,7 +14,7 @@
         <TextBox x:Name="Repository_target" HorizontalAlignment="Left" Margin="233,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label Content="Répertoire source :&#xA;" HorizontalAlignment="Left" Margin="53,0,0,0" VerticalAlignment="Center" Height="28"/>
         <Label Content="Répertoire cible :&#xA;" HorizontalAlignment="Left" Margin="233,0,0,0" VerticalAlignment="Center" Height="28" RenderTransformOrigin="1.026,0.521" Width="120"/>
-        <Button Content="Créer" HorizontalAlignment="Left" Margin="129,254,0,0" VerticalAlignment="Top" Width="66" Height="35" Click="Btn_Edit"/>
+        <Button Content="Modifier" HorizontalAlignment="Left" Margin="129,254,0,0" VerticalAlignment="Top" Width="66" Height="35" Click="Btn_Edit"/>
         <TextBox x:Name="Repository_name" HorizontalAlignment="Left" Margin="135,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Button Content="Retour" HorizontalAlignment="Left" Margin="216,254,0,0" VerticalAlignment="Top" Click="Btn_Back" Height="35" Width="54"/>
         <Label Content="Nom de la sauvegarde :&#xD;&#xA;" HorizontalAlignment="Left" Margin="135,74,0,0" VerticalAlignment="Top" Height="28"/>

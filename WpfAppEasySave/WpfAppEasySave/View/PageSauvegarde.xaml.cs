@@ -95,6 +95,7 @@ namespace WpfAppEasySave.View
 
                 Button ButtonEdit = new Button();
                 ButtonEdit.Content = "Edition";
+                ButtonEdit.Click += Btn_Edit;
                 ButtonEdit.Name = "BtnEdit_" + i.ToString();
                 ButtonEdit.Background = (Brush)bc.ConvertFrom("#228be6");
                 Grid.SetRow(ButtonEdit, i + 1);
@@ -144,6 +145,9 @@ namespace WpfAppEasySave.View
         private void Btn_Edit(object sender, RoutedEventArgs e)
         {
             PageEdit pageEdit = new PageEdit(window);
+            int iIndex = int.Parse((sender as Button).Name.Split("_")[1]);
+            SaveModel save = Context.GetInstance().GetListSaves().GetListSaves().ElementAt(iIndex);
+            pageEdit.FillForm(iIndex, save.Name, save.FolderSource, save.FolderTarget);
             window.Content = pageEdit;
         }
 
