@@ -28,11 +28,11 @@ namespace WpfAppEasySave.ViewModel
         {
             listSaves.Add(new SaveModel(name, source, target));
         }
-        //public void EditSave(int iIndex, string name, string source, string target)
-        //{
-        //    listSaves.AddRange(new SaveModel(name, source, target));
-
-        //}
+        public void EditSave(int iIndex, string name, string source, string target)
+        {
+            RemoveSave(iIndex);
+            AddSave(name, source, target);
+        }
         public void RemoveSave(int iIndex)
         {
             listSaves.RemoveAt(iIndex);

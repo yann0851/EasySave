@@ -28,16 +28,25 @@ namespace WpfAppEasySave.View
 
         private void Btn_Modify(object sender, RoutedEventArgs e)
         {
-            string Name = Repository_name.Text;
-            string RepositorySource = Repository_source.Text;
-            string RepositoryCible = Repository_target.Text;
-            //Context.GetInstance().GetListSaves().EditSave(Name, RepositorySource, RepositoryCible);
+            int iIndex = int.Parse(Id.Text); 
+            string sName = Repository_name.Text;
+            string sRepositorySource = Repository_source.Text;
+            string sRepositoryCible = Repository_target.Text;
+            Context.GetInstance().GetListSaves().EditSave(iIndex, sName, sRepositorySource, sRepositoryCible);
         }
 
         private void Btn_Back(object sender, RoutedEventArgs e)
         {
             PageSauvegarde pageSauvegarde = new PageSauvegarde(window);
             window.Content = pageSauvegarde;
+        }
+
+        public void FillForm(int iIndex, string sName, string sFolderSource, string sFolderTarget)
+        {
+            Repository_name.Text = sName;
+            Repository_source.Text = sFolderSource;
+            Repository_target.Text = sFolderTarget;
+            Id.Text = Convert.ToString(iIndex);
         }
     }
 }
