@@ -60,5 +60,6 @@
             </Grid>
         </StackPanel>
         <Button Content="Créer" HorizontalAlignment="Left" Margin="681,367,0,0" VerticalAlignment="Top" Click="Btn_Create"/>
+        <Button Content="Retour" HorizontalAlignment="Left" Margin="734,367,0,0" VerticalAlignment="Top" Click="Btn_Back"/>
     </Grid>
 </Page>
