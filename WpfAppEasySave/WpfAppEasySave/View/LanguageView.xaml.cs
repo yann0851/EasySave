@@ -24,14 +24,24 @@ namespace Language
             InitializeComponent();
             languageViewModel = new LanguageViewModel();
         }
-        public void Button_FR(object sender, RoutedEventArgs e)
-        {
-            languageViewModel.Button_FR();
-        }
 
-        public void Button_EN(object sender, RoutedEventArgs e)
+        private void Button_FR(object sender, RoutedEventArgs e)
         {
-            languageViewModel.Button_EN();
+            SelectCulture("fr-FR");
+        }
+        private void Button_EN(object sender, RoutedEventArgs e)
+        {
+            SelectCulture("en-EN");
+        }
+        public static void SelectCulture(string culture = null)
+        {
+            ResourceDictionary dict = new ResourceDictionary
+            {
+                Source = new Uri(@"Resources\" + (string.IsNullOrWhiteSpace(culture) ? string.Empty : culture) + ".xaml", UriKind.Relative)
+            };
+
+            Application.Current.Resources.MergedDictionaries.Clear();
+            Application.Current.Resources.MergedDictionaries.Add(dict);
         }
     }
 }
