@@ -47,7 +47,7 @@
                 <Button HorizontalAlignment="Center" Margin="10" Background="#FF1391F3">
                     <Grid Width="150">
                         <materialDesign:PackIcon Kind="ContentSave" Foreground="White"/>
-                        <TextBlock Text="Sauvegarde" HorizontalAlignment="Right"  Foreground="White" Margin="0,0,39,0"/>
+                        <Button Content="Sauvegarde" HorizontalAlignment="Right"  Foreground="White" Margin="0,0,39,0" Click="OpenSave"/>
                     </Grid>
                 </Button>
                 <Button HorizontalAlignment="Center" Margin="10" Background="#FF1391F3">
@@ -75,5 +75,6 @@
                 </Button>
             </StackPanel>
         </Grid>
+        <Frame x:Name="Main" Grid.ColumnSpan="4" Grid.RowSpan="4" NavigationUIVisibility="Automatic"/>
     </Grid>
 </Window>

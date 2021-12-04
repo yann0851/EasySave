@@ -37,6 +37,10 @@ namespace WpfAppEasySave
         {
             DragMove();
         }
+        private void OpenSave(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new PageSauvegarde(this);
+        }
 
         /* private void Ouvrir_Langue(object sender, RoutedEventArgs e)
         {
@@ -57,7 +61,7 @@ namespace WpfAppEasySave
         {
             Main.Content = new PageEtat();
         }*/
-        
+
         //public void Ouverture_menu()
         //{
         //    PageAccueil pageAccueil = new PageAccueil(this);
