@@ -10,7 +10,6 @@ using Microsoft.Win32;
 using Serilog;
 using Newtonsoft.Json.Linq;
 using Repository;
-using Menu;
 using ConsoleAppEasySave.Model;
 using Newtonsoft.Json;
 using Language;
@@ -21,7 +20,6 @@ namespace StateD
     public class StateViewModel
     {
         RepositoryModel repositoryModel = new RepositoryModel();
-        MenuView menuView = new MenuView();
 
         public void StateAffichage()
         {
@@ -30,7 +28,7 @@ namespace StateD
             if (!File.Exists(pathlog))
             {
                 Console.Clear();
-                menuView.MenuV();
+                //menuView.MenuV();
                 //Console.WriteLine(LanguageModel.Traductor("logs"));
             }
 
