@@ -25,7 +25,18 @@ namespace WpfAppEasySave
         {
             InitializeComponent();
         }
-        private void Ouvrir_Langue(object sender, RoutedEventArgs e)
+
+        private void Click_Close(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void GridMoove_Moove(object sender, RoutedEventArgs e)
+        {
+            DragMove();
+        }
+
+        /* private void Ouvrir_Langue(object sender, RoutedEventArgs e)
         {
             Main.Content = new PageLangue();
         }
@@ -43,6 +54,6 @@ namespace WpfAppEasySave
         private void Ouvrir_Etat(object sender, RoutedEventArgs e)
         {
             Main.Content = new PageEtat();
-        }
+        }*/
     }
 }
