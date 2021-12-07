@@ -39,7 +39,7 @@ namespace SlotsSave
 
         public static SaveModel[] slotsSave = new SaveModel[5];
 
-        public static int iCurrentSlot;
+        //public static int iCurrentSlot;
 
         public static string sPathSlots = @"C:\EasySave\Slots\Slots.txt";
 
@@ -50,7 +50,7 @@ namespace SlotsSave
 
         public static void SaveSlots()
         {
-                RepositoryViewModel.CreateDirectory(@"C:\EasySave\Slots");
+                //RepositoryViewModel.CreateDirectory(@"C:\EasySave\Slots");
                 string Json = JsonConvert.SerializeObject(slotsSave, Formatting.Indented);
                 File.WriteAllText(sPathSlots, Json);
         }

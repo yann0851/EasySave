@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PageSauvegarde">
 
-    <Grid Background="White">
+    <Grid Background="White" Margin="-1,0,1,0">
         <StackPanel Margin="0,0,179,0">
             <Grid Margin="10">
                 <ScrollViewer HorizontalScrollBarVisibility="Visible" Height="350" Margin="0,0,-165,0">
@@ -61,5 +61,6 @@
         </StackPanel>
         <Button Content="Créer" HorizontalAlignment="Left" Margin="681,367,0,0" VerticalAlignment="Top" Click="Btn_Create"/>
         <Button Content="Retour" HorizontalAlignment="Left" Margin="734,367,0,0" VerticalAlignment="Top" Click="Btn_Back"/>
+        <Button Content="Créer la clé" Margin="593,367,0,0" VerticalAlignment="Top" Click="Btn_Create_Key"/>
     </Grid>
 </Page>

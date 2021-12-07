@@ -23,6 +23,7 @@ namespace WpfAppEasySave.View
     /// </summary>
     public partial class PageSauvegarde : Page
     {
+        EncryptViewModel encryptViewModel;
         private RepositoryViewModel repositoryViewModel;
         private Window window;
 
@@ -32,6 +33,7 @@ namespace WpfAppEasySave.View
             window = newWindow;
             Display();
             repositoryViewModel = new RepositoryViewModel();
+            encryptViewModel = new EncryptViewModel();
         }
 
         public void Display() // Montrer toutes les sauvegardes et les boutons
@@ -168,5 +170,14 @@ namespace WpfAppEasySave.View
             PageAccueil pageAccueil = new PageAccueil(window);
             window.Content = pageAccueil;
         }
+
+        private void Btn_Create_Key(object sender, RoutedEventArgs e) // Méthode pour le bouton créer
+        {
+            encryptViewModel.CreateKey("Key01");
+        }
+        //private void Btn_Export_Key(object sender, RoutedEventArgs e) // Méthode pour le bouton créer
+        //{
+        //    encryptViewModel.CreateKeyFile();
+        //}
     }
 }
