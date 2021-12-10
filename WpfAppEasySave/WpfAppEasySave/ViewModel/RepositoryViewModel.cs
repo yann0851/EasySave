@@ -233,17 +233,19 @@ namespace Repository
             {
                 string sTargetFiles = Path.GetFileNameWithoutExtension(sFile); // On récupère seulement le nom du fichier sans l'extension
                 //string sSourceFile = Path.Combine(sSourceRepository, sTargetFiles);
-
+                
                 FileInfo[] fileInfo = directory.GetFiles("*" + sTargetFiles + "*.*"); // Dans le répertoire on va rechercher le fichier
-
+                
                 foreach (FileInfo filePartial in fileInfo) // Retrouver le fichier dans le répertoire source
                 {
-                   if (!filePartial.Exists) // Si le fichier n'existe pas
+                    repositoryModel.RecupFile = Convert.ToString(filePartial);
+                    if (!filePartial.Exists) // Si le fichier n'existe pas
                     {
-                        File.Delete(sFile); //  Supprimer le fichier
+                        File.Delete(sFile);
                     }
                 }
-                if (fileInfo.Length == 0) // A revoir
+                
+                if (repositoryModel.RecupFile == null) // Si le fichier n'existe pas
                 {
                     File.Delete(sFile); //  Supprimer le fichier
                 }
@@ -303,7 +305,6 @@ namespace Repository
             jobFile.FileSize = repositoryModel.LengthRepository;
             jobFile.FileTransferTime = repositoryModel.FileTransfertRepository;
 
-            //TODO les autres attributs
             //repositoryModel.SourceRepository,repositoryModel.TargetRepository, repositoryModel.NameLogRepository
             logController.CreateLog(jobFile);
         }

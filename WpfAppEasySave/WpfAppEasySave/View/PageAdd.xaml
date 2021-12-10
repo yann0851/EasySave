@@ -8,18 +8,18 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PageAdd">
 
-    <Grid Background="White" Margin="0,0,382,122">
-        <Label Content="Ajouter une sauvegarde&#xD;&#xA;" HorizontalAlignment="Left" Margin="108,22,0,0" VerticalAlignment="Top" Width="221" FontSize="20" Height="36"/>
-        <TextBox x:Name="Repository_source" HorizontalAlignment="Left" Margin="48,187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="Repository_target" HorizontalAlignment="Left" Margin="233,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Répertoire source :&#xA;" HorizontalAlignment="Left" Margin="53,0,0,0" VerticalAlignment="Center" Height="28"/>
-        <Label Content="Répertoire cible :&#xA;" HorizontalAlignment="Left" Margin="233,0,0,0" VerticalAlignment="Center" Height="28" RenderTransformOrigin="1.026,0.521" Width="120"/>
-        <Button Content="Créer" HorizontalAlignment="Left" Margin="129,254,0,0" VerticalAlignment="Top" Width="66" Height="35" Click="Btn_CreateSave"/>
-        <TextBox x:Name="Repository_name" HorizontalAlignment="Left" Margin="135,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Retour" HorizontalAlignment="Left" Margin="216,254,0,0" VerticalAlignment="Top" Click="Btn_Back" Height="35" Width="54"/>
-        <Label Content="Nom de la sauvegarde :&#xD;&#xA;" HorizontalAlignment="Left" Margin="135,74,0,0" VerticalAlignment="Top" Height="28"/>
-        <Button Content="..." HorizontalAlignment="Left" Margin="213,186,0,0" VerticalAlignment="Top" Click="Btn_FolderBrowserTarget" Width="20" Height="18"/>
-        <Button Content="..." HorizontalAlignment="Left" Margin="28,187,0,0" VerticalAlignment="Top" Click="Btn_FolderBrowserSource" Width="20" Height="18"/>
+    <Grid Background="White" Margin="0,0,191,28">
+        <Label Content="Ajouter une sauvegarde&#xD;&#xA;" HorizontalAlignment="Left" Margin="134,28,0,0" VerticalAlignment="Top" Width="222" FontSize="20" Height="36"/>
+        <TextBox x:Name="Repository_source" HorizontalAlignment="Left" Margin="53,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="163"/>
+        <TextBox x:Name="Repository_target" HorizontalAlignment="Left" Margin="277,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173"/>
+        <Label Content="Répertoire Source :" HorizontalAlignment="Left" Margin="63,225,0,0" VerticalAlignment="Top" Height="28" Width="155"/>
+        <Label Content="Répertoire Cible :" HorizontalAlignment="Left" Margin="293,225,0,0" VerticalAlignment="Top" Height="28" RenderTransformOrigin="1.026,0.521" Width="157"/>
+        <Button Content="Créer" Margin="136,367,0,0" VerticalAlignment="Top" Width="66" Height="35" Click="Btn_CreateSave"/>
+        <TextBox x:Name="Repository_name" HorizontalAlignment="Left" Margin="169,179,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142"/>
+        <Button Content="Retour" Margin="268,367,0,0" VerticalAlignment="Top" Click="Btn_Back" Height="35" Width="62"/>
+        <Label Content="Nom de la sauvegarde :" HorizontalAlignment="Left" Margin="169,125,0,0" VerticalAlignment="Top" Height="28" Width="156"/>
+        <Button Content="..." Margin="260,265,0,0" VerticalAlignment="Top" Click="Btn_FolderBrowserTarget" Width="17" Height="18"/>
+        <Button Content="..." Margin="26,265,0,0" VerticalAlignment="Top" Click="Btn_FolderBrowserSource" Width="27" Height="18"/>
 
     </Grid>
 </Page>
