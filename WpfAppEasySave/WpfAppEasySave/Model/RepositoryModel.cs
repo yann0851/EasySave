@@ -13,6 +13,5 @@ namespace Repository
         public long LengthRepository { get; set; }
         public long TotalRepository { get; set; }
         public string FileTransfertRepository { get; set; }
-        public string RecupFile { get; set; }
     }
 }

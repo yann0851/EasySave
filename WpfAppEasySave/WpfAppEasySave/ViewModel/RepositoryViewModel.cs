@@ -14,7 +14,6 @@ using System.Security.Cryptography;
 using SlotsSave;
 using WpfAppEasySave.View;
 using StateD;
-using WpfAppEasySave.ViewModel;
 
 namespace Repository
 {
@@ -26,7 +25,6 @@ namespace Repository
         JobFile jobFile = new JobFile();
         JobState jobState = new JobState();
         StateViewModel stateViewModel = new StateViewModel();
-        EncryptViewModel encryptViewModel = new EncryptViewModel();
 
         System.Diagnostics.Stopwatch cWatch = new System.Diagnostics.Stopwatch();
 
@@ -53,7 +51,7 @@ namespace Repository
         }
 
 
-        /* Sauvegarde Partielle */
+        /* Sauvegarde Complète */
         public void PartialCopyRepository(string sSource, string sTarget, string sNameSave)
         {
             RepositoryC(sSource, sTarget, sNameSave);
@@ -65,40 +63,39 @@ namespace Repository
             foreach (string sFile in files) // Pour chaque fichier
             {
                 string sNameFiles = Path.GetFileName(sFile); // Récupère le nom du fichier dans le dossier
-                string sExtension = Path.ChangeExtension(sNameFiles, ".enc");
-                string sDestFile = Path.Combine(repositoryModel.TargetRepository, sExtension); // Grâce au nom du fichier récupérer du dessus on le combine avec le chemin du dossier.
-                
-                if (!File.Exists(sDestFile))
+                string sDestFile = Path.Combine(repositoryModel.TargetRepository, sNameFiles); // Grâce au nom du fichier récupérer du dessus on le combine avec le chemin du dossier.
+                try
                 {
-                    encryptViewModel.EncryptVM(repositoryModel.TargetRepository, sFile);
-                    //File.Copy(sFile, sDestFile); // Copie le fichier dans le répertoire cible
+                    File.Copy(sFile, sDestFile); // Copie le fichier dans le répertoire cible
+
                 }
-                else
+                catch
                 {
-                    try
+                    if (File.Exists(sDestFile))
                     {
-                        if (CalculateMD5(sFile) == CalculateMD5(sDestFile))
+                        try
+                        {
+                            if(CalculateMD5(sFile) == CalculateMD5(sDestFile))
+                            {
+                               
+                            }
+                            else
+                            {
+                                File.Delete(sDestFile);
+                                File.Copy(sFile, sDestFile);
+                            }
+                        }
+                        catch
                         {
 
                         }
-                        else
-                        {
-                            File.Delete(sDestFile);
-                            encryptViewModel.EncryptVM(repositoryModel.TargetRepository, sFile);
-                            //File.Copy(sFile, sDestFile);
-                        }
                     }
-                    catch
-                    {
-
-                    }
+                    DeleteFile(repositoryModel.SourceRepository, repositoryModel.TargetRepository);
+                    DeleteFolder(repositoryModel.SourceRepository, repositoryModel.TargetRepository);
+                    LengthRepository(repositoryModel.SourceRepository);
+                    TotalRepository(repositoryModel.SourceRepository);
                 }
             }
-            DeleteFile(repositoryModel.SourceRepository, repositoryModel.TargetRepository);
-            DeleteFolder(repositoryModel.SourceRepository, repositoryModel.TargetRepository);
-            LengthRepository(repositoryModel.SourceRepository);
-            TotalRepository(repositoryModel.SourceRepository);
-
             string[] folders = Directory.GetDirectories(repositoryModel.SourceRepository);
             foreach (string sFolder in folders) // Récupérer des dossiers dans le dossier principal
             {
@@ -116,38 +113,40 @@ namespace Repository
                 foreach (string sFileFolder in Directory.GetFiles(sFolder)) // Récupérer le fichier des dossiers dans le dossier principal
                 {
                     string sNamePathSourceFile = Path.GetFileName(sFolder) + "\\" + Path.GetFileName(sFileFolder); // On prend le nom du dossier et le nom du fichier à l'intérieur
-                    string sExtensionEnc = Path.ChangeExtension(sNamePathSourceFile, ".enc");
-                    string sDestPathTargetRepository = Path.Combine(repositoryModel.TargetRepository, sExtensionEnc); // Grâce à ce qu'on a fait au-dessus on combine le nom du dossier cible avec le nom du dossier et fichier
-                    
-                    if (!File.Exists(sDestPathTargetRepository)) // Si mon fichier existe
+                    string sDestPathTargetRepository = Path.Combine(repositoryModel.TargetRepository, sNamePathSourceFile); // Grâce à ce qu'on a fait au-dessus on combine le nom du dossier cible avec le nom du dossier et fichier
+                    try
                     {
-                        encryptViewModel.EncryptVM(sDestRepository, sFileFolder);
-                        //File.Copy(sFileFolder, sFileFolder.Replace(sFileFolder, sDestPathTargetRepository)); // copie les fichiers du sous-dossier
+                        File.Copy(sFileFolder, sFileFolder.Replace(sFileFolder, sDestPathTargetRepository)); // copie les fichiers du sous-dossier
                     }
-                    else
+                    catch
                     {
-                        try
+                        if (File.Exists(sDestPathTargetRepository)) // Si mon fichier existe
                         {
-                            if (CalculateMD5(sFileFolder) == CalculateMD5(sDestPathTargetRepository))
+                            try
+                            {
+                                if (CalculateMD5(sFileFolder) == CalculateMD5(sDestPathTargetRepository))
+                                {
+
+                                }
+                                else
+                                {
+                                    File.Delete(sDestPathTargetRepository);
+                                    File.Copy(sFileFolder, sDestPathTargetRepository);
+                                }
+                            }
+                            catch
                             {
 
                             }
-                            else
-                            {
-                                File.Delete(sDestPathTargetRepository);
-                                encryptViewModel.EncryptVM(sDestRepository, sFileFolder);
-                                //File.Copy(sFileFolder, sDestPathTargetRepository);
-                            }
                         }
-                        catch
-                        {
-
-                        }
+                        DeleteFile(sFolder, sDestRepository);
                     }
+
                 }
-                DeleteFile(sFolder, sDestRepository);
+
                 LengthRepository(sFolder);
             }
+
             cWatch.Stop();
             TimeSpan Time = cWatch.Elapsed;
             repositoryModel.FileTransfertRepository = Time.ToString(@"m\:ss\.fff");
@@ -169,8 +168,7 @@ namespace Repository
                 string sDestFile = Path.Combine(repositoryModel.TargetRepository, sNameFiles); // Grâce au nom du fichier récupérer du dessus on le combine avec le chemin du dossier.
                 try
                 {
-                    encryptViewModel.EncryptVM(repositoryModel.TargetRepository, sFile);
-                    //File.Copy(sFile, sDestFile); // Copie le fichier dans le répertoire cible
+                    File.Copy(sFile, sDestFile); // Copie le fichier dans le répertoire cible
                 }
 
                 catch
@@ -198,12 +196,11 @@ namespace Repository
 
                 foreach (string sFileFolder in Directory.GetFiles(sFolder)) // Récupérer le fichier des dossiers dans le dossier principal
                 {
-                    string sNamePathSourceFile = sNameRepository + "\\" + Path.GetFileName(sFileFolder); // On prend le nom du dossier et le nom du fichier à l'intérieur
+                    string sNamePathSourceFile = Path.GetFileName(sFolder) + "\\" + Path.GetFileName(sFileFolder); // On prend le nom du dossier et le nom du fichier à l'intérieur
                     string sDestPathTargetRepository = Path.Combine(repositoryModel.TargetRepository, sNamePathSourceFile); // Grâce à ce qu'on a fait au-dessus on combine le nom du dossier cible avec le nom du dossier et fichier
                     try
                     {
-                        encryptViewModel.EncryptVM(sDestRepository, sDestPathTargetRepository);
-                        //File.Copy(sFileFolder, sFileFolder.Replace(sFileFolder, sDestPathTargetRepository)); // copie les fichiers du sous-dossier
+                        File.Copy(sFileFolder, sFileFolder.Replace(sFileFolder, sDestPathTargetRepository)); // copie les fichiers du sous-dossier
                     }
 
                     catch
@@ -224,34 +221,28 @@ namespace Repository
             ObjectJsonState();
 
         }
-        public void DeleteFile(string sSourceRepository, string sTargetRepository) // Supprimer fichier n'existant pas
+        public void DeleteFile(string sSourceRepository, string sTargetRepository) // à OPTI
         {
-            DirectoryInfo directory = new DirectoryInfo(sSourceRepository);
-            string[] files = Directory.GetFiles(sTargetRepository);
-
-            foreach (string sFile in files) // Récupérer des dossiers dans le dossier principal
+            string[] files = Directory.GetFiles(sTargetRepository); // tableau ou on récupère les fichiers
+            foreach (string sFile in files) // Pour chaque fichier
             {
-                string sTargetFiles = Path.GetFileNameWithoutExtension(sFile); // On récupère seulement le nom du fichier sans l'extension
-                //string sSourceFile = Path.Combine(sSourceRepository, sTargetFiles);
-                
-                FileInfo[] fileInfo = directory.GetFiles("*" + sTargetFiles + "*.*"); // Dans le répertoire on va rechercher le fichier
-                
-                foreach (FileInfo filePartial in fileInfo) // Retrouver le fichier dans le répertoire source
+                string sTargetFiles = Path.GetFileName(sFile); // Récupère le nom du fichier dans le dossier
+                string sSourceFile = Path.Combine(sSourceRepository, sTargetFiles); // Grâce au nom du fichier récupérer du dessus on le combine avec le chemin du dossier.
+
+                if (!File.Exists(sSourceFile))
                 {
-                    repositoryModel.RecupFile = Convert.ToString(filePartial);
-                    if (!filePartial.Exists) // Si le fichier n'existe pas
+                    try
                     {
                         File.Delete(sFile);
                     }
+                    catch
+                    {
+
+                    }
                 }
-                
-                if (repositoryModel.RecupFile == null) // Si le fichier n'existe pas
-                {
-                    File.Delete(sFile); //  Supprimer le fichier
-                }
+
             }
         }
-
         public void DeleteFolder(string sSourceFolder, string sTargetFolder)
         {
             string[] folders = Directory.GetDirectories(sTargetFolder);
@@ -275,7 +266,7 @@ namespace Repository
 
             }
         }
-        public void CreateDirectory(string sCreateDirectory)
+        public static void CreateDirectory(string sCreateDirectory)
         {
             if (!Directory.Exists(sCreateDirectory)) // test si le répertoire existe ou pas
             {
@@ -305,6 +296,7 @@ namespace Repository
             jobFile.FileSize = repositoryModel.LengthRepository;
             jobFile.FileTransferTime = repositoryModel.FileTransfertRepository;
 
+            //TODO les autres attributs
             //repositoryModel.SourceRepository,repositoryModel.TargetRepository, repositoryModel.NameLogRepository
             logController.CreateLog(jobFile);
         }
@@ -348,5 +340,12 @@ namespace Repository
                 repositoryModel.TotalRepository = count; // taille en octet
             }
         }
+
+        public void Encrypt(string sSourceFolder, string sTargetFolder)
+        {
+
+        }
+
     }
+
 }

@@ -29,8 +29,8 @@ namespace WpfAppEasySave.View
         private void Btn_Back(object sender, RoutedEventArgs e)
         {
             
-            PageAccueil pageAccueil = new PageAccueil(window);
-            window.Content = pageAccueil;
+            /*PageAccueil pageAccueil = new PageAccueil(window);
+            window.Content = pageAccueil;*/
         }
     }
 }

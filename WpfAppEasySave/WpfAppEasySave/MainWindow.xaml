@@ -4,77 +4,36 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfAppEasySave"
-        mc:Ignorable="d" Height="600" Width="1024" xmlns:ui="http://schemas.modernwpf.com/2019"  xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-    ui:WindowHelper.UseModernWindowStyle="True" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" Visibility="Visible">
-    <Window.Resources>
-        <Image x:Key="MyImage" Source=""/>
-    </Window.Resources>
-
-
+        mc:Ignorable="d" Height="680" Width="1200" xmlns:ui="http://schemas.modernwpf.com/2019"  xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    ui:WindowHelper.UseModernWindowStyle="True" WindowStartupLocation="CenterScreen" Visibility="Visible">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="60"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
 
-        <Grid Grid.Column="1" Grid.Row="1" Background="#FFCBCBCB">
-
+        <Grid Grid.Column="1" Grid.Row="1" Background="#FFEEEEEE">
+            <Frame x:Name="Main" NavigationUIVisibility="Hidden"/>
         </Grid>
 
-        <Grid Grid.Row="1">
-            <Grid.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="White" Offset="0.152"/>
-                    <GradientStop Color="#FFB4B4B4" Offset="1"/>
-                    <GradientStop Color="#FFA4A3A3" Offset="0.992"/>
-                </LinearGradientBrush>
-            </Grid.Background>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="100"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Grid.Effect>
-                <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"/>
-            </Grid.Effect>
-            <Grid Background="#FF7FCBFF">
-                <TextBlock Text="EasySave" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40" FontFamily="Arial Narrow" Background="{x:Null}" Foreground="White"/>
-            </Grid>
-            <StackPanel Grid.Row="1">
-                <Button HorizontalAlignment="Center" Margin="10" Background="#FF1391F3">
-                    <Grid Width="150">
-                        <materialDesign:PackIcon Kind="ContentSave" Foreground="White"/>
-                        <Button Content="Sauvegarde" HorizontalAlignment="Right"  Foreground="White" Margin="0,0,39,0" Click="OpenSave"/>
-                    </Grid>
+        <Grid>
+            <Button Margin="0,10,0,0" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" VerticalAlignment="Top" Height="40" Width="40" Background="#FF00B9FF" BorderBrush="#FF00B9FF" Cursor="Hand" >
+                <materialDesign:PackIcon Kind="LockOpenCheck" Width="30" Height="30"/>
+            </Button>
+            <StackPanel Grid.Row="1" VerticalAlignment="Center">
+                <Button  HorizontalAlignment="Center" Click="OpenSave" Margin="9" Background="White" >
+                    <materialDesign:PackIcon Kind="ContentSave" Foreground="Gray" Height="25" Width="25"/>
                 </Button>
-                <Button HorizontalAlignment="Center" Margin="10" Background="#FF1391F3">
-                    <Grid Width="150">
-                        <materialDesign:PackIcon Kind="FileAlert" Foreground="White"/>
-                        <TextBlock Text="Fichier Logs" HorizontalAlignment="Center"  Foreground="White"/>
-                    </Grid>
+                <Button HorizontalAlignment="Center" Click="OpenLogs" Margin="9" Background="White">
+                    <materialDesign:PackIcon Kind="FileAlert" Foreground="Gray" Height="25" Width="25"/>
                 </Button>
-                <Button HorizontalAlignment="Center" Margin="10" Background="#FF1391F3">
-                    <Grid Width="150">
-                        <materialDesign:PackIcon Kind="FileAlertOutline" Foreground="White"/>
-                        <TextBlock Text="Fichier Etat" HorizontalAlignment="Center"  Foreground="White"/>
-                    </Grid>
+                <Button HorizontalAlignment="Center" Click="OpenEtat" Margin="9" Background="White">
+                    <materialDesign:PackIcon Kind="FileAlertOutline" Foreground="Gray" Height="25" Width="25"/>
                 </Button>
             </StackPanel>
+            <Button VerticalAlignment="Bottom" Margin="9" Background="White" >
+                <materialDesign:PackIcon Kind="Gear" Foreground="Gray" Width="25" Height="25"/>
+            </Button>
         </Grid>
-
-        <Grid x:Name="GridMoove" Grid.ColumnSpan="2" Background="#FF3254C6" MouseDown="GridMoove_Moove" >
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
-                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Margin="0,-5,0,0" Foreground="White" >
-                    <materialDesign:PackIcon Kind="Gear"/>
-                </Button>
-                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Margin="0,-5,5,0" Foreground="White" Click="Click_Close">
-                    <materialDesign:PackIcon Kind="Power"/>
-                </Button>
-            </StackPanel>
-        </Grid>
-        <Frame x:Name="Main" Grid.ColumnSpan="4" Grid.RowSpan="4" NavigationUIVisibility="Automatic"/>
     </Grid>
 </Window>

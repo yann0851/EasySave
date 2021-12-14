@@ -8,12 +8,6 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="LanguageView">
 
-    <Page.Resources>
-        <Image x:Key="FrImage" Source="..\Image\french.png"/>
-        <Image x:Key="EnImage" Source="..\Image\english.png"/>
-    </Page.Resources>
-
-
     <Grid Background="White">
         <TextBlock
             Name="LanguageTitle"
@@ -35,8 +29,9 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Click="Button_FR"
-            Content="{StaticResource FrImage}">
-        </Button>
+            Content="FR"
+            FontSize="18"
+            />
 
         <Button
             Name="En"
@@ -46,8 +41,9 @@
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
             Click="Button_EN"
-            Content="{StaticResource EnImage}">
-        </Button>
+            Content="EN"
+            FontSize="18"
+            />
 
         <Button
             Name="Back"
@@ -58,7 +54,7 @@
             VerticalAlignment="Top"
             Click="Button_Back"
             Content="{DynamicResource Back}"
-            FontSize="18">
-        </Button>
+            FontSize="18"
+            />
     </Grid>
 </Page>

@@ -23,20 +23,19 @@ namespace WpfAppEasySave.View
     /// </summary>
     public partial class PageSauvegarde : Page
     {
-        EncryptViewModel encryptViewModel;
         private RepositoryViewModel repositoryViewModel;
         private Window window;
 
         public PageSauvegarde(Window newWindow)
         {
             InitializeComponent();
+            DataContext = new SaveListViewModel();
             window = newWindow;
-            Display();
+            //Display();
             repositoryViewModel = new RepositoryViewModel();
-            encryptViewModel = new EncryptViewModel();
         }
 
-        public void Display() // Montrer toutes les sauvegardes et les boutons
+        /*public void Display() // Montrer toutes les sauvegardes et les boutons
         {
             var bc = new BrushConverter(); // Pour changer la couleur (création de la variable)
             List<SaveModel> maListeDeSauvegarde = Context.GetInstance().GetListSaves().GetListSaves(); // On va chercher le contenu de notre liste
@@ -122,7 +121,7 @@ namespace WpfAppEasySave.View
                 TheGrid.Children.Add(ButtonPartial);
                 //TheGrid.Children.Add(Progress);
             }
-        }
+        }*/
 
         public void Update() // Mise à jour de la page
         {
@@ -165,19 +164,5 @@ namespace WpfAppEasySave.View
             window.Content = pageAdd; // Aller à la page
         }
 
-        private void Btn_Back(object sender, RoutedEventArgs e)
-        {
-            PageAccueil pageAccueil = new PageAccueil(window);
-            window.Content = pageAccueil;
-        }
-
-        private void Btn_Create_Key(object sender, RoutedEventArgs e) // Méthode pour le bouton créer
-        {
-            encryptViewModel.CreateKey("Key01");
-        }
-        //private void Btn_Export_Key(object sender, RoutedEventArgs e) // Méthode pour le bouton créer
-        //{
-        //    encryptViewModel.CreateKeyFile();
-        //}
     }
 }

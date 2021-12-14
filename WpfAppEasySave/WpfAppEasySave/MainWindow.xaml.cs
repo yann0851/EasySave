@@ -28,18 +28,19 @@ namespace WpfAppEasySave
             //Ouverture_menu();
         }
 
-        private void Click_Close(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
-
-        private void GridMoove_Moove(object sender, RoutedEventArgs e)
-        {
-            DragMove();
-        }
         private void OpenSave(object sender, RoutedEventArgs e)
         {
             Main.Content = new PageSauvegarde(this);
+        }
+
+        private void OpenLogs(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new PageLog(this);
+        }
+
+        private void OpenEtat(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new PageEtat(this);
         }
 
         /* private void Ouvrir_Langue(object sender, RoutedEventArgs e)
