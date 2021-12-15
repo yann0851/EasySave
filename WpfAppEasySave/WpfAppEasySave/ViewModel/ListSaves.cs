@@ -39,9 +39,9 @@ namespace WpfAppEasySave.ViewModel
         {
             listSaves.Add(new SaveModel(name, source, target));
         }
-        public void EditSave(int iIndex, string name, string source, string target) // Méthode pour modifier un élément dans une liste
+        public void EditSave( string name, string source, string target) // Méthode pour modifier un élément dans une liste
         {
-            RemoveSave(iIndex);
+            //RemoveSave(iIndex);
             AddSave(name, source, target);
         }
         public void RemoveSave(int iIndex) // Méthode pour supprimer élément dans une liste

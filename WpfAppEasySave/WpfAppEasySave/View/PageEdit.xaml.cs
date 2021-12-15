@@ -23,16 +23,17 @@ namespace WpfAppEasySave.View
         public PageEdit(Window newWindow)
         {
             InitializeComponent();
+            DataContext = new SaveListViewModel();
             window = newWindow;
         }
 
         private void Btn_Modify(object sender, RoutedEventArgs e) // Bouton modifier pour modifier le contenu du formulaire
         {
-            int iIndex = int.Parse(Id.Text); 
+            //int iIndex = int.Parse(Id.Text); 
             string sName = Repository_name.Text;
             string sRepositorySource = Repository_source.Text;
             string sRepositoryCible = Repository_target.Text;
-            Context.GetInstance().GetListSaves().EditSave(iIndex, sName, sRepositorySource, sRepositoryCible);
+            Context.GetInstance().GetListSaves().EditSave(sName, sRepositorySource, sRepositoryCible);
         }
 
         private void Btn_Back(object sender, RoutedEventArgs e) // bouton retour
@@ -41,12 +42,12 @@ namespace WpfAppEasySave.View
             window.Content = pageSauvegarde;
         }
 
-        public void FillForm(int iIndex, string sName, string sFolderSource, string sFolderTarget) // Bouton qui va remplir le contenu du formulaire
+        /*public void FillForm(int iIndex, string sName, string sFolderSource, string sFolderTarget) // Bouton qui va remplir le contenu du formulaire
         {
             Repository_name.Text = sName;
             Repository_source.Text = sFolderSource;
             Repository_target.Text = sFolderTarget;
             Id.Text = Convert.ToString(iIndex);
-        }
+        }*/
     }
 }

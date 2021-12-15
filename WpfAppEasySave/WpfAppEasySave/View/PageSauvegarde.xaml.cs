@@ -132,9 +132,9 @@ namespace WpfAppEasySave.View
         private void Btn_Edit(object sender, RoutedEventArgs e) // Méthode pour le bouton édition
         {
             PageEdit pageEdit = new PageEdit(window);
-            int iIndex = int.Parse((sender as Button).Name.Split("_")[1]); // On récupère le numéro de la sauvegarde grâce au numéro du bouton en séparant à partir de _ pour prendre le numéro
-            SaveModel save = Context.GetInstance().GetListSaves().GetListSaves().ElementAt(iIndex); // Récupère les données qu'on a besoin
-            pageEdit.FillForm(iIndex, save.Name, save.FolderSource, save.FolderTarget); // appel de la méthode pour remplir les textbox avec les données
+            //int iIndex = int.Parse((sender as Button).Name.Split("_")[1]); // On récupère le numéro de la sauvegarde grâce au numéro du bouton en séparant à partir de _ pour prendre le numéro
+            //SaveModel save = Context.GetInstance().GetListSaves().GetListSaves().ElementAt(iIndex); // Récupère les données qu'on a besoin
+            //pageEdit.FillForm(iIndex, save.Name, save.FolderSource, save.FolderTarget); // appel de la méthode pour remplir les textbox avec les données
             window.Content = pageEdit;
         }
 
@@ -161,7 +161,7 @@ namespace WpfAppEasySave.View
         private void Btn_Create(object sender, RoutedEventArgs e) // Méthode pour le bouton créer
         {
             PageAdd pageAdd = new PageAdd(window);
-            window.Content = pageAdd; // Aller à la page
+            Save_Edit.Content = pageAdd; // Aller à la page
         }
 
     }

@@ -5,10 +5,86 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WpfAppEasySave.View"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="PageEdit">
+      d:DesignHeight="500" d:DesignWidth="990"
+      Title="PageEdit" xmlns:ui="http://schemas.modernwpf.com/2019"  xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
 
-    <Grid Background="White" Margin="0,0,356,70">
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="700"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Label Content="Modifier une sauvegarde" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Right"  VerticalAlignment="Center" FontSize="30" FontFamily="Arial" Margin="0,0,70,0"/>
+        <Grid Background="Orange" Height="40" Width="80"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,30,0,0">
+            <materialDesign:PackIcon Kind="Edit" Foreground="White" Width="40" Height="25" VerticalAlignment="Bottom" Margin="0 10"/>
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.ColumnSpan="2">
+                <Label Content="Nom de la sauvegarde :"/>
+                <TextBox Text="{Binding CurrentSave.Name}" x:Name="Repository_name" Margin="20" HorizontalAlignment="Left" Width="433"/>
+
+                <Label Margin="0,0,0,0" Content="Fichier Source :"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBox Text="{Binding CurrentSave.FolderSource}" Margin="20" x:Name="Repository_source" Width="400"/>
+                    <Button Height="32" >
+                        <materialDesign:PackIcon Kind="DotsHorizontal"/>
+                    </Button>
+                </StackPanel>
+
+
+                <Label Margin="0,0,0,0" Content="Fichier Cible :"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBox Text="{Binding CurrentSave.FolderTarget}" Margin="20" x:Name="Repository_target" Width="400"/>
+                    <Button Height="32">
+                        <materialDesign:PackIcon Kind="DotsHorizontal"/>
+                    </Button>
+                </StackPanel>
+
+                <StackPanel Margin="25,15,0,0" Orientation="Horizontal">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Sauvegarde complète" VerticalAlignment="Center" Margin="0,0,15,0"/>
+                        <CheckBox/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Sauvegarde partielle" VerticalAlignment="Center" Margin="0,0,15,0"/>
+                        <CheckBox/>
+                    </StackPanel>
+                </StackPanel>
+
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Grid.Column="1" VerticalAlignment="Bottom" Height="50" Margin="0,0,0,15">
+                <Button Height="35" Width="100" Margin="10" >
+                    <Grid>
+                        <StackPanel Orientation="Horizontal" Margin="5,0,5,0">
+                            <materialDesign:PackIcon VerticalAlignment="Center" Kind="FileEdit" Margin="0,0,4,0"/>
+                            <Label Content="Modifier"/>
+                        </StackPanel>
+                    </Grid>
+                </Button>
+                <Button Height="35" Width="100" Margin="10" Click="Btn_Back">
+                    <Grid>
+                        <StackPanel Orientation="Horizontal" Margin="10,0,10,0">
+                            <materialDesign:PackIcon VerticalAlignment="Center" Kind="ArrowBack" Margin="0,0,5,0"/>
+                            <Label Content="Retour"/>
+                        </StackPanel>
+                    </Grid>
+                </Button>
+
+            </StackPanel>
+        </Grid>
+
+        <!--<Grid Background="White" Margin="0,0,356,70">
         <Grid Background="White" Margin="0,0,26,52">
             <Label Content="Editer une sauvegarde&#xD;&#xA;" HorizontalAlignment="Left" Margin="108,22,0,0" VerticalAlignment="Top" Width="221" FontSize="20" Height="36"/>
             <TextBox x:Name="Repository_source" HorizontalAlignment="Left" Margin="222,191,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
@@ -22,6 +98,6 @@
             <TextBox x:Name="Id" HorizontalAlignment="Left" Margin="288,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
 
         </Grid>
-
+-->
     </Grid>
 </Page>

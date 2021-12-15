@@ -9,6 +9,7 @@ namespace WpfAppEasySave.ViewModel
     class SaveListViewModel
     {
         public List<SaveModel> SaveList { get; set; }
+        public SaveModel CurrentSave { get; set; }
 
         public SaveListViewModel()
         {

@@ -83,11 +83,14 @@
             <Rectangle Fill="White" Height="500" Margin="20,25,20,25" RadiusX="10" RadiusY="10" Width="1000"/>
             <Grid Margin="20,25,30,25">
                 <Grid>
-                    <DataGrid  Margin="10"  x:Name="test" Grid.Row="0" Grid.ColumnSpan="2" ItemsSource="{Binding SaveList}">
+                    <DataGrid  Margin="10"  x:Name="test" Grid.Row="0" Grid.ColumnSpan="2" ItemsSource="{Binding SaveList}" SelectedItem="{Binding CurrentSave}">
 
                     </DataGrid>
                 </Grid>
 
+            </Grid>
+            <Grid Margin="25,30,25,30">
+                <Frame x:Name="Save_Edit"/>
             </Grid>
             <Rectangle Grid.Column="2" Fill="White" Height="500" Margin="0,25,20,25" RadiusX="10" RadiusY="10" Width="80"/>
             <Grid Grid.Column="2" Margin="0,25,20,25">
